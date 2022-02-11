@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.group7.MGMN.dao.IMemberDAO">
+	<resultMap id="userResult"
+		type="com.group7.MGMN.model.MemberVO">
+		<result property="userId" column="userId" />
+		<result property="userPwd" column="userPwd" />
+		<result property="userName" column="userName" />
+		<result property="userEmail" column="userEmail" />
+		<result property="userHp" column="userHp" />
+		<result property="userZipcode" column="userZipcode" />
+		<result property="userAddress1" column="userAddress1" />
+		<result property="userAddress2" column="userAddress2" />
+	</resultMap>
+
+	<!-- 로그인 확인 -->
+	<select id="loginCheck" resultMap="userResult"
+		parameterType="hashmap">
+		SELECT * FROM user WHERE userId=#{id} AND userPwd=#{pwd}
+	</select>
+	<!-- ID 중복 확인 -->
+	<select id="userIdCheck" resultType="string"
+		parameterType="string">
+		SELECT userId FROM user WHERE userId =#{userId}
+	</select>
+	<insert id="register" parameterType="com.group7.MGMN.model.MemberVO">
+		INSERT INTO user(userId, userPwd, userName, userEmail, userHp,
+		userAddress1, userAddress2, userZipcode)
+		VALUES (#{userId}, #{userPwd},
+		#{userName},#{userEmail},
+		#{userHp}, #{userAddress1},#{userAddress2},#{userZipcode})
+	</insert>
+</mapper>
