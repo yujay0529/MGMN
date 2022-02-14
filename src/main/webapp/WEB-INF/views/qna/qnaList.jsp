@@ -89,10 +89,10 @@
 								<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
 									<c:choose>
 										<c:when test="${p == paging.nowPage }">
-											<b>${p }</b>
+											<b>${p }&emsp;</b>
 										</c:when>
 										<c:when test="${p != paging.nowPage }">
-											<a href="<c:url value='/qnaList?nowPage=${p }&cntPerPage=${paging.cntPerPage}'/>">${p }</a>
+											<a href="<c:url value='/qnaList?nowPage=${p }&cntPerPage=${paging.cntPerPage}'/>">${p }&emsp;</a>
 										</c:when>
 									</c:choose>
 								</c:forEach>
