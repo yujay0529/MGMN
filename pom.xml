@@ -55,21 +55,49 @@
 		    <artifactId>tomcat-embed-jasper</artifactId>
 		    <scope>provided</scope>
 		</dependency>
-	<!-- Devtools -->	
+
+		<!-- Devtools -->
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>
 		   <artifactId>spring-boot-devtools</artifactId>
 		  <scope>runtime</scope>
 		  <optional>true</optional>
 		</dependency>
-<!-- 카테고리 추 -->
+
+		<!-- 카테고리 추가 -->
 		<dependency>
 		    <groupId>net.sf.json-lib</groupId>
 		    <artifactId>json-lib</artifactId>
 		    <version>2.4</version>
 		   
 		    <classifier>jdk15</classifier>
-		</dependency> 
+		</dependency>
+
+		<!-- geolocationAPI -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.2</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.9</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- Json -->
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20211205</version>
+		</dependency>
 	
 	</dependencies>
 
