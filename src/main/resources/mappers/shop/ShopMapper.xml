@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.group7.MGMN.dao.IShopDAO">
+    <resultMap  id="shopResult" type="com.group7.MGMN.model.ShopVO">
+        <result property="shopNo" column="shopNo" />
+        <result property="shopClass" column="shopClass" />
+        <result property="shopThumb" column="shopThumb" />
+        <result property="shopName" column="shopName" />
+        <result property="shopTel" column="shopTel" />
+        <result property="shopInfo" column="shopInfo" />
+        <result property="shopDetail" column="shopDetail" />
+        <result property="shopLocation" column="shopLocation" />
+        <result property="shopLat" column="shopLat"/>
+        <result property="shopLong" column="shopLong"/>
+        <result property="shopRating" column="shopRating"/>
+        <result property="shopEvalNum" column="shopEvalNum"/>
+    </resultMap>
+
+    <!-- index 페이지에 전체 내용 출력 -->
+    <select id="listAllShop" resultMap="shopResult">
+        SELECT * FROM shop ORDER BY shopNo DESC
+    </select>
+
+</mapper>

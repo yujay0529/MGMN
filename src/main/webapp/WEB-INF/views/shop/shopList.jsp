@@ -14,9 +14,6 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"
                 integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="/js/shop.js"></script>
-        <script>
-
-        </script>
 
     </head>
 
@@ -48,7 +45,20 @@
                 <button class="btn_class">호텔</button>
             </div>
 
-
+            <div class="contentBox">
+                <c:forEach items="${shops}" var="shop">
+                    <div>${shop.shopNo}</div>
+                    <div>${shop.shopClass}</div>
+                    <div>${shop.shopName}</div>
+                    <div>${shop.shopInfo}</div>
+                    <div>${shop.shopDetail}</div>
+                    <div>${shop.shopTel}</div>
+                    <div>${shop.shopLocation}</div>
+                    <div>${shop.shopLat}</div>
+                    <div>${shop.shopLong}</div>
+                    <div>${shop.shopRating}</div>
+                    <div>${shop.shopEvalNum}</div>
+                </c:forEach>
         </div>
     </body>
 
