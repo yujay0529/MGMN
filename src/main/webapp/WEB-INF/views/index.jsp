@@ -8,7 +8,20 @@
 <title>Insert title here</title>
 </head>
 <body>
-
- <a href="<c:url value='qnaList' />">qna페이지</a>
-</body>
+	<div id="wrap">
+				
+			<!-- TOP  -->
+		   <jsp:include page="/WEB-INF/views/layout/top.jsp" flush='true' />
+		   
+			<section>
+         <a href="<c:url value='qnaList' />">qna페이지</a>
+			</section>
+			
+			
+			
+			
+			<!-- BOTTOM  -->
+		   <jsp:include page="/WEB-INF/views/layout/bottom.jsp" flush='true' />
+			</div>
+	</body>
 </html>
