@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    <mapper namespace="com.group7.MGMN.dao.IQnADAO">
+  		<resultMap  id="QnAResult" type="com.group7.MGMN.model.QnAVO">
+  			<result property="qnaNo" column="qnaNo" />
+  			<result property="qnaTitle" column="qnaTitle" />
+  			<result property="qnaContent" column="qnaContent" />
+  			<result property="qnaHit" column="qnaHit" />
+  			<result property="qnaFile" column="qnaFile" />	
+  			<result property="qnaCreateDate" column="qnaCreateDate" />
+  			<result property="qnaComment" column="qnaComment" />
+  			<result property="userId" column="userId" />
+  		</resultMap> 
+  		
+  			<!--QnA조회  -->
+<!-- 		<select id = "qnaList" resultMap="QnAResult">
+	  			SELECT * FROM qNa ORDER BY qnaNo 
+	  	</select> -->
+	  	
+	  	<!--글 상세조회  -->
+	  	<select id="detailqna" parameterType="int"  resultType="com.group7.MGMN.model.QnAVO">
+	  			SELECT * FROM qNa WHERE qnaNo=#{qnaNo}  		
+	  	 </select>
+	  	 
+	  	 <!-- 조회수 올리기 -->
+		<update id="hitUp">
+			update qNa set qnaHit = qnaHit+1 where qnaNo = #{qnaNo}
+		</update>
+		
+		 <!-- 글쓰기 -->
+		 <insert id="insertqna" parameterType="com.group7.MGMN.model.QnAVO">
+	  			INSERT INTO qNa (qnaTitle,qnaContent,userId)
+	  			VALUES (#{qnaTitle}, #{qnaContent}, #{userId})
+	  	 </insert>
+	  	 
+	  	 <!-- 삭제  -->
+	  	 <delete id="deleteqna"  parameterType="int">
+  			DELETE FROM qNa WHERE qnaNo=#{qnaNo}
+  		</delete>
+  		<!-- 수정  -->
+  		<update id="updateqna" parameterType="com.group7.MGMN.model.QnAVO">
+  			UPDATE qNa 
+  			SET qnaTitle=#{qnaTitle},
+  				qnaContent=#{qnaContent}
+  			WHERE qnaNo=#{qnaNo}
+  		</update> 
+  		
+  		<!-- 페이징 -->
+  		<!-- 총 게시글 갯수 출력 -->
+		<select id="countBoard" resultType="int">
+			SELECT COUNT(*) FROM qNa
+		</select>
+		
+		<!-- 페이징 처리 후 게시글 조회@ROWNUM:=@ROWNUM +1 AS RN -->
+		<select id="selectBoard" resultType="com.group7.MGMN.model.QnAVO">
+		SELECT * 
+		FROM (
+			SELECT @ROWNUM:=@ROWNUM +1 AS RN, Q.* 
+				FROM (
+						SELECT * FROM qNa Q
+						ORDER BY qnaNo DESC 
+						)Q, (SELECT @ROWNUM:=0)A
+						)B
+			WHERE RN BETWEEN #{start} AND #{end}
+			</select>
+	  	
+  		
+  		
+  		
+  		
+  		
+<!-- 	  	 
+	  	 카테고리 호출
+		<select id="category" resultType="om.group7.MGMN.model.CategoryVO">
+		select * from category order by ctgId
+		</select>
+	  	 -->
+	 
+  	</mapper>

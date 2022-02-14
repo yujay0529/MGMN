@@ -1,0 +1,57 @@
+body,html{
+    padding:0;
+    margin:0;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    width:100%;
+    height:100%
+}
+#wrap{
+    max-width: 1024px;
+    margin: 0 auto;
+}
+.myanimal{
+    height: 22px;
+    font-size: 12px;
+    text-align: center;
+    background-color: #ffeb99;
+    color: #090909;
+    border: none;
+    border-radius: 10px;
+    display: inline-block;
+    padding: 4px 15px;
+    margin-right: 6px;
+}
+.qnaupdate, .qnadelete{
+	 height: 22px;
+    font-size: 12px;
+    text-align: center;
+    background-color: #fcd11e;
+    color: #090909;
+    border: none;
+    border-radius: 10px;
+    display: inline-block;
+    padding: 4px 15px;
+    margin-right: 6px;
+	
+}
+
+.qnaTitle{
+    margin: 10px 0;
+    font-size: 30px;
+}
+
+.qnaDetailView,.qnaDetail,.qnaDetailTitle{
+    font-size: 20px;
+    padding: 21px 0 13px;
+}
+
+.img{
+    width: 300px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+.qnaDetail-userid,.qnaDetail-date{
+    font-size: 13px;
+    color: #868688;
+}

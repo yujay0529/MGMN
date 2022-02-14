@@ -1,0 +1,70 @@
+#projTitle {
+	border: 0;
+	border-radius: 5px;
+	padding: 5px;
+	font-size: 35px;
+	background-color: transparent;
+	margin-top: 60px;
+	width: -webkit-fill-available;
+}
+
+.p_content {
+	height: 300px;
+	border-radius: 5px;
+	padding: 5px;
+	font-size: 15px;
+}
+
+#inputFile{
+    padding-top: 5px;
+    width: -webkit-fill-available;
+    background: none;
+}
+
+.content{
+	width: 60%;
+}
+
+#writeBtn, #updateBtn, #deleteBtn{
+	margin-top:10px;
+    width: 80px;
+    height: 28px;
+    font-size: 14px;
+}
+
+.readContent{
+	width: 70%;
+	margin-top: 60px;
+}
+
+.roadContent{
+	width: -webkit-fill-available;
+}
+
+td{
+	font-size: 18px;
+	text-align: center;
+}
+.roadContent th{
+	background-color: #f4f5fa;
+	border-left:0;
+	border-top: 1px solid rgba(51,51,51);
+	border-bottom: 0;
+}
+
+#sub_title{
+	font-size: 22px;	
+}
+
+#contentArea{
+	height: 300px;
+	background-color: transparent;
+}
+
+#content{
+	height: 300px;
+}
+
+.crud{
+	margin: 10px;
+}
