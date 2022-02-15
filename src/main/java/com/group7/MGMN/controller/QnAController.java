@@ -91,7 +91,7 @@ public class QnAController {
 		// 글 수정 : 수정된 글 DB에 저장
 		@RequestMapping("/qna/updateqna")
 		public String updateqna(QnAVO qnaVO) throws Exception  {
-			qnaService.insertqna(qnaVO);		
+			qnaService.updateqna(qnaVO);		
 			return "redirect:../qnaList";  
 		}
 }
