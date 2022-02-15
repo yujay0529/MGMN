@@ -50,9 +50,17 @@ body,html{
 
 }
 
+
 .qnalist_filter input[type=radio]:checked{
     background-color: #fff;
     border: 4px solid #fcd11e;
+    
+    appearance: none;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 100%;
+    margin-right: 0.4rem;
+    margin-top: 0;
 }
 
 .qna-filter-box-title{
@@ -147,6 +155,10 @@ a:link{color:black;}
 a:visited { color: #ababab; }
 a:hover { color:#ffeb99; }
 a{ text-decoration-line: none;}
+
+input:focus{
+	outline:none;
+}
 
 
 

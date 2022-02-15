@@ -16,7 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <link rel="stylesheet" href="/css/write.css">
     <title>Write</title>
-    <!-- <script>
+ <script>
         $(document).ready(function () {
             $('#summernote').summernote({
                 placeholder: '내용을 입력해주세요',
@@ -24,11 +24,13 @@
                 height: 400
             });
             $('#submit_btn').on('click', function () {
-                alert("글 작성 완료");
+                alert("글 수정 완료");
                 window.history.go(-2);
             });
         });
-    </script> -->
+        
+      
+    </script>
 </head>
 	
 	

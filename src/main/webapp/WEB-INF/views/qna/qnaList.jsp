@@ -17,12 +17,12 @@
             <div id="title">Q&amp;A</div>
                     <div class="qna-search"><!--검색창-->
                     <img src="/image/search.svg">
-                        <input type="text" placeholder="찾으시는 질문이 있으신가요?" maxLength="200" style="border:0" class="qnaserch-input" value=""/>
+                        <input type="text" placeholder="찾으시는 질문이 있으신가요?" size="40" maxLength="200" style="width:300px;height:20px;font-size:17px;border:0;margin-bottom:5px;"  class="qnaserch-input" value=""/>
                     </div>
                         <div class="qnalist_filter"><!--글목록필터-->
-                            <input type="radio" name="question" id="최신 순" value="최신 순" />
+                            <input type="radio" name="radio" id="최신 순" value="최신 순" checked />
                                 <label for="최신 순">최신 순</label>                  
-                            <input type="radio" name="hit" id="조회 수 순 " value="조회 수 순 "/>
+                            <input type="radio" name="radio" id="조회 수 순 " value="조회 수 순 "/>
                                     <label for="조회 수 순 ">조회 수 순 </label> 
                              <!-- 글쓰기 버튼 -->
                              <button class = "write_btn"> <a href ="<c:url value='/qna/write'/>">새 글</a></button> 
@@ -84,7 +84,7 @@
 									<!-- 페이지 넘기기 -->		
 					      	<div class="pagelist">
 								<c:if test="${paging.startPage != 1 }">
-									<a href="<c:url value='/qnaList?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}'/>">‹</a>
+									<a href="<c:url value='/qnaList?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}'/>">‹&emsp;</a>
 								</c:if>
 								<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
 									<c:choose>
