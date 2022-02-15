@@ -5,6 +5,7 @@ import com.group7.MGMN.service.ShopService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
@@ -24,5 +25,16 @@ public class ShopController {
         ArrayList<ShopVO> list = service.listAllShop();
         model.addAttribute("shops", list);
         return "shop/shopList";
+    }
+
+    /**
+     * shopDetail 페이지로 이동
+     */
+    @RequestMapping("/shops/shopDetail/{shopNo}")
+    public String shopDetail(@PathVariable int shopNo, Model model) {
+        ShopVO shop = service.shopDetail(shopNo);
+        model.addAttribute("shop", shop);
+
+        return "shop/shopDetail";
     }
 }

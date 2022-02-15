@@ -17,4 +17,9 @@ public class ShopService implements IShopService {
     public ArrayList<ShopVO> listAllShop() {
         return dao.listAllShop();
     }
+
+    @Override
+    public ShopVO shopDetail(int shopNo) {
+        return dao.shopDetail(shopNo);
+    }
 }

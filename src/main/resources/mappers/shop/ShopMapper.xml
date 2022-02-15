@@ -24,4 +24,9 @@
         SELECT * FROM shop ORDER BY shopNo DESC
     </select>
 
+    <!-- shopDetail -->
+    <select id="shopDetail" parameterType="int" resultType="com.group7.MGMN.model.ShopVO">
+        SELECT * FROM shop WHERE shopNo=#{shopNo}
+    </select>
+
 </mapper>
