@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     <mapper namespace="com.group7.MGMN.dao.IQnADAO">
-  		<resultMap  id="QnAResult" type="com.group7.MGMN.model.QnAVO">
+  		<resultMap  id=" QnAResult" type="com.group7.MGMN.model.QnAVO">
   			<result property="qnaNo" column="qnaNo" />
   			<result property="qnaTitle" column="qnaTitle" />
   			<result property="qnaContent" column="qnaContent" />
@@ -14,10 +14,7 @@
   			<result property="userId" column="userId" />
   		</resultMap> 
   		
-  			<!--QnA조회  -->
-<!-- 		<select id = "qnaList" resultMap="QnAResult">
-	  			SELECT * FROM qna ORDER BY qnaNo 
-	  	</select> -->
+
 	  	
 	  	<!--글 상세조회  -->
 	  	<select id="detailqna" parameterType="int"  resultType="com.group7.MGMN.model.QnAVO">
@@ -66,16 +63,24 @@
 			WHERE RN BETWEEN #{start} AND #{end}
 			</select>
 	  	
+  		<!-- 상품 검색  -->
+  		<select id="qnaSearch"  parameterType="hashmap">
+  			SELECT * FROM qna WHERE
+  			<choose>
+  				<when test="type != null and type.equals('qnaTitle')">
+  					qnaTitle LIKE CONCAT('%', #{keyword}, '%')
+  				</when>  				
+  				<when test="type != null and type.equals('qnaContent')">
+  					qnaContent LIKE CONCAT('%', #{keyword}, '%')
+  				</when>
+  				<when test="type != null and type.equals('qnaTandC')">
+  				qnaTitle LIKE CONCAT('%', #{keyword}, '%') or qnaContent LIKE CONCAT('%', #{keyword}, '%')
+  				</when>
+  			</choose>
+  		</select>
+
   		
   		
-  		
-  		
-  		
-<!-- 	  	 
-	  	 카테고리 호출
-		<select id="category" resultType="om.group7.MGMN.model.CategoryVO">
-		select * from category order by ctgId
-		</select>
-	  	 -->
+
 	 
   	</mapper>

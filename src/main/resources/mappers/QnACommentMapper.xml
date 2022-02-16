@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    <mapper namespace="com.group7.MGMN.dao.IQnACommentDAO">
+	<resultMap  id=" CommentResult" type="com.group7.MGMN.model.QnACommentVO">
+  			<result property="commentNo" column="commentNo" />
+  			<result property="qnaNo" column="qnaNo" />
+  			<result property="content" column="content" />
+  			<result property="commentDate" column="commentDate" />
+  			<result property="userId" column="userId" />	
+  		</resultMap>  
+  		
+  	 <select id="commentCount" resultType="int">
+        SELECT
+            COUNT(*)
+        FROM comment
+    </select>
+    
+    <select id="commentList" resultType="com.group7.MGMN.model.QnACommentVO">
+        SELECT
+            *
+        FROM comment
+        where qnaNo = #{qnaNo}
+    </select>
+    
+    
+    <insert id="commentInsert" parameterType="com.group7.MGMN.model.QnACommentVO">
+        INSERT INTO
+        comment (commentNo, qnaNo, content, userId, commentDate)
+        VALUES(#{commentNo},#{qnaNo},#{content},#{userId},now()) 
+       
+    </insert>
+    
+    <update id="commentUpdate" parameterType="com.group7.MGMN.model.QnACommentVO">
+        UPDATE comment
+            SET
+            content = #{content}
+        WHERE commentNo = #{commentNo}
+    </update>
+    
+    <delete id="commentDelete" parameterType="int">
+        DELETE FROM comment WHERE commentNo = #{commentNo}
+    </delete>
+
+
+  		
+  		
+  		</mapper>

@@ -9,16 +9,28 @@
     <meta name="viewport" content="width=device-width"/>
     <meta charSet="utf-8"/>
     <title>반려동물 Q&amp;A - 물개무냥</title>  
+     <script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
+    <script src="<c:url value='/js/qnaSearch.js'/>"></script>
     <link rel="stylesheet" href="/css/qna.css"> 
+   
 
 </head>
 <body>
    <div id = "wrap">
             <div id="title">Q&amp;A</div>
                     <div class="qna-search"><!--검색창-->
+                    <form id = "qnaSearch" action="">
+                    <select id="type" name="type">
+						<option value="">검색 조건 선택</option>
+						<option value="qnaTandC">제목 + 내용  </option>
+						<option value="qnaTitle">제목 </option>
+						<option value="qnaContent">내용 </option>
+					</select>
                     <img src="/image/search.svg">
                         <input type="text" placeholder="찾으시는 질문이 있으신가요?" size="40" maxLength="200" style="width:300px;height:20px;font-size:17px;border:0;margin-bottom:5px;"  class="qnaserch-input" value=""/>
+                  </form>
                     </div>
+                    
                         <div class="qnalist_filter"><!--글목록필터-->
                             <input type="radio" name="radio" id="최신 순" value="최신 순" checked />
                                 <label for="최신 순">최신 순</label>                  
@@ -47,6 +59,8 @@
                                     <input id="apply-btn" type="submit" value="적용">
                                 </div>
                             </div>
+                            
+                            <div id="searchResultbox"></div><!-- 검색결과 창  -->
                             <!--글목록-->
                             <div class="qnaContainer">
                         	    <div class="qnalist">

@@ -36,7 +36,6 @@
 	
 	<body>
 			<div id="wrap">
-			
 			<div class="writeform">
 			    <main role="main" class="container">
 			        <form name="form" action="<c:url value='/qna/updateqna'/>" method="post">
