@@ -1,5 +1,6 @@
 package com.group7.MGMN;
 
+import com.group7.MGMN.controller.ShopController;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,7 +17,6 @@ import com.group7.MGMN.dao.IMemberDAO;
 @MapperScan(basePackageClasses = IMemberDAO.class)
 @ComponentScan(basePackageClasses = QnAController.class)
 @MapperScan(basePackageClasses = IQnADAO.class)
-
 public class MgmnApplication {
 
 	public static void main(String[] args) {
