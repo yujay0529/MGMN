@@ -15,7 +15,9 @@
 		   
 			<section>
          <a href="<c:url value='qnaList' />">qna페이지</a><br><br>
-         <a href="<c:url value='shops' />">동네 샵정보</a>
+         <a href="<c:url value='shops' />">동네 샵정보</a><br><br>
+         <a href="<c:url value='shopEnroll' />">샵 등록</a><br><br>
+
 			</section>
 			
 			

@@ -37,4 +37,12 @@ public class ShopController {
 
         return "shop/shopDetail";
     }
+
+    /**
+     * shopEnroll 페이지로 이동
+     */
+    @RequestMapping("shopEnroll")
+    public String shopEnroll() {
+        return "shop/shopEnroll";
+    }
 }
