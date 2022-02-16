@@ -14,9 +14,9 @@ public interface IQnADAO {
 	public int hitUp(int qnaNo)throws Exception;//조회수
 	void insertqna(QnAVO qnaVO);//새글쓰기
 	List<CategoryVO> category() throws Exception;//카테고리ㅣ  
-	void updateqna(QnAVO qnaVO)throws Exception;	// 글 수정
+	void updateqna(QnAVO qnaVO) ;	// 글 수정
 	void deleteqna(int qnaNo);		//글 삭제
-	ArrayList<QnAVO> qnaSearch(HashMap<String, Object> map); // 글 검색
+	ArrayList<QnAVO> qnaSearch(HashMap<String, Object> map); //  검색
 	public int countBoard();// 게시물 총 갯수
 	public List<QnAVO> selectBoard(PagingVO pagingvo);// 페이징 처리 게시글 조회
 	

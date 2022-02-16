@@ -32,7 +32,7 @@ public class QnAService implements IQnAService {
 	}
 
 	@Override
-	public void updateqna(QnAVO qnaVO) throws Exception {
+	public void updateqna(QnAVO qnaVO){
 		// TODO Auto-generated method stub
 		dao.updateqna(qnaVO);
 
@@ -51,8 +51,7 @@ public class QnAService implements IQnAService {
 
 	@Override
 	public ArrayList<QnAVO> qnaSearch(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.qnaSearch(map);
 	}
 	
 	@Override

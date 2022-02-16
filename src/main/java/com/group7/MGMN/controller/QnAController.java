@@ -1,5 +1,8 @@
 package com.group7.MGMN.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.group7.MGMN.model.PagingVO;
 import com.group7.MGMN.model.QnAVO;
@@ -90,8 +94,25 @@ public class QnAController {
 
 		// 글 수정 : 수정된 글 DB에 저장
 		@RequestMapping("/qna/updateqna")
-		public String updateqna(QnAVO qnaVO) throws Exception  {
-			qnaService.updateqna(qnaVO);		
-			return "redirect:../qnaList";  
+		public String updateqna(QnAVO qnaVO, HttpSession session) {
+			String userId = (String) session.getAttribute("userId");
+			qnaVO.setUserId(userId);		
+			qnaService.updateqna(qnaVO);
+			System.out.println("id"+userId);
+
+			return "redirect:../qnaList"; 
+
 		}
+		
+		//검색 
+		@ResponseBody
+		@RequestMapping("/qna/qnaSearch")
+		public ArrayList<QnAVO> qnaSearch(@RequestParam HashMap<String, Object> param, 
+																					Model model){
+			
+			ArrayList<QnAVO> qnaList = qnaService.qnaSearch(param);
+			model.addAttribute("qnaList", qnaList);
+			
+			return qnaList;
+		}	
 }
