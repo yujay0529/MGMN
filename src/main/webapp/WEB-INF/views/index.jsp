@@ -14,8 +14,10 @@
 		   <jsp:include page="/WEB-INF/views/layout/top.jsp" flush='true' />
 		   
 			<section>
-         <a href="<c:url value='qnaList' />">qna페이지</a><br><br>
-         <a href="<c:url value='shops' />">동네 샵정보</a>
+		 <a href="<c:url value='qnaList' />">qna페이지</a><br><br>
+		 <a href="<c:url value='shops' />">동네 샵정보</a><br><br>
+	         <a href="<c:url value='market' />">중고거래</a>
+				
 			</section>
 			
 			
