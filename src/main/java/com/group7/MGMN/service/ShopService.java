@@ -22,4 +22,8 @@ public class ShopService implements IShopService {
     public ShopVO shopDetail(int shopNo) {
         return dao.shopDetail(shopNo);
     }
+
+    public void shopEnroll(ShopVO vo) {
+        dao.shopEnroll(vo);
+    }
 }

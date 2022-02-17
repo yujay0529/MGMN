@@ -235,38 +235,4 @@ public class GeolocationAPI {
 
 		return result;
 	}
-
-	public static void main(String[] args) {
-		String json = "{" +
-						"\"returnCode\": 0," +
-						"\"requestId\": \"ae9cf7db-9f32-4a8b-b57b-06c16965df2d\"," +
-						"\"geoLocation\":{" +
-							"\"country\": \"KR\"," +
-							"\"code\": \"4511168000\"," +
-							"\"r1\": \"전라북도\"," +
-							"\"r2\": \"전주시 완산구\"," +
-							"\"r3\": \"서신동\"," +
-							"\"lat\": 35.831085," +
-							"\"long\": 127.1155486," +
-							"\"net\": \"SK Broadband Co Ltd\"" +
-						"}" +
-					"}\n";
-
-		JSONObject jsonObject = new JSONObject(json);
-		JSONObject geoLocationObj = jsonObject.getJSONObject("geoLocation");
-
-		// 도, 시/군/구, 동, 위도, 경도
-		String province = (String) geoLocationObj.get("r1");
-		String country = (String) geoLocationObj.get("r2");
-		String location = (String) geoLocationObj.get("r3");
-		BigDecimal latitude = (BigDecimal) geoLocationObj.get("lat");
-		BigDecimal longitude = (BigDecimal) geoLocationObj.get("long");
-
-		System.out.println("province = " + province);
-		System.out.println("country = " + country);
-		System.out.println("location = " + location);
-		System.out.println("latitude = " + latitude);
-		System.out.println("longitude = " + longitude);
-
-	}
 }

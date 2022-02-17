@@ -9,4 +9,6 @@ public interface IShopDAO {
     ArrayList<ShopVO> listAllShop();
 
     ShopVO shopDetail(int shopNo);
+
+    void shopEnroll(ShopVO vo);
 }
