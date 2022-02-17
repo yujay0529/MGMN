@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    <mapper namespace="com.group7.MGMN.dao.IMarketCommentDAO">
+	<resultMap  id=" CommentResult" type="com.group7.MGMN.model.MarketCommentVO">
+		<result property="cno" column="cno" />
+		<result property="mkNo" column="mkNo" />
+		<result property="content" column="content" />
+		<result property="userId" column="userId" />	
+		<result property="commentDate" column="commentDate" />
+  	</resultMap>  
+  		
+  	 <select id="commentCount" resultType="int">
+        SELECT
+            COUNT(*)
+        FROM mkComment
+    </select>
+    
+    <select id="commentList" resultType="com.group7.MGMN.model.MarketCommentVO">
+        SELECT
+            *
+        FROM mkComment
+        where mkNo = #{mkNo}
+    </select>
+    
+    
+    <insert id="commentInsert" parameterType="com.group7.MGMN.model.MarketCommentVO">
+        INSERT INTO
+        mkComment (cno, mkNo, content, userId, commentDate)
+        VALUES(#{cno},#{mkNo},#{content},#{userId},now()) 
+       
+    </insert>
+    
+    <update id="commentUpdate" parameterType="com.group7.MGMN.model.MarketCommentVO">
+        UPDATE mkComment
+            SET
+            content = #{content}
+        WHERE cno = #{cno}
+    </update>
+    
+    <delete id="commentDelete" parameterType="int">
+        DELETE FROM mkComment WHERE cno = #{cno}
+    </delete>
+    
+    </mapper>
