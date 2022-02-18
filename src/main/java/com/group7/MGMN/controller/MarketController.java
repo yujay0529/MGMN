@@ -1,6 +1,6 @@
 package com.group7.MGMN.controller;
 
-import java.util.ArrayList;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,10 +36,16 @@ public class MarketController {
 	//}
 	
 	//지역별 상품 조회(페이징 추가)
-	@RequestMapping("/market/listRegionPost/{mkRegion}")
-	public String listRegionPostPaging(PagingVO vo, Model model
+	@RequestMapping("/market/listRegionPost")
+	public String listRegionPostPaging(Model model
 			, @RequestParam(value="nowPage", required=false)String nowPage
-			, @RequestParam(value="cntPerPage", required=false)String cntPerPage) {
+			, @RequestParam(value="cntPerPage", required=false)String cntPerPage
+			, HttpSession session) {
+		
+		// mkRegion 값에 session에 넣어둔 "address"값 넣기
+		String mkRegion = (String)session.getAttribute("address");
+		
+		// 페이징
 		int total = service.countMkBoard();
 		if (nowPage == null && cntPerPage == null) {
 			nowPage = "1";
@@ -50,9 +56,12 @@ public class MarketController {
 			cntPerPage = "8";
 		}
 		System.out.println("total : "+total);
-		vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		PagingVO vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		
+		vo.setMkRegion(mkRegion);
 		model.addAttribute("paging", vo);
 		model.addAttribute("mkList", service.selectMkBoard(vo));
+
 		return "market/listRegionPostView";
 		
 	}
@@ -75,13 +84,17 @@ public class MarketController {
 	
 	//상품 등록
 	@RequestMapping("/insertPost")
-	public String insertPost(MarketVO mkVO) {								// 전체 vo
+	public String insertPost(MarketVO mkVO, HttpSession session) {								// 전체 vo
 		System.out.println(mkVO.getMkContent());								
 		// mkVO.getMkContent() 값을 변수에 저장하고 substring 함수 사용해서 img 태그를 추출 추출한값을 mkVO.setMKImg 저장 >> 값을 리스트에서 출력!
 		int idx1 = mkVO.getMkContent().indexOf("<img");
 		int idx2 = mkVO.getMkContent().indexOf("\">");
 		String imgThumbnail = mkVO.getMkContent().substring(idx1, idx2+2);
 		mkVO.setMkImg(imgThumbnail);
+		
+		// session 변수를 getAttribute로 가져와서 mkVO값에 set사용해서 저장하기
+		String mkRegion = (String)session.getAttribute("address");
+		mkVO.setMkRegion(mkRegion);
 		service.insertPost(mkVO);						// DB에 들어감
 		return "redirect:/market/listRegionPost/" + mkVO.getMkRegion();		// vo에 넣어둔 mkRegion 객체를 불러오는 개념
 	}
@@ -99,13 +112,18 @@ public class MarketController {
 	@RequestMapping("/market/updatePost")
 	public String updatePost(MarketVO mkVO) {
 		System.out.println("updatPost : " + mkVO);
+		// mkVO.getMkContent() 값을 변수에 저장하고 substring 함수 사용해서 img 태그를 추출 추출한값을 mkVO.setMKImg 저장 >> 값을 리스트에서 출력!
+		int idx1 = mkVO.getMkContent().indexOf("<img");
+		int idx2 = mkVO.getMkContent().indexOf("\">");
+		String imgThumbnail = mkVO.getMkContent().substring(idx1, idx2+2);
+		mkVO.setMkImg(imgThumbnail);
 		service.updatePost(mkVO);
 		return "redirect:/market/listRegionPost/" + mkVO.getMkRegion();
 	}
 	
 	// 게시글 삭제
 	@RequestMapping("/market/deletePost/{mkNo}/{mkRegion}")
-	public String deletePost(@PathVariable int mkNo, @PathVariable int mkRegion) {			// 주소로 값을 넘겨받은 경우에 @PathVariable로 받아준다
+	public String deletePost(@PathVariable int mkNo, @PathVariable String mkRegion) {			// 주소로 값을 넘겨받은 경우에 @PathVariable로 받아준다
 		service.deletePost(mkNo);
 		return "redirect:/market/listRegionPost/" + mkRegion;
 	}
