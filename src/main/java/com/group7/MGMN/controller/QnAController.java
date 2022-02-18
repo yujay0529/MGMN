@@ -74,7 +74,7 @@ public class QnAController {
 			String userId = (String) session.getAttribute("userId");
 			qnaVO.setUserId(userId);		
 			qnaService.insertqna(qnaVO);
-			System.out.println("id"+userId);
+			System.out.println("qnaVO"+qnaVO);
 
 			return "redirect:../qnaList";
 		}

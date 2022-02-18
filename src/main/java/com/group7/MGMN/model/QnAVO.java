@@ -11,8 +11,9 @@ public class QnAVO {
 	private Date qnaCreateDate;
 	private String qnaComment;
 	private String userId;
+	private String category;
 	
-	
+
 	public int getQnaNo() {
 		return qnaNo;
 	}
@@ -61,7 +62,20 @@ public class QnAVO {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
 	
+	
+	@Override
+	public String toString() {
+		return "QnAVO [qnaNo=" + qnaNo + ", qnaTitle=" + qnaTitle + ", qnaContent=" + qnaContent + ", qnaHit=" + qnaHit
+				+ ", qnaFile=" + qnaFile + ", qnaCreateDate=" + qnaCreateDate + ", qnaComment=" + qnaComment
+				+ ", userId=" + userId + ", category=" + category + "]";
+	}
 	
 	
 	
