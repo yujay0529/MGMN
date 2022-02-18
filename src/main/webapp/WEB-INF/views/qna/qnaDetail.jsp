@@ -11,13 +11,14 @@
      <script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
     <link rel="stylesheet" href="/css/qnaDetail.css"> 
 
+
 </head>
 <body>
  <div id="wrap">
     <div class="qnaDetailView">
         <div class="qnaDetail">
             <div class="qnaDetailTitle">
-                <button class="myanimal">고양이 </button>
+                <button class="myanimal">${qna.category } </button>
 		                
     
                 <div class="qnaTitle">${qna.qnaTitle }</div><hr>
@@ -65,7 +66,7 @@
 					</div>
 					 
 		<!--                     추가                         -->
-		<%@ include file="commentS.jsp" %>
+  <%@ include file="commentS.jsp" %>
 
 
        
