@@ -14,10 +14,10 @@
   		<result property="ctgId" column="ctgId" />
   	</resultMap>
   	<!-- 지역별 게시글 조회 -->
-  	<select id="listRegionPost" parameterType="string"
+  	<!-- <select id="listRegionPost" parameterType="string"
   										  resultType="com.group7.MGMN.model.MarketVO" >
   		SELECT * FROM market WHERE mkRegion=#{mkRegion} ORDER BY mkNo
-  	</select>
+  	</select> -->
   	
   	<!-- 게시글 상세 정보 조회 -->
   	<select id="detailViewPost" parameterType="int"
@@ -33,7 +33,7 @@
   	
   	<!-- 게시글 수정 -->
   	<update id="updatePost" parameterType="com.group7.MGMN.model.MarketVO">
-  		UPDATE market SET mkTitle=#{mkTitle}, mkContent=#{mkContent}, mkPrice=#{mkPrice}, mkRegion=#{mkRegion}, ctgId=#{ctgId}
+  		UPDATE market SET mkTitle=#{mkTitle}, mkContent=#{mkContent}, mkPrice=#{mkPrice}, mkRegion=#{mkRegion}, mkImg=#{mkImg}, ctgId=#{ctgId}
   								WHERE mkNo=#{mkNo}
   	</update>
   	
@@ -56,6 +56,7 @@
 			SELECT @ROWNUM:=@ROWNUM +1 AS RN, Q.* 
 				FROM (
 						SELECT * FROM market Q
+						WHERE mkRegion=#{mkRegion}
 						ORDER BY mkNo DESC 
 						)Q, (SELECT @ROWNUM:=0)A
 						)B
