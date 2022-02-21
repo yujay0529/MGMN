@@ -41,9 +41,10 @@ public class MarketCommentService implements IMarketCommentService {
 	}
 
 	@Override
-	public int commentDelete(int cno) throws Exception {
+	public int commentDelete(int cmtNo) throws Exception {
 		
-		return commentdao.commentDelete(cno);
+		return commentdao.commentDelete(cmtNo);
 	}
 
 }
+

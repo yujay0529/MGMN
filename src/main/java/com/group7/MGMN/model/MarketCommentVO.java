@@ -1,17 +1,19 @@
 package com.group7.MGMN.model;
 
 public class MarketCommentVO {
-	private int cno;
+
+	private int cmtNo;
 	private int mkNo;
 	private String content;
 	private String userId;
 	private String commentDate;
 	
-	public int getCno() {
-		return cno;
+
+	public int getCmtNo() {
+		return cmtNo;
 	}
-	public void setCno(int cno) {
-		this.cno = cno;
+	public void setCmtNo(int cmtNo) {
+		this.cmtNo = cmtNo;
 	}
 	public int getMkNo() {
 		return mkNo;
@@ -38,5 +40,5 @@ public class MarketCommentVO {
 		this.commentDate = commentDate;
 	}
 	
-	
 }
+

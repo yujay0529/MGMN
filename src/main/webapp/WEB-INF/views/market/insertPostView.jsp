@@ -29,16 +29,31 @@
 	                placeholder: '내용을 입력해주세요',
 	                tabsize: 2,
 	                height: 400
+	              
 	            });
-	            
+	     
 	            $('#submit_btn').on('click', function () {
+	            	
+	            	var result = $("#summernote").val().indexOf("<p><img");			// indexOf 값을 못찾으면 -1 반환 => 유효성에 이용 가능
+	            	/* alert(result); */
+	            	 if($("#summernote").val() == "") {		// 값을 비워둔 경우
+	             		alert("게시글 내용을 입력해주세요.");
+	             		frmMkInsert.summernote.focus();
+	             		return false;
+	             	} else if(result == -1) {					// 값을 못찾은 경우
+	             		alert("이미지를 추가해주세요.");
+	             		frmMkInsert.summernote.focus();
+	             		return false;
+	             	} else {
 	                alert("글 작성 완료");
 	                window.history.go(-1);
+	             	}
 	            });
 	            
 	            $('#cancelBtn').on('click',function() {
 	            	window.history.go(-1);
 	            })
+	           
 	        });
 	        
 	
@@ -50,9 +65,9 @@
 			<hr>
 			<form id="frmMkInsert" method="post" action="<c:url value='/insertPost'/> ">
 				<div id="insertWholePost">
-					<div class="insertPost">작성자 <input type="text" name="userId" id="userId"></div>
+					<div class="insertPost">작성자 <input type="text" name="userId" id="userId" value="kim" readonly></div>	<!-- id 값 일단 고정 로그인이랑 연동시킬 예정 -->
 					<div class="insertPost">게시글 제목<input type="text" name="mkTitle" id="mkTitle"></div>
-					<div class="insertPost">지역<input type="text" name="mkRegion" id="mkRegion"></div>
+					<%-- <div class="insertPost">지역<input type="text" name="mkRegion" id="mkRegion" value="${paging.mkRegion }" readonly></div> --%>
 					<div class="insertPost">제품 가격<input type="text" name="mkPrice" id="mkPrice"></div>
 					<div class="insertPost">카테고리<input type="text" name="ctgId" id="ctgId"></div>
 				</div>

@@ -29,3 +29,7 @@
     text-align: center;
     justify-content: space-around;
 }
+
+.shop_wrapper {
+    border: 1px solid;
+}

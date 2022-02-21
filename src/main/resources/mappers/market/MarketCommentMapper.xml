@@ -27,20 +27,20 @@
     
     <insert id="commentInsert" parameterType="com.group7.MGMN.model.MarketCommentVO">
         INSERT INTO
-        mkComment (cno, mkNo, content, userId, commentDate)
-        VALUES(#{cno},#{mkNo},#{content},#{userId},now()) 
-       
+        mkComment (cmtNo, mkNo, content, userId, commentDate)
+        VALUES(#{cmtNo},#{mkNo},#{content},#{userId},now()) 
+
     </insert>
     
     <update id="commentUpdate" parameterType="com.group7.MGMN.model.MarketCommentVO">
         UPDATE mkComment
             SET
             content = #{content}
-        WHERE cno = #{cno}
+            WHERE cmtNo = #{cmtNo}
     </update>
-    
+
     <delete id="commentDelete" parameterType="int">
-        DELETE FROM mkComment WHERE cno = #{cno}
+        DELETE FROM mkComment WHERE cmtNo = #{cmtNo}
     </delete>
     
     </mapper>

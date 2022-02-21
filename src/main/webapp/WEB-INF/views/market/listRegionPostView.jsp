@@ -28,7 +28,8 @@
 	<body>
 		<div id="wrap">
 			<a href="<c:url value='/insertPostView' />">상품 등록</a>
-			<h3 align = "center">상품 목록</h3><br><hr>
+			<h3 align = "center">상품 목록</h3>
+			<h4 align = "center">현재 우리 동네 : ${paging.mkRegion } </h4><hr>
 			<div id="wrapWholePost">
 				<c:forEach items="${mkList }" var="mk">
 				<div class="productWrap">
@@ -42,7 +43,7 @@
 			<!-- 페이지 넘기기 -->
 			<div class="pagelist">
 				<c:if test="${paging.startPage != 1 }">
-					<a href="<c:url value='/market/listRegionPost/${1}?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}'/>">‹</a>
+					<a href="<c:url value='/market/listRegionPost/?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}'/>">‹</a>
 				</c:if>
 				<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
 					<c:choose>
@@ -50,12 +51,12 @@
 							<b>${p }&emsp;</b>
 						</c:when>
 						<c:when test="${p != paging.nowPage }">
-							<a href="<c:url value='/market/listRegionPost/${1 }/?nowPage=${p }&cntPerPage=${paging.cntPerPage}'/>">${p }&emsp;</a>
+							<a href="<c:url value='/market/listRegionPost/?nowPage=${p }&cntPerPage=${paging.cntPerPage}'/>">${p }&emsp;</a>
 						</c:when>
 					</c:choose>
 				</c:forEach>
 				<c:if test="${paging.endPage != paging.lastPage }">
-					<a href="<c:url value='/market/listRegionPost/${1 }/?nowPage=${paging.endPage + 1 }&cntPerPage=${paging.cntPerPage}'/>">›</a>
+					<a href="<c:url value='/market/listRegionPost/?nowPage=${paging.endPage + 1 }&cntPerPage=${paging.cntPerPage}'/>">›</a>
 				</c:if>
 			</div>
 		</div>
