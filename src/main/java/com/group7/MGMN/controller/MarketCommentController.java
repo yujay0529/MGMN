@@ -30,8 +30,6 @@ public class MarketCommentController {
 
     }
    
-    // 여기서부터 수정해야함!  마켓 코멘트 컨트롤러
-    
     @RequestMapping("/insert") //댓글 작성 
     @ResponseBody
     private int commentServiceInsert(HttpSession session,
