@@ -55,23 +55,19 @@ public class QnAService implements IQnAService {
 	}
 	
 	@Override
-	public int hitUp(int qnaNo) throws Exception {
-		return dao.hitUp(qnaNo);
+	public int qnahitUp(int qnaNo) throws Exception {
+		return dao.qnahitUp(qnaNo);
 	}
-	
-	@Override
-	public List<CategoryVO> category() throws Exception{
-		return dao.category();	
-		}
+
 
 	@Override
-	public int countBoard() {
-		return dao.countBoard();
+	public int qnacountBoard() {
+		return dao.qnacountBoard();
 	}
 
 	@Override
-	public List<QnAVO> selectBoard(PagingVO vo) {
-		return dao.selectBoard(vo);
+	public List<QnAVO> qnaselectBoard(PagingVO vo) {
+		return dao.qnaselectBoard(vo);
 	}
 
 	}

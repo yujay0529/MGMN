@@ -38,7 +38,7 @@
 			<div id="wrap">
 			<div class="writeform">
 			    <main role="main" class="container">
-			        <form name="form" action="<c:url value='/qna/updateqna'/>" method="post">
+			        <form name="form" method="post" action="<c:url value='/qna/updateqna'/>">
 			            <!-- method="POST" action="/bulletin_wr01" -->
 			            <div class="pt-1">
 			                <input type="text" name="qnaTitle" value="${qna.qnaTitle }"

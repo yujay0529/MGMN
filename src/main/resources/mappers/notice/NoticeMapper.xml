@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+   <mapper namespace="com.group7.MGMN.dao.INoticeDAO">
+  		<resultMap  id=" NoticeResult" type="com.group7.MGMN.model.NoticeVO">
+  			<result property="noticeNo" column="noticeNo" />
+  			<result property="noticeTitle" column="noticeTitle" />
+  			<result property="noticeContent" column="noticeContent" />	
+  			<result property="noticeHit" column="noticeHit" />
+  			<result property="noticeCreateDate" column="noticeCreateDate" />
+  			<result property="userId" column="userId" />
+  		</resultMap> 
+  
+  
+		<!-- 공지사항 조회 -->
+		<select id = "listNotice" resultType="com.group7.MGMN.model.NoticeVO">
+	  			SELECT * FROM notice ORDER BY noticeNo 
+	  	</select>
+	  	
+	  <!-- 페이징 -->
+	  
+	<!-- 총 게시글 갯수 출력 -->
+		<select id="noticountBoard" resultType="int">
+			SELECT COUNT(*) FROM notice
+		</select>
+		
+		<!-- 페이징 처리 후 게시글 조회@ROWNUM:=@ROWNUM +1 AS RN -->
+		<select id="notiselectBoard" resultType="com.group7.MGMN.model.NoticeVO">
+		SELECT * 
+		FROM (
+			SELECT @ROWNUM:=@ROWNUM +1 AS RN, N.* 
+				FROM (
+						SELECT * FROM notice N
+						ORDER BY noticeNo DESC 
+						)N, (SELECT @ROWNUM:=0)A
+						)B
+			WHERE RN BETWEEN #{start} AND #{end}
+			</select>
+	  	
+  	
+	   	<!-- 글 상세조회 -->
+		 <select id="detailNotice" parameterType="int"  resultType="com.group7.MGMN.model.NoticeVO">
+	  			SELECT * FROM notice WHERE noticeNo=#{noticeNo}  		
+	  	 </select>
+	  		
+
+		 <!-- 글쓰기 -->
+		 <insert id="insertNotice" parameterType="com.group7.MGMN.model.NoticeVO">
+	  			INSERT INTO notice (noticeNo,noticeTitle,noticeContent,userId)
+	  			VALUES (#{noticeNo},#{noticeTitle}, #{noticeContent}, #{userId})
+	  	 </insert>
+  		
+  		<!-- 삭제  -->
+  		<delete id="deleteNotice"  parameterType="int">
+  			DELETE FROM notice WHERE noticeNo=#{noticeNo}
+  		</delete>
+  		
+  		<!-- 수정 -->
+  		<update id="updateNotice" parameterType="com.group7.MGMN.model.NoticeVO">
+  			UPDATE notice 
+  			SET noticeTitle=#{noticeTitle},
+  				noticeContent=#{noticeContent}
+  				userId=#{userId}
+  			WHERE noticeNo=#{noticeNo}
+  		</update>
+  		
+  		<!-- 조회수 올리기 -->
+		<update id="notihitUp">
+			update notice set noticeHit = noticeHit+1 where noticeNo = #{noticeNo}
+		</update>
+	  		
+  		<!-- 상품 검색  -->
+  		<select id="noticeSearch"  resultType="com.group7.MGMN.model.NoticeVO" parameterType="hashmap">
+  			SELECT * FROM notice WHERE
+  			<choose>
+  				<when test="type != null and type.equals('noticeTitle')">
+  					noticeTitle LIKE CONCAT('%', #{keyword}, '%')
+  				</when>  				
+  				<when test="type != null and type.equals('noticeContent')">
+  					noticeContent LIKE CONCAT('%', #{keyword}, '%')
+  				</when>
+  			</choose>
+  		</select>
+
+  
+  
+  
+  
+  </mapper>
