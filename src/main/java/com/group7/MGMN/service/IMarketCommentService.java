@@ -21,7 +21,5 @@ public interface IMarketCommentService {
     // 댓글 삭제
     public int commentDelete(int cmtNo) throws Exception;
 
-
-
-
 }
+

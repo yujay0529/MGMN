@@ -1,12 +1,14 @@
 package com.group7.MGMN.model;
 
 public class MarketCommentVO {
+
 	private int cmtNo;
 	private int mkNo;
 	private String content;
 	private String userId;
 	private String commentDate;
 	
+
 	public int getCmtNo() {
 		return cmtNo;
 	}
@@ -38,5 +40,5 @@ public class MarketCommentVO {
 		this.commentDate = commentDate;
 	}
 	
-	
 }
+
