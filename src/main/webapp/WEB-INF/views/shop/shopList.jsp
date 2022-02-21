@@ -47,17 +47,15 @@
 
             <div class="contentBox">
                 <c:forEach items="${shops}" var="shop">
-                    <div>${shop.shopNo}</div>
-                    <div>${shop.shopClass}</div>
-                    <div>${shop.shopName}</div>
-                    <div>${shop.shopInfo}</div>
-                    <div>${shop.shopDetail}</div>
-                    <div>${shop.shopTel}</div>
-                    <div>${shop.shopLocation}</div>
-                    <div>${shop.shopLat}</div>
-                    <div>${shop.shopLong}</div>
-                    <div>${shop.shopRating}</div>
-                    <div>${shop.shopEvalNum}</div>
+                    <div class="shop_wrapper" onclick="location.href='/shops/shopDetail/${shop.shopNo}'">
+                        <img src="/image/${shop.shopThumb}" width="120px" />
+                        <div>${shop.shopClass}</div>
+                        <div>${shop.shopName}</div>
+                        <div>${shop.shopInfo}</div>
+                        <div>${shop.shopLocation}</div>
+                        <div>${shop.shopRating}</div>
+                        <div>${shop.shopEvalNum}</div>
+                    </div>
                 </c:forEach>
         </div>
     </body>

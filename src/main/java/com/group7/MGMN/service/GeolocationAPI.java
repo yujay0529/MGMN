@@ -260,6 +260,7 @@ public class GeolocationAPI {
 
 		return result;
 	}
+
 	
 	// 구 까지만 toString
 	private static String jsonToString2(String str) {
@@ -320,4 +321,5 @@ public class GeolocationAPI {
 		System.out.println("longitude = " + longitude);
 
 	}
+
 }

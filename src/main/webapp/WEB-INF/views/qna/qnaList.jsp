@@ -72,7 +72,7 @@
 	                                        <div class="userid">${qna.userId}</div>        
 	                                        <div class="date"><fmt:formatDate value="${qna.qnaCreateDate}" pattern="yyyy.MM.dd"/></div>      
 			                                    <div class="animal-filter">
-			                                   	 <button class="myanimal">고양이</button>
+			                                   	 <button class="myanimal">${qna.category}</button>
 			                                    </div>
 	                            		</c:forEach>
 	                            		 </a>  

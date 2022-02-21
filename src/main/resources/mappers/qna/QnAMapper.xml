@@ -12,6 +12,7 @@
   			<result property="qnaCreateDate" column="qnaCreateDate" />
   			<result property="qnaComment" column="qnaComment" />
   			<result property="userId" column="userId" />
+  			<result property="category" column="category" />
   		</resultMap> 
   		
 
@@ -28,8 +29,8 @@
 		
 		 <!-- 글쓰기 -->
 		 <insert id="insertqna" parameterType="com.group7.MGMN.model.QnAVO">
-	  			INSERT INTO qna (qnaTitle,qnaContent,userId)
-	  			VALUES (#{qnaTitle}, #{qnaContent}, #{userId})
+	  			INSERT INTO qna (qnaTitle,qnaContent,userId,category)
+	  			VALUES (#{qnaTitle}, #{qnaContent}, #{userId},#{category})
 	  	 </insert>
 	  	 
 	  	 <!-- 삭제  -->

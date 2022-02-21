@@ -24,4 +24,14 @@
         SELECT * FROM shop ORDER BY shopNo DESC
     </select>
 
+    <!-- shopDetail -->
+    <select id="shopDetail" parameterType="int" resultType="com.group7.MGMN.model.ShopVO">
+        SELECT * FROM shop WHERE shopNo=#{shopNo}
+    </select>
+
+    <!-- shopEnroll -->
+    <insert id="shopEnroll" parameterType="com.group7.MGMN.model.ShopVO">
+        INSERT INTO shop VALUES (null, #{shopClass}, #{shopThumb}, #{shopName}, #{shopTel}, #{shopInfo}, #{shopDetail}, #{shopLocation}, #{shopLat}, #{shopLong}, default, default )
+    </insert>
+
 </mapper>
