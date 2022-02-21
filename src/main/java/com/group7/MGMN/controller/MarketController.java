@@ -19,12 +19,12 @@ public class MarketController {
 	@Autowired
 	MarketService service;
 	
-	// 중고거래 페이지로 이동
-	@RequestMapping("/market")
-	public String viewMarket() {
-		return "market/marketView";
+	// 중고거래 페이지로 이동  (미사용)
+	//@RequestMapping("/market")
+	//public String viewMarket() {
+	//	return "market/marketView";
 		
-	}
+	//}
 	
 	//지역별 상품 조회
 	//@RequestMapping("/market/listRegionPost/{mkRegion}")
