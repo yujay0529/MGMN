@@ -22,6 +22,8 @@
 					<a href="<c:url value='/'/>">HOME</a>
 					<a href="<c:url value='/joinForm'/>">회원가입</a>
 					<a href="<c:url value='/loginForm'/>">로그인</a>
+					<a href="<c:url value='/notice'/>">공지사항</a>
+					<a href="<c:url value='/BoardList'/>">이벤트</a>
 					<a href="<c:url value='/store'/>">스토어</a>
 					
 				</c:if>
@@ -35,7 +37,15 @@
 						<a href="<c:url value='/logout'/>">로그아웃</a>
 						&nbsp;
 						<a href="<c:url value='/mypet'/>">마이펫</a> 
+						&nbsp;
+						<a href="<c:url value='/notice'/>">공지사항</a>
+						&nbsp;
+						<a href="<c:url value='/BoardList'/>">이벤트</a>
+						&nbsp;
+						<a href="<c:url value='/store'/>">스토어</a>
+						&nbsp;
 						</c:if>
+						
 				
 			</div>
 			<div id="logoBox">

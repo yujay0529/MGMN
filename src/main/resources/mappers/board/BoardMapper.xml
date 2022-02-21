@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.group7.MGMN.dao.IBoardDAO">
+	
+	<select id="boardList" parameterType="string"
+                  resultType="com.group7.MGMN.model.BoardVO">
+                  <!-- resultMap="boardResult" -->
+  			SELECT * FROM board
+  	</select>  
+	
+	<insert id="insertBoard" parameterType="com.group7.MGMN.model.BoardVO">
+  			INSERT INTO board (brdNo, brdTitle, userId, brdCon, brdImg)
+  			VALUES (#{brdNo}, #{brdTitle}, #{userId}, #{brdCon}, #{brdImg})
+  	</insert>
+  	
+  	<select id="detailView" parameterType="string"
+   				resultType="com.group7.MGMN.model.BoardVO">
+  		SELECT * FROM board WHERE brdNo=#{brdNo}
+   </select>
+   <delete id="deleteBoard"  parameterType="string">
+  			DELETE FROM board WHERE brdNo=#{brdNo}
+  </delete>
+  <update id="updateBoard" parameterType="com.group7.MGMN.model.BoardVO">
+		update board (brdNo, brdTitle, userId, brdCon, brdImg)
+		set
+			brdTitle=#{brdTitle},
+			userId=#{userId},
+			brdCon=#{brdCon},
+			brdImg=#{brdImg}
+			
+		where brdNo=#{brdNo}
+	</update>
+  
+</mapper>
