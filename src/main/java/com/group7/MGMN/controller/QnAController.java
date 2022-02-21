@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.group7.MGMN.model.MarketVO;
 import com.group7.MGMN.model.PagingVO;
 import com.group7.MGMN.model.QnAVO;
 import com.group7.MGMN.service.QnAService;
@@ -35,7 +36,7 @@ public class QnAController {
 				, @RequestParam(value="nowPage", required=false)String nowPage
 				, @RequestParam(value="cntPerPage", required=false)String cntPerPage) {
 
-			int total = qnaService.countBoard();
+			int total = qnaService.qnacountBoard();
 			if (nowPage == null && cntPerPage == null) {
 				nowPage = "1";
 				cntPerPage = "10";
@@ -47,7 +48,7 @@ public class QnAController {
 			System.out.println("total : "+total);
 			vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
 			model.addAttribute("paging", vo);
-			model.addAttribute("qnaList", qnaService.selectBoard(vo));
+			model.addAttribute("qnaList", qnaService.qnaselectBoard(vo));
 			return "qna/qnaList";
 		}
 		
@@ -56,7 +57,7 @@ public class QnAController {
 		public String detailqna(@PathVariable int qnaNo, Model model) throws Exception {
 			QnAVO qnaVO = qnaService.detailqna(qnaNo);
 			model.addAttribute("qna", qnaVO);
-			qnaService.hitUp(qnaNo);//조회수증가
+			qnaService.qnahitUp(qnaNo);//조회수증가
 		
 			return "qna/qnaDetail";
 			
@@ -94,16 +95,13 @@ public class QnAController {
 
 		// 글 수정 : 수정된 글 DB에 저장
 		@RequestMapping("/qna/updateqna")
-		public String updateqna(QnAVO qnaVO, HttpSession session) {
-			String userId = (String) session.getAttribute("userId");
-			qnaVO.setUserId(userId);		
-			qnaService.updateqna(qnaVO);
-			System.out.println("id"+userId);
-
-			return "redirect:../qnaList"; 
-
+		public String updateqna(QnAVO qnaVO) {
+			System.out.println(qnaVO);
+			qnaService.updateqna(qnaVO);		
+			return "redirect:/qnaList";
 		}
-		
+
+	
 		//검색 
 		@ResponseBody
 		@RequestMapping("/qna/qnaSearch")

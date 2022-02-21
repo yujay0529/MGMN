@@ -23,7 +23,7 @@
 	  	 </select>
 	  	 
 	  	 <!-- 조회수 올리기 -->
-		<update id="hitUp">
+		<update id="qnahitUp">
 			update qna set qnaHit = qnaHit+1 where qnaNo = #{qnaNo}
 		</update>
 		
@@ -37,22 +37,24 @@
 	  	 <delete id="deleteqna"  parameterType="int">
   			DELETE FROM qna WHERE qnaNo=#{qnaNo}
   		</delete>
-  		<!-- 수정  -->
+  		<!-- 수정  -->	
   		<update id="updateqna" parameterType="com.group7.MGMN.model.QnAVO">
   			UPDATE qna 
   			SET qnaTitle=#{qnaTitle},
-  				qnaContent=#{qnaContent}
+  				qnaContent=#{qnaContent},
+  				category=#{category},
+  				userId=#{userId}
   			WHERE qnaNo=#{qnaNo}
   		</update> 
   		
   		<!-- 페이징 -->
   		<!-- 총 게시글 갯수 출력 -->
-		<select id="countBoard" resultType="int">
+		<select id="qnacountBoard" resultType="int">
 			SELECT COUNT(*) FROM qna
 		</select>
 		
 		<!-- 페이징 처리 후 게시글 조회@ROWNUM:=@ROWNUM +1 AS RN -->
-		<select id="selectBoard" resultType="com.group7.MGMN.model.QnAVO">
+		<select id="qnaselectBoard" resultType="com.group7.MGMN.model.QnAVO">
 		SELECT * 
 		FROM (
 			SELECT @ROWNUM:=@ROWNUM +1 AS RN, Q.* 
