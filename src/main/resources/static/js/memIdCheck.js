@@ -11,7 +11,7 @@
 		
 		$.ajax({
 			type:"post",
-			url:"memIdCheck",
+			url:"userIdCheck",
 			data:{"userId": $('#userId').val()},  
 			dataType:'text',
 			success:function(result){

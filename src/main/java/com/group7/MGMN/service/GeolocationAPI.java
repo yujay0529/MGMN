@@ -61,6 +61,31 @@ public class GeolocationAPI {
 
 		return result;
 	}
+	
+	// 동 까지만
+	public static String getLocation2(String ip) {
+		String accessKey = "572FC0EF42E6019CDE12";
+		String secretKey = "4A6116122E462B6A29848AA2C83CA77074771CDC";
+		String IP = ip;
+		String result = "";
+
+
+		try {
+			System.out.println(accessKey + secretKey + IP);
+			final GeolocationAPI geolocationAPI = new GeolocationAPI(accessKey, secretKey);
+			String str = geolocationAPI.run(IP);
+
+			// json => str
+			result = jsonToString2(str);
+
+		} catch (final Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+
+
+		return result;
+	}
 
 	public String run(final String ip) throws Exception {
 		final String requestMethod = "GET";
@@ -230,8 +255,35 @@ public class GeolocationAPI {
 		System.out.println("location = " + location);
 		System.out.println("latitude = " + latitude);
 		System.out.println("longitude = " + longitude);
-
+		
 		result = String.format("%s %s %s", province, country, location);
+
+		return result;
+	}
+
+	
+	// 구 까지만 toString
+	private static String jsonToString2(String str) {
+		String result = "";
+
+		JSONObject jsonObject = new JSONObject(str);
+		JSONObject geoLocationObj = jsonObject.getJSONObject("geoLocation");
+
+		// 도, 시/군/구, 위도, 경도
+		String province = (String) geoLocationObj.get("r1");
+		String country = (String) geoLocationObj.get("r2");
+		//String location = (String) geoLocationObj.get("r3");
+		BigDecimal latitude = (BigDecimal) geoLocationObj.get("lat");
+		BigDecimal longitude = (BigDecimal) geoLocationObj.get("long");
+
+		System.out.println("province = " + province);
+		System.out.println("country = " + country);
+		//System.out.println("location = " + location);
+		System.out.println("latitude = " + latitude);
+		System.out.println("longitude = " + longitude);
+		
+		// 구 까지만
+		result = String.format("%s %s", province, country);
 
 		return result;
 	}
@@ -269,4 +321,5 @@ public class GeolocationAPI {
 		System.out.println("longitude = " + longitude);
 
 	}
+
 }
