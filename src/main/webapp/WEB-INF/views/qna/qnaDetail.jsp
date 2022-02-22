@@ -46,27 +46,27 @@
         </div><hr>
       
 		          <!--                     추가                         -->
-					    <!--  댓글  -->
-					    <div class="container">
-					        <label for="content">댓글</label>
-					        <form name="commentInsertForm" >
-					            <div class="input-group">
-					               <input type="hidden" name="qnaNo" value="${qna.qnaNo }"/>
-					               <input type="text" class="form-control" id="content" name="content" placeholder="댓글을 남겨보세요 .">
-					               <span class="input-group-btn">
-					                    <button class="btn btn-default" type="submit" name="commentInsertBtn">등록</button>
-					               </span>
-					              </div>
-					        </form>
-					    </div>
-					    
-					    <div class="container">
-					        <div class="commentList"></div>
-					    </div>
-					</div>
-					 
-		<!--                     추가                         -->
-  <%@ include file="commentS.jsp" %>
+						    <!--  댓글  -->
+						    <div class="container">
+						        <label for="content">댓글</label>
+						        <form name="commentInsertForm" >
+						            <div class="input-group">
+						               <input type="hidden" name="qnaNo" value="${qna.qnaNo }"/>
+						               <input type="text" class="form-control" id="content" name="content" placeholder="댓글을 남겨보세요 .">
+						               <span class="input-group-btn">
+						                    <button class="btn btn-default" type="submit" name="commentInsertBtn">등록</button>
+						               </span>
+						              </div>
+						        </form>
+						    </div>
+						    
+						    <div class="container">
+						        <div class="commentList"></div>
+						    </div>
+						</div>
+							 
+				<!--                     추가                         -->
+				  <%@ include file="commentS.jsp" %>
 
 
        

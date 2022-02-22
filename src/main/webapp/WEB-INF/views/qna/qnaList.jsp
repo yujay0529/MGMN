@@ -27,7 +27,10 @@
 						<option value="qnaContent">내용 </option>
 					</select>
                     <img src="/image/search.svg">
-                        <input type="text" placeholder="찾으시는 질문이 있으신가요?" size="40" maxLength="200" style="width:300px;height:20px;font-size:17px;border:0;margin-bottom:5px;"  class="qnaserch-input" value=""/>
+                            <input type="hidden" name="boardcode" value="${param.boardcode }">
+                              <input type="hidden" name="page"value="1">
+                        <input type="text"	 name="keyword" placeholder="찾으시는 질문이 있으신가요?" value="${param.keyword }"
+                        		 size="40" maxLength="200" style="width:300px;height:20px;font-size:17px;border:0;margin-bottom:5px;"  class="qnaserch-input" />
                   </form>
                     </div>
                     
@@ -37,7 +40,9 @@
                             <input type="radio" name="radio" id="조회 수 순 " value="조회 수 순 "/>
                                     <label for="조회 수 순 ">조회 수 순 </label> 
                              <!-- 글쓰기 버튼 -->
+                             <c:if test="${sessionScope.userId != null }"><!-- 회원만 글쓰기 가 -->
                              <button class = "write_btn"> <a href ="<c:url value='/qna/write'/>">새 글</a></button> 
+                             </c:if>
                         </div>
                                 
                             <div class="qna-filter-box"><!--동물유형필터-->

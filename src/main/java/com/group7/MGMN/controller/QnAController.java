@@ -10,11 +10,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.group7.MGMN.model.MarketVO;
 import com.group7.MGMN.model.PagingVO;
+import com.group7.MGMN.model.QnACommentVO;
 import com.group7.MGMN.model.QnAVO;
 import com.group7.MGMN.service.QnAService;
 
@@ -92,13 +93,19 @@ public class QnAController {
 			model.addAttribute("qna", qnaVO);
 			return "qna/updateqnaForm";
 		}
+	
+
+	        
 
 		// 글 수정 : 수정된 글 DB에 저장
 		@RequestMapping("/qna/updateqna")
-		public String updateqna(QnAVO qnaVO) {
-			System.out.println(qnaVO);
-			qnaService.updateqna(qnaVO);		
-			return "redirect:/qnaList";
+		public String updateqna(QnAVO qnaVO, HttpSession session) {
+			String userId = (String) session.getAttribute("userId");
+			qnaVO.setUserId(userId);		
+			qnaService.updateqna(qnaVO);
+			System.out.println("qnaVO"+qnaVO);
+
+			return "redirect:../qnaList";
 		}
 
 	
