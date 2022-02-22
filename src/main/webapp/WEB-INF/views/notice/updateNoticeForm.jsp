@@ -46,6 +46,7 @@
     <div class="writeform">
         <main role="main" class="container">
             <form method="post" action="<c:url value='/notice/updateNotice'/>">
+             <input type="hidden" name="noticeNo" id="noticeNo" value="${noti.noticeNo}"><!-- 게시글 수정을 위해 hidden으로 값을 넘겨줌-->
                 <div class="pt-1">
                     <input type="text" name="noticeTitle" value="${noti.noticeTitle }"
                         style="border: 0; border-radius:5px; width:100%; height: 50px; padding:5px; font-size: 30px;">

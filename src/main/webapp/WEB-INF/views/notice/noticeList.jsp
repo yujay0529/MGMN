@@ -43,7 +43,10 @@
                             <input type="radio" name="radio" id="오래된 순  " value="오래된 순  "/>
                                     <label for="오래된 순 ">오래된 순  </label> 
                              <!-- 글쓰기 버튼 -->
+                         <%--      <c:if test="${sessionScope.userId = 'admin'}"><!-- 회원만 글쓰기 가능 -->
                              <button class = "write_btn"> <a href ="<c:url value='/notice/write'/>">새 글</a></button> 
+                             </c:if> --%>
+                               <button class = "write_btn"> <a href ="<c:url value='/notice/write'/>">새 글</a></button> 
                         </div>
                        </div>
 
