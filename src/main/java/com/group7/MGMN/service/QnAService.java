@@ -50,7 +50,7 @@ public class QnAService implements IQnAService {
 	}
 
 	@Override
-	public ArrayList<QnAVO> qnaSearch(HashMap<String, Object> map) {
+	public ArrayList<QnAVO> qnaSearch(HashMap<String, Object> map)throws Exception {
 		return dao.qnaSearch(map);
 	}
 	

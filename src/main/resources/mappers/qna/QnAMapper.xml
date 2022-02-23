@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
-  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     <mapper namespace="com.group7.MGMN.dao.IQnADAO">
-  		<resultMap  id=" QnAResult" type="com.group7.MGMN.model.QnAVO">
+  		<resultMap  id="QnAResult" type="com.group7.MGMN.model.QnAVO">
   			<result property="qnaNo" column="qnaNo" />
   			<result property="qnaTitle" column="qnaTitle" />
   			<result property="qnaContent" column="qnaContent" />
@@ -59,15 +59,15 @@
 		FROM (
 			SELECT @ROWNUM:=@ROWNUM +1 AS RN, Q.* 
 				FROM (
-						SELECT * FROM qna Q
-						ORDER BY qnaNo DESC 
-						)Q, (SELECT @ROWNUM:=0)A
+						SELECT * FROM qna Q					
+						ORDER BY qnaNo DESC
+						)Q, (SELECT @ROWNUM:=0)A					 
 						)B
 			WHERE RN BETWEEN #{start} AND #{end}
 			</select>
-	  	
-  		<!-- 상품 검색  -->
-  		<select id="qnaSearch"  parameterType="hashmap">
+
+<!-- 상품 검색  -->
+  		<select id="qnaSearch" resultMap="QnAResult" parameterType="hashmap">
   			SELECT * FROM qna WHERE
   			<choose>
   				<when test="type != null and type.equals('qnaTitle')">
@@ -77,13 +77,11 @@
   					qnaContent LIKE CONCAT('%', #{keyword}, '%')
   				</when>
   				<when test="type != null and type.equals('qnaTandC')">
-  				qnaTitle LIKE CONCAT('%', #{keyword}, '%') or qnaContent LIKE CONCAT('%', #{keyword}, '%')
+  					qnaTitle LIKE CONCAT('%', #{keyword}, '%') or
+  					qnaContent LIKE CONCAT('%', #{keyword}, '%')
   				</when>
   			</choose>
   		</select>
-
-  		
-  		
 
 	 
   	</mapper>
