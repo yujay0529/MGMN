@@ -5,7 +5,11 @@ public class PagingVO {
 	// 현재페이지, 시작페이지, 끝페이지, 게시글 총 갯수, 페이지당 글 갯수, 마지막페이지, SQL쿼리에 쓸 start, end
 	private int nowPage, startPage, endPage, total, cntPerPage, lastPage, start, end;
 	private int cntPage = 5;
-	private String mkRegion;
+	private String mkRegion; @Override
+	protected Object clone() throws CloneNotSupportedException {
+		// TODO Auto-generated method stub
+		return super.clone();
+	}
 	
 	public PagingVO() {
 	}
@@ -32,7 +36,10 @@ public class PagingVO {
 		if (getStartPage() < 1) {
 			setStartPage(1);
 		}
+		// 검색을 위한 데이터 전달
+
 	}
+	
 	// DB 쿼리에서 사용할 start, end값 계산
 	public void calcStartEnd(int nowPage, int cntPerPage) {
 		setEnd(nowPage * cntPerPage);
@@ -100,6 +107,8 @@ public class PagingVO {
 	public void setMkRegion(String mkRegion) {
 		this.mkRegion = mkRegion;
 	}
+
+
 	@Override
 	public String toString() {
 		return "PagingVO [nowPage=" + nowPage + ", startPage=" + startPage + ", endPage=" + endPage + ", total=" + total
