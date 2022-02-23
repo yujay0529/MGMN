@@ -1,85 +1,129 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>회원 가입 폼</title>	
-		<link href="<c:url value='/css/join.css'/>" rel="stylesheet" type="text/css">	
-		<script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
-		<script src="<c:url value='/js/memIdCheck.js'/>"></script>
-		<script src="https://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-		<script src="<c:url value='/js/searchZip.js'/>"></script>
-	</head>
-	<body>
-		<div id="wrap"> 
-		
-			<!-- TOP  -->
-		   <jsp:include page="/WEB-INF/views/layout/top.jsp" flush='true' />
+<head>
+<meta charset="UTF-8">
+<title>회원 가입 폼</title>
+<link href="<c:url value='/css/join.css'/>" rel="stylesheet"
+	type="text/css">
+<script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
+<script src="<c:url value='/js/memIdCheck.js'/>"></script>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<!-- https 혹은 http로 고쳐야 api가 불러와짐 -->
+<script src="<c:url value='/js/searchZip.js'/>"></script>
+</head>
+<body>
+	<div id="wrap">
+
+		<!-- TOP  -->
+		<jsp:include page="/WEB-INF/views/layout/top.jsp" flush='true' />
 		<!--  회원 가입 폼  -->
-		<section>
-	        <h1 id="title">회원 가입</h1>
-	        <form id="joinForm" name="joinForm" method="post"  action="<c:url value='/join'/>">
-	          <table>
-	            <tr><th> 성명</th><td><input type="text" id="userName" name="userName" ></td></tr>
-	            <tr><th> ID</th><td><input type="text" id="userId" name="userId" > 
-	            		<input type="button" id="idCheck" value="ID 중복 체크"></td></tr>
-	            <tr><th>비밀번호</th><td><input type="password" id="userPwd" name="userPwd"></td></tr>
-	            <tr><th>이메일</th><td>
-                                   <input type="text" name="userEmail"  id="userEmail" >@<select name="email">
-                                       <option value="naver"  selected>naver.com
-                                       <option value="gmail">gmail.com
-                                       <option value="nate">nate.com
-                                       <option value="hanmail">hanmail.net
-                                   </select>
-                               </td>
-                           </tr>
-	            <tr><th>휴대폰 번호</th><td><input type="text" id="userHp1" name="userHp1" size="3"> 
-	                    - <input type="text" id="userHp2" name="userHp2" size="4">
-	                    - <input type="text" id="userHp3" name="userHp3" size="4"></td></tr>   
-	            <tr><th>학년</th><td><input type="radio" id="userYear1" name="userYear" value="1" >1학년
-	                                     <input type="radio" id="userYear2" name="userYear" value="2">2학년
-	                                     <input type="radio" id="userYear3" name="userYear" value="3">3학년
-	                                     <input type="radio" id="userYear4" name="userYear" value="4">4학년</td></tr>
-	            <tr><th>관심분야</th>
-	                  <td><input type="checkbox"  id="web" name="userInterests" value="웹프로그래밍">웹 프로그래밍
-	                         <input type="checkbox"  id="design" name="userInterests" value="웹디자인">웹 디자인
-	                         <input type="checkbox"  id="bigdata" name="userInterests" value="빅데이터">빅데이터
-	                         <input type="checkbox"  id="java" name="userInterests" value="자바프로그래밍">자바 프로그래밍</td></tr>
-	            <tr><th>학과</th>
-	                  <td><select id="userDepartment" name="userDepartment">
-	                               <option value="">선택하세요</option>
-								   <option value="경영학과">경영학과</option>
-								   <option value="수학과">수학과</option>
-								   <option value="통계학과">통계학과</option>
-	                               <option value="정보통신공학과">정보통신공학과</option>
-								   <option value="중국어과">중국어과</option>	
-								   <option value="컴퓨터학과">컴퓨터학과</option>
-	                          </select></td></tr>
-	             		<tr><th>주소</th>
-								<td colspan="3">
-										<input type="text" id="userZipcode" name="userZipcode"   size="5" > 
-										<input type="button" id="searchZip" name="searchZip" value="우편번호찾기" readonly><br>
-										<input type="text"  id="userAddress1"  name="userAddress1" size="70" readonly><br> 
-										<input type="text" id="userAddress2"  name="userAddress2" size="70" placeholder="상세 주소 입력">
-								</td></tr>	             
-	             <tr>
-	                <td colspan="2" align="center" id="button">
-	                    <br><input type="submit" value="완료">
-	                    <input type="reset" value="취소">
-	                </td>
-	            </tr>             
-	            </table>
-	      </form>	
-      </section>
-      
-    	<!-- BOTTOM  -->
-	   <jsp:include page="/WEB-INF/views/layout/bottom.jsp" flush='true' />
-	   
-	      </div>
-     
-    </body>
+		<div class="register">
+			<h2>회원가입</h2>
+			<form id="joinForm" name="joinForm" method="post"
+				action="<c:url value='/join'/>">
+				<div class="flex">
+					<ul class="container">
+						<li class="item center">이름</li>
+						<li class="item"><input id="userName" name="userName" placeholder="이름을 입력하세요." 
+							autofocus required></li>
+						<li class="item"></li>
+					</ul>
+					<ul class="container">
+						<li class="item center">아이디</li>
+						<li class="item"><input type="text" id="userId" name="userId"
+							placeholder="아이디를 입력하세요." required></li>
+						<li class="item">
+							<button id="idCheck" class="idcheck">중복확인</button>
+						</li>
+					</ul>
+					<ul class="container">
+						<li class="item center">비밀번호</li>
+						<li class="item"><input type="password" id="userPwd"
+							name="userPwd" placeholder="비밀번호를 입력하세요." required></li>
+						<li class="item"></li>
+					</ul>
+					<ul class="container">
+						<li class="item center">비밀번호 확인</li>
+						<li class="item"><input type="password" id="userPwd2"
+							name="userPwd2" placeholder="비밀번호를 다시 입력하세요." required></li>
+						<li class="item"></li>
+					</ul>
+					<ul class="container">
+						<li class="item center">이메일</li>
+						<li class="item"><input type="text" id="userEmail"
+							name="userEmail" placeholder="이메일을 입력하세요." required></li>
+						<li class="item"></li>
+					</ul>
+					<ul class="container">
+						<li class="item center">생년월일</li>
+						<li class="item"><input type="date" required></li>
+						<li class="item"></li>
+					</ul>
+					<ul class="container">
+						<li class="item center">성별</li>
+						<li class="item"><select name="gender" id="gender">
+								<option value="선택" selected>선택</option>
+								<option value="남성">남성</option>
+								<option value="여성">여성</option>
+						</select></li>
+						<li class="item"></li>
+					</ul>
+					<ul class="container2">
+						<li class="item center">전화번호</li>
+						<li class="item3"><input type="text" id="userHp1"
+							name="userHp1" size="3" placeholder="010">
+							&nbsp&nbsp&nbsp&nbsp <input type="text" id="userHp2"
+							name="userHp2" size="4" placeholder="0000">
+							&nbsp&nbsp&nbsp&nbsp <input type="text" id="userHp3"
+							name="userHp3" size="4" placeholder="0000"></li>
+						<li class="item"></li>
+					</ul>
+					<ul class="container">
+						<li class="item center">우편번호</li>
+						<li class="item">
+						<input type="text" id="userZipcode"
+							name="userZipcode" size="5" placeholder="우편번호 찾기를 눌러주세요." readonly>
+						<li class="item">
+							<button id="searchZip" class="searchZip">우편번호찾기</button>
+						</li>
+					</ul>
+					
+					
+					<ul class="container">
+						<li class="item center">주소1</li>
+						<li class="item">	
+						<input
+							type="text" id="userAddress1" name="userAddress1" size="70" placeholder="우편번호 찾기를 눌러주세요." readonly
+							>
+					</ul>
+					
+					<ul class="container">
+						<li class="item center">주소2</li>
+						<li class="item"><input type="text" id="userAddress2"
+							name="userAddress2" size="70" placeholder="상세 주소를 입력하세요." >
+						
+						<li class="item"></li>
+					</ul>
+					<ul class="container">
+						<li class="item center"></li>
+						<li class="item">
+							<button type="submit" class="submit">가입하기</button>
+						</li>
+						<li class="item"></li>
+					</ul>
+				</div>
+			</form>
+		</div>
+
+		<!-- BOTTOM  -->
+		<jsp:include page="/WEB-INF/views/layout/bottom.jsp" flush='true' />
+
+	</div>
+
+</body>
 </html>
 
 
