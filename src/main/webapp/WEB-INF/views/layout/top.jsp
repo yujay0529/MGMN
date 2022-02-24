@@ -20,7 +20,11 @@
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
         <!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
 
+    <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
+        <script src="assets/js/vendor/bootstrap.min.js"></script>
 
+        <script src="assets/js/plugins.js"></script>
+        <script src="assets/js/main.js"></script>
         <!--For Plugins external css-->
         <link rel="stylesheet" href="assets/css/plugins.css" />
 
@@ -29,10 +33,12 @@
 
         <!--Theme Responsive css-->
         <link rel="stylesheet" href="assets/css/responsive.css" />
+  
 
         <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
         
         <script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
+
 <script type="text/javascript">
 				
 	function toMarket() {		// 중고거래 링크 접근과 동시에 ip => 주소 
@@ -84,14 +90,14 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="index.html" style="width:300px;height:20px;font-size:30px;">MGMN</a>
+                        <a class="navbar-brand" href="/" style="width:300px;height:20px;font-size:30px;">MGMN</a>
                     </div>
       
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="active"><a href="#home">Home<span class="sr-only">(current)</span></a></li>
+                            <li class="active"><a href="/">Home<span class="sr-only">(current)</span></a></li>
                            <c:if test="${empty sessionScope.sid }">
 							<li><a href="<c:url value='/joinForm'/>">Join</a><li>
 							<li><a href="<c:url value='/loginForm'/>">Login</a><li>

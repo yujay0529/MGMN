@@ -13,55 +13,7 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
-
-
-        <!--For Plugins external css-->
-        <link rel="stylesheet" href="assets/css/plugins.css" />
-
-        <!--Theme custom css -->
-        <link rel="stylesheet" href="assets/css/style.css">
-
-        <!--Theme Responsive css-->
-        <link rel="stylesheet" href="assets/css/responsive.css" />
-
-        <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-        
-        <script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
-<script type="text/javascript">
-				
-	function toMarket() {		// 중고거래 링크 접근과 동시에 ip => 주소 
-		// ip 구하는 api 키
-		// IP API 변경
-		// let apiKey = 'e467b63698e3483a919b49c7ee41550f';
-		
-		$.getJSON("https://api.ipify.org?format=jsonp&callback=?", function (data) {
-		// $.getJSON('https://ipgeolocation.abstractapi.com/v1/?api_key=' + apiKey, function (data) {
-			console.log(data.ip);
-			// console.log(data.ip_address);
-			// ip 주소를 RestController 로 post => geolocation api 실행
-			$.ajax({
-				type: "post",
-				url: "/location2",
-				data: {
-					ip: data.ip
-					// ip: data.ip_address
-				},
-				dataType: "text",
-				success: function(data) {
-					location.href="/market/listRegionPost";
-				},
-				error: function(data, textStatus) {
-					console.log(data);
-					console.log(textStatus);
-				}
-			})
-		});
-	} 
-</script>
+       
 
         
     </head>
@@ -83,17 +35,19 @@
                 <div class="row">
                     <div class="homepage-style">
 
-                        <div class="top-arrow hidden-xs text-center"><img src="assets/images/top-arrow.png" alt="" /></div>
+    
 
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <div class="unique-apps">
-                                <h2>UNIQUE-TECH<br>APP DEVELOPMENT </h2>
+                                <h2>물어볼개🐶<br>무엇이냥😺 </h2>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. 
-                                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit. 
+                        		   커져가는 반려동물 시장! 보호자에게는 집 근처 나와 우리 아이에게 딱 맞는 정보가 필요하다!<br>
+
+									반려동물을 키우는 사람들을 위해 사용자의 위치를 기반으로 거주지 근처 시설들을 추천하고 <br>실사용자들의 후기를 공유하는 플랫폼
                                 </p>
 
-                                <div class="home-btn"><button class="btn btn-primary">View More <span><i class="fa fa-paper-plane"></i></span></button></div>
+                                <div class="home-btn"><button class="btn btn-primary" style="color:white;">
+                                <a href="https://github.com/yujay0529/MGMN">View More <span><i class="fa fa-paper-plane"></i></span></a></button></div>
                             </div>
                         </div>
 
@@ -114,19 +68,19 @@
                                     <div class="carousel-inner" role="listbox">
 
                                         <div class="item active">
-                                            <img src="assets/images/slider-img.png" alt="" />
+                                            <img src="assets/images/cat1.jpeg" alt="" />
                                         </div>
 
                                         <div class="item">
-                                            <img src="assets/images/slider-img.png" alt="" />
+                                            <img src="assets/images/dog1.jpeg" alt="" />
                                         </div>
 
                                         <div class="item">
-                                            <img src="assets/images/slider-img.png" alt="" />
+                                            <img src="assets/images/dog2.jpeg" alt="" />
                                         </div>
 
                                         <div class="item">
-                                            <img src="assets/images/slider-img.png" alt="" />
+                                            <img src="assets/images/cat2.jpeg" alt="" />
                                         </div>
 
                                     </div>
@@ -227,234 +181,11 @@
 
        
 
-        <section id="our-feature" class="sections">
-            <div class="container">
-                <div class="heading">
-                    <div class="title text-center arrow-left">
-                        <img class="hidden-xs" src="assets/images/left-arrow.png" alt="" />
-
-                        <h4 class="">Our Features</h4>
-                    </div>
-                </div>
-
-                <div class="feature-wrapper">
-                    <div class="row">
-
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="features-content active"> 
-                                <h4><i class="fa fa-database"></i><span>Visual Composer</span></h4>
-                                <p>orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulla</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="features-content"> 
-                                <h4><i class="fa fa-database"></i><span>Responsive</span></h4>
-                                <p>orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulla</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="features-content"> 
-                                <h4><i class="fa fa-database"></i><span>Retina Ready</span></h4>
-                                <p>orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulla</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="features-content"> 
-                                <h4><i class="fa fa-database"></i><span>Retina Ready</span></h4>
-                                <p>orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulla</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="features-content"> 
-                                <h4><i class="fa fa-database"></i><span>Retina Ready</span></h4>
-                                <p>orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulla</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="features-content"> 
-                                <h4><i class="fa fa-database"></i><span>Retina Ready</span></h4>
-                                <p>orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulla</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="features-content"> 
-                                <h4><i class="fa fa-database"></i><span>Retina Ready</span></h4>
-                                <p>orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulla</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="features-content"> 
-                                <h4><i class="fa fa-database"></i><span>Retina Ready</span></h4>
-                                <p>orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulla</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="features-content"> 
-                                <h4><i class="fa fa-database"></i><span>Retina Ready</span></h4>
-                                <p>orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulla</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="features-content"> 
-                                <h4><i class="fa fa-database"></i><span>Retina Ready</span></h4>
-                                <p>orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulla</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="features-content"> 
-                                <h4><i class="fa fa-database"></i><span>Retina Ready</span></h4>
-                                <p>orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulla</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="features-content"> 
-                                <h4><i class="fa fa-database"></i><span>Retina Ready</span></h4>
-                                <p>orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulla</p>
-                            </div>
-                        </div>
-                    </div>	
-                </div>		
-
-
-            </div>
-
-
-        </section>
-
+        
         
 
-        <section id="our-history" class="sections">
-            <div class="container">
-
-                <div class="row">
-
-                    <div class="main-history">
-
-                        <div class="col-md-6 col-sm-12 col-xs-12">
-                            <div class="history-img">
-                                <img src="assets/images/history-img.png" alt="" />
-                            </div>
-                        </div>
-
-
-
-                        <div class="col-md-6 col-sm-12 col-xs-12">
-                            <div class="history-wrapper">
-                                <div class="history-heading"> 
-                                    <h5 class="our-history">Our History</h5>
-                                </div>
-
-                                <div class="history-content">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
-                                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est. laboru
-                                    </p>
-
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
-                                        consequat.
-                                    </p>
-
-                                    <div class="hst-btn"><button class="btn btn-primary">BROWSE OUR HISTORY</button></div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="our-project" class="sections">
-            <div class="container">
-
-                <div class="heading">
-                    <div class="title text-center arrow-left">
-
-                        <h4 class="">Our Business Project</h4>
-                        <img class="hidden-xs" src="assets/images/right-arrow.png" alt="" />
-                    </div>
-                </div>
-
-                <div class="row">
-
-
-                    <div class="main-project text-center">
-
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="project-item">
-                                <div class="project-photo"><img src="assets/images/projects/1.png" alt="" /></div>
-                                <h5>TECHNICAL AID</h5>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="project-item">
-                                <div class="project-photo"><img src="assets/images/projects/2.png" alt="" /></div>
-                                <h5>SECURE ACCESS</h5>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="project-item">
-                                <div class="project-photo"><img src="assets/images/projects/3.png" alt="" /></div>
-                                <h5>MARKET RESERCH</h5>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="project-item">
-                                <div class="project-photo"><img src="assets/images/projects/4.png" alt="" /></div>
-                                <h5>CREDIT RESERCH</h5>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="project-item">
-                                <div class="project-photo"><img src="assets/images/projects/5.png" alt="" /></div>
-                                <h5>TECHNICAL AID</h5>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="project-item">
-                                <div class="project-photo"><img src="assets/images/projects/6.png" alt="" /></div>
-                                <h5>TECHNICAL AID</h5>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="project-item">
-                                <div class="project-photo"><img src="assets/images/projects/7.png" alt="" /></div>
-                                <h5>TECHNICAL AID</h5>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="project-item">
-                                <div class="project-photo"><img src="assets/images/projects/8.png" alt="" /></div>
-                                <h5>TECHNICAL AID</h5>
-                            </div>
-                        </div>
-
-
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
+       
+      
         <section id="our-team" class="sections">
             <div class="container">
 
@@ -511,66 +242,6 @@
             </div>
         </section>
 
-        <section id="our-supports" class="sections">
-            <div class="container">
-
-                <div class="heading">
-                    <div class="title text-center arrow-left">
-
-                        <h4 class="">Updates & Support</h4>
-                        <img class="hidden-xs" src="assets/images/right-arrow.png" alt="" />
-                    </div>
-                </div>
-
-                <!-- Example row of columns -->
-                <div class="row">
-
-
-                    <div class="col-sm-6 col-xs-12">
-                        <div class="supports-content">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
-                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est. laboru
-                            </p>
-                            <div class="spt-btn"><button class="btn btn-primary">SUPPORT CENTER</button></div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6 col-xs-12">
-                        <div class="supports-img"><img class="img-responsive" src="assets/images/monitor.png" alt="" /></div>
-                    </div>
-
-
-                </div>
-
-            </div> <!-- /container -->       
-        </section>
-
-        <section id="hire-us" class="sections">
-
-            <div class="container">
-
-                <!-- Example row of columns -->
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="hire-content">
-                            <div class="img-overlay">
-
-                                <div class="creative-works">
-                                    <h3>NEED CREATIVE WORKERS?</h3>
-                                    <button class="btn hire-btn btn-primary">HIRE US</button>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-
-            </div> <!-- /container -->  
-
-        </section>
 
         <div class="scroll-top">
 
@@ -580,85 +251,7 @@
 
         </div>
 
-        <!--Footer-->
-        <footer id="footer" class="footer">
-            <div class="container">
-
-                <div class="row">
-                    <div class="main-footer">
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="footer-item">
-                                <h2>PORTFOLIO</h2>
-                                <ul>
-                                    <li><a href="#">Web Design</a></li>
-                                    <li><a href="#">Brand & Identity</a></li>
-                                    <li><a href="#">Mobile Design</a></li>
-                                    <li><a href="#">Print</a></li>
-                                    <li><a href="#">User Interface</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="footer-item">
-                                <h2>ABOUT</h2>
-                                <ul>
-                                    <li><a href="#">The Company</a></li>
-                                    <li><a href="#">History</a></li>
-                                    <li><a href="#">Vision</a></li>
-
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="footer-item">
-                                <h2>GALLERY</h2>
-                                <ul>
-                                    <li><a href="#">lickr</a></li>
-                                    <li><a href="#">Picasa</a></li>
-                                    <li><a href="#">iStockPhoto</a></li>
-                                    <li><a href="#">PhotoDune</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="footer-item">
-                                <h2>CONTACT</h2>
-                                <ul>
-                                    <li><a href="#">Basic Info</a></li>
-                                    <li><a href="#">Map</a></li>
-                                    <li><a href="#">Conctact Form</a></li>
-
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="socio-copyright">
-
-                        <div class="social">
-                            <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
-                            <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
-                            <a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
-                            <a target="_blank" href="#"><i class="fa fa-linkedin"></i></a>
-                        </div>
-
-                        <p>Made with <i class="fa fa-heart"></i> by <a target="_blank" href="http://bootstrapthemes.co"> Bootstrap Themes </a>2016. All rights reserved.</p>
-                    </div>
-
-                </div>	
-            </div>
-
-        </footer>
-
-
-        <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
-        <script src="assets/js/vendor/bootstrap.min.js"></script>
-
-        <script src="assets/js/plugins.js"></script>
-        <script src="assets/js/main.js"></script>
+    
+        <jsp:include page="/WEB-INF/views/layout/bottom.jsp" flush='true' />
     </body>
 </html>

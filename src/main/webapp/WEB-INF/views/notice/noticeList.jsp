@@ -145,6 +145,7 @@
 								</div>
 							
 						</div>
+						<br><br>
 		
 		
 	
@@ -157,6 +158,7 @@
 		<!-- 공부할 수 있는 사이트 연결 -->
 
 	</div>
+	<jsp:include page="/WEB-INF/views/layout/bottom.jsp" flush='true' /> 
 </body>
 
 </html>

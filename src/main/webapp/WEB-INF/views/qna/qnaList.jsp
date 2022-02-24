@@ -9,15 +9,17 @@
     <meta charSet="utf-8"/>
     <title>반려동물 Q&amp;A - 물개무냥</title>  
      <script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
-    <link rel="stylesheet" href="/css/qna.css"> 
-    
+
+      <link rel="stylesheet" href="/css/qna.css"> 
     
 
 
 
 </head>
-<jsp:include page="/WEB-INF/views/layout/top.jsp" flush='true' /> 
+
 <body>
+<jsp:include page="/WEB-INF/views/layout/top.jsp" flush='true' /> 
+  
    <div id = "qnawrap">
       <!-- TOP  -->
 		
@@ -119,11 +121,13 @@
 								</c:if>
 								</div>
 							
-						</div>
+						</div><br><br>
 		
 	
 	<!-- 페이지 넘기기 끝 -->
 
-    </div>
+    </div> 
+     <jsp:include page="/WEB-INF/views/layout/bottom.jsp" flush='true' /> 
   </body>
+
  </html>
