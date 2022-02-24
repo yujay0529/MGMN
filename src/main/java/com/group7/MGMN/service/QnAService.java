@@ -69,5 +69,8 @@ public class QnAService implements IQnAService {
 	public List<QnAVO> qnaselectBoard(PagingVO vo) {
 		return dao.qnaselectBoard(vo);
 	}
-
+	@Override
+	public ArrayList<QnAVO> qnaCheck(HashMap<String, Object> map)throws Exception {
+		return dao.qnaCheck(map);
+	}
 	}

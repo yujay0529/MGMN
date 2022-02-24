@@ -4,10 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.sql.rowset.serial.SerialException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.group7.MGMN.model.PagingVO;
 import com.group7.MGMN.model.QnAVO;
@@ -111,21 +109,36 @@ public class QnAController {
 				@RequestParam HashMap<String, Object> param, Model model
 																,@RequestParam("keyword") String keyword
 																,@RequestParam("type") String type
-																,@RequestParam(value="animal",required=false) List<String> animal)throws Exception{
+																,@RequestParam("animal") String animal)throws Exception{
 
 			System.out.println("keyword" + keyword + ", " + type);
 			QnAVO qnAVO = new QnAVO();
 			qnAVO.setType(type);
 			qnAVO.setKeyword(keyword);
+			qnAVO.setAnimal(animal);
 			ArrayList<QnAVO> qnaList = qnaService.qnaSearch(param);
 			model.addAttribute("qnaList", qnaList);
 
 			
-			
-			
+			return "qna/qnaList";
+		}	
+		
+		@RequestMapping("/qna/qnaCheck")
+		public String qnaCheck(
+				@RequestParam HashMap<String, Object> param, Model model
+																,@RequestParam("animal") String animal)throws Exception{
+
+			System.out.println("animal" + animal );
+			System.out.println("param" + param );
+			QnAVO qnAVO = new QnAVO();
+
+			qnAVO.setAnimal(animal);
+			ArrayList<QnAVO> qnaList = qnaService.qnaCheck(param);
+			model.addAttribute("qnaList", qnaList);
+
 			
 			return "qna/qnaList";
 		}	
-
+		
 		
 }

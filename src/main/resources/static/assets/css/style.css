@@ -182,7 +182,7 @@ p:last-child {
 .home-wrap h5,
 .home-wrap p {
     color: #ffffff;
-    font-family: 'roboto', sans-serif;
+    font-family: sans-serif;
 }
 .text {
     color: #333333;
@@ -571,7 +571,7 @@ input:-ms-input-placeholder {
 .navbar-default {
     background-color:transparent;
     border:transparent;
-    padding-top: 70px;
+ padding-top:30px;
 }
 
 .navbar {

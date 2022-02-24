@@ -6,16 +6,18 @@ body,html{
     width:100%;
     height:100%
 }
-#wrap{
+#qnawrap{
     max-width: 1024px;
     margin: 0 auto;
     padding: 0 27px;
 }
 * {
-  font-family: "sans-serif" !important;
+  font-family: "apple sd gothic neo";
 }
 #title{
     font-size: 30px;
+    padding-top:60px;
+font-family: "apple sd gothic neo";
 }
 .qna-search{ 
     width: 70%;
@@ -34,7 +36,7 @@ body,html{
 	position: absolute;
     width: 24px;
     height: 24px;
-   right:39%;
+    right:800px;
     cursor: pointer;
 }
 
@@ -91,7 +93,7 @@ body,html{
     padding: 20px;
     margin: 20px 0;
     width: 150px;
-    height: 100%;
+    height: 50%;
     border-radius: 10px;
     border: 1px solid #cfcfcf;
 
@@ -130,6 +132,7 @@ width: 800px;
 .qnaTitle{
 	margin-top: 20px;
 	font-size: 20px;
+	font-family: "apple sd gothic neo";
     
 }
 
@@ -142,6 +145,7 @@ width: 800px;
     gap: 16px;
     font-size: 12px;
     color: #ababab;
+    font-family: "apple sd gothic neo";
 }
 .myanimal{
     height: 22px;
@@ -155,6 +159,7 @@ width: 800px;
     padding: 4px 15px;
     margin-right: 6px;
     padding-top:5px;
+    font-family: "apple sd gothic neo";
 }
 .pagelist{
     display: flex;

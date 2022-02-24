@@ -18,6 +18,6 @@ public interface IQnADAO {
 	ArrayList<QnAVO> qnaSearch(HashMap<String, Object> map)throws Exception; //  검색
 	public int qnacountBoard();// 게시물 총 갯수
 	public List<QnAVO> qnaselectBoard(PagingVO pagingvo);// 페이징 처리 게시글 조회
-	
+	ArrayList<QnAVO> qnaCheck(HashMap<String, Object> map)throws Exception; // 체크박스 
 
 }

@@ -71,14 +71,31 @@
   			SELECT * FROM qna WHERE
   			<choose>
   				<when test="type != null and type.equals('qnaTitle')">
-  					qnaTitle LIKE CONCAT('%', #{keyword}, '%')
+  					qnaTitle LIKE CONCAT('%', #{keyword}, '%') 
   				</when>  				
   				<when test="type != null and type.equals('qnaContent')">
-  					qnaContent LIKE CONCAT('%', #{keyword}, '%')
+  					qnaContent LIKE CONCAT('%', #{keyword}, '%') 
   				</when>
   				<when test="type != null and type.equals('qnaTandC')">
   					qnaTitle LIKE CONCAT('%', #{keyword}, '%') or
-  					qnaContent LIKE CONCAT('%', #{keyword}, '%')
+  					qnaContent LIKE CONCAT('%', #{keyword}, '%') 
+  				</when>
+  	
+  			</choose>
+  		</select>
+  		
+  		
+  		<select id="qnaCheck" resultMap="QnAResult" parameterType="hashmap">
+  			SELECT * FROM qna WHERE
+  			<choose>
+  					<when test="animal != null and animal.equals('강아지')">
+  					category =  '강아지' 
+  				</when>
+  				<when test="animal != null and animal.equals('고양이')">
+  					category = '고양이' 
+  				</when>
+  				<when test="animal != null and animal.equals('기타')">
+  					category = '기타' 
   				</when>
   			</choose>
   		</select>
