@@ -13,8 +13,11 @@
 
 
 </head>
+
 <body>
+
  <div id="wrap">
+ <jsp:include page="/WEB-INF/views/layout/top.jsp" flush='true' /> 
     <div class="qnaDetailView">
         <div class="qnaDetail">
             <div class="qnaDetailTitle">

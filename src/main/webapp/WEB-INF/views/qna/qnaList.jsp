@@ -11,26 +11,32 @@
     <title>반려동물 Q&amp;A - 물개무냥</title>  
      <script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
     <link rel="stylesheet" href="/css/qna.css"> 
+    
+    
+
 
 
 </head>
+<jsp:include page="/WEB-INF/views/layout/top.jsp" flush='true' /> 
 <body>
-   <div id = "wrap">
-            <div id="title">Q&amp;A</div>
-                    <div class="qna-search"><!--검색창-->
-                    <form id = "qnaSearch" action="/qna/qnaSearch" name="qnaSearch" method="POST">
-	                    <select id="type" name="type">
-							<option value="qnaTandC" >제목 + 내용  </option>
-							<option value="qnaTitle">제목 </option>
-							<option value="qnaContent">내용 </option>
-						</select>
-
-                      
-                        <input type="text"	 name="keyword" id="keyword" placeholder="찾으시는 질문이 있으신가요?" value=""
-                        		 size="40" maxLength="200" style="width:300px;height:20px;font-size:17px;border:0;margin-bottom:5px;"  class="qnaserch-input" />
-                         <button type ="submit" class ="searchbtn" onclick=""style="border:none; background-color:transparent;"> <img src="/image/search.svg"></button>
-				   </form>
-             </div>
+   <div id = "qnawrap">
+      <!-- TOP  -->
+		
+	            <div id="title">Q&amp;A</div>
+	                    <div class="qna-search"><!--검색창-->
+	                    <form id = "qnaSearch" action="/qna/qnaSearch" name="qnaSearch" method="POST">
+		                    <select id="type" name="type">
+								<option value="qnaTandC" >제목 + 내용  </option>
+								<option value="qnaTitle">제목 </option>
+								<option value="qnaContent">내용 </option>
+							</select>
+	
+	                      
+	                        <input type="text"	 name="keyword" id="keyword" placeholder="찾으시는 질문이 있으신가요?" value=""
+	                        		 size="40" maxLength="200" style="width:300px;height:20px;font-size:17px;border:0;margin-bottom:5px;"  class="qnaserch-input" />
+	                         <button type ="submit" class ="searchbtn" onclick=""style="border:none; background-color:transparent;"> <img src="/image/search.svg"></button>
+					   </form>
+	             </div>
 
                     
                         <div class="qnalist_filter"><!--글목록필터-->
@@ -46,7 +52,7 @@
 	                    
 	                      
 	                            <div class="qna-filter-box"><!--동물유형필터-->
-	                                   <form id = "qnaCheck" action="" name="qnaCheck" method="POST">
+	                                   <form id = "qnaCheck" action="/qna/qnaCheck" name="qnaCheck" method="POST">
 	                                <div class="qna-filter-box-title">동물유형</div>
 	                                
 	                                <div class="checkitem">
@@ -74,7 +80,7 @@
                           	  </div>
                            
                             
-                            <div id="searchResultbox"></div><!-- 검색결과 창  -->
+     
                             <!--글목록-->
                             <div class="qnaContainer">
                         	    <div class="qnalist">

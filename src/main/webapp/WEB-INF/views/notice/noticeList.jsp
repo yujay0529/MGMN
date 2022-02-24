@@ -21,6 +21,7 @@
 </script>
 
 <body>
+<jsp:include page="/WEB-INF/views/layout/top.jsp" flush='true' /> 
 	<div id="wrap">
 		
 	       <div id="container">
