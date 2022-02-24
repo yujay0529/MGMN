@@ -15,6 +15,7 @@
 	    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 	    <link rel="stylesheet" href="/css/write.css">
 		<title>게시글 수정 페이지</title>
+		<link  href="<c:url value='/css/updatePostForm.css' />" rel="stylesheet"  type="text/css" >
 		<script type="text/javascript">
 			 $(document).ready(function () {
 		            $('#summernote').summernote({
@@ -23,8 +24,33 @@
 		            });
 		            
 		            $('#submit_btn').on('click', function () {
-		                alert("글 수정 완료");
-		                window.history.go(-1);
+		            	
+		            	var result = $("#summernote").val().indexOf("<p><img");			// indexOf 값을 못찾으면 -1 반환 => 유효성에 이용 가능
+		            	/* alert(result); */
+		            	 if($("#summernote").val() == "") {		// 값을 비워둔 경우
+		             		alert("게시글 내용을 입력해주세요.");
+		             		frmMkInsert.summernote.focus();
+		             		return false;
+		             	} else if(result == -1) {					// 값을 못찾은 경우
+		             		alert("이미지를 추가해주세요.");
+		             		frmMkInsert.summernote.focus();
+		             		return false;
+		           
+		             	} else if($("#mkTitle").val().length > 20 || $("#mkTitle").val().length < 5 ) {
+		             		// alert($("#mkTitle").val().length);
+		            		alert("게시글 제목은 5~20자로 적어주세요");
+		            		mkTitle.focus();
+		            		return false;
+		            	
+		            	} else if($("#mkPrice").val().length > 20 || $("#mkPrice").val().length == 0 ) {
+		            		alert("가격 항목을 확인해주세요");
+		            		mkPrice.focus();
+		            		return false;
+		            	
+		            	}else {
+			                alert("글 수정 완료");
+			                window.history.go(-1);
+			             	}
 		            });
 		            
 		            $('#cancelBtn').on('click',function() {
@@ -35,19 +61,23 @@
 	</head>
 	<body>
 		<div id="wrap">
-		<h3>상품 정보 수정</h3>
+		<h3>게시글 정보 수정</h3>
 		<hr>
 			<form method="post" action="<c:url value='/market/updatePost'/>">				<!-- action이 Controller 지정 값이랑 같아야 함 -->
 				<input type="hidden" name="mkNo" id="mkNo" value="${mkVO.mkNo}">		<!-- 게시글 수정을 위해 hidden으로 값을 넘겨줌  -->
-				<div>작성자 <input type="text" name="userId" id="userId" value="${mkVO.userId}" readonly></div>
-				<div>게시글 제목<input type="text" name="mkTitle" id="mkTitle" value="${mkVO.mkTitle}"></div>
-				<div>지역<input type="text" name="mkRegion" id="mkRegion" value="${mkVO.mkRegion}"></div>
-				<div>제품 가격<input type="text" name="mkPrice" id="mkPrice" value="${mkVO.mkPrice}"></div>
-				<div>카테고리<input type="text" name="ctgId" id="ctgId" value="${mkVO.ctgId}"></div>
+				<table class="updateTable">
+					<tr><th>작성자</th><td><input type="text" name="userId" id="userId" value="${mkVO.userId}" readonly></td></tr>
+					<tr><th>게시글 제목</th><td><input type="text" name="mkTitle" id="mkTitle" value="${mkVO.mkTitle}"></td></tr>
+					<tr><th>지역</th><td><input type="text" name="mkRegion" id="mkRegion" value="${mkVO.mkRegion}" readonly></td></tr>
+					<tr><th>제품 가격</th><td><input type="text" name="mkPrice" id="mkPrice" value="${mkVO.mkPrice}"></td></tr>
+					<tr><th>카테고리</th><td><input type="radio" name="ctgId" id="ctgId" value="1" checked> 강아지
+														<input type="radio" id="ctgId2" name="ctgId" value="2"> 고양이
+			                                     		<input type="radio" id="ctgId3" name="ctgId" value="3"> 기 타</td></tr>
+				</table>
 		        <div>
 			        <textarea id="summernote" name="mkContent">${mkVO.mkContent}</textarea>
 		        </div>
-				<div><input id='submit_btn' type='submit' value='등록'>&nbsp;&nbsp;<input type='reset' value='취소' id="cancelBtn"></div>
+				<div align="center"><input id='submit_btn' type='submit' value='등록'>&nbsp;&nbsp;<input type='reset' value='취소' id="cancelBtn"></div>
 			</form>
 		</div>
 	</body>

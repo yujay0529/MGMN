@@ -1,5 +1,6 @@
 package com.group7.MGMN.model;
 
+import java.awt.Checkbox;
 import java.sql.Date;
 
 public class QnAVO {
@@ -13,7 +14,18 @@ public class QnAVO {
 	private String userId;
 	private String category;
 	
+	private String type;//검색타입 
+	private String keyword;//검색 내용 
+	
+	private String animal;//체크 내용 
 
+
+	public String getAnimal() {
+		return animal;
+	}
+	public void setAnimal(String animal) {
+		this.animal = animal;
+	}
 	public int getQnaNo() {
 		return qnaNo;
 	}
@@ -70,12 +82,29 @@ public class QnAVO {
 	}
 	
 	
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public String getKeyword() {
+		return keyword;
+	}
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+	
+	
 	@Override
 	public String toString() {
 		return "QnAVO [qnaNo=" + qnaNo + ", qnaTitle=" + qnaTitle + ", qnaContent=" + qnaContent + ", qnaHit=" + qnaHit
 				+ ", qnaFile=" + qnaFile + ", qnaCreateDate=" + qnaCreateDate + ", qnaComment=" + qnaComment
-				+ ", userId=" + userId + ", category=" + category + "]";
+				+ ", userId=" + userId + ", category=" + category + ", type=" + type + ", keyword=" + keyword
+				+ ", animal=" + animal + "]";
 	}
+
+	
 	
 	
 	

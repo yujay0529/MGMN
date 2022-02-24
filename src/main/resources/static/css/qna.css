@@ -6,13 +6,18 @@ body,html{
     width:100%;
     height:100%
 }
-#wrap{
+#qnawrap{
     max-width: 1024px;
     margin: 0 auto;
     padding: 0 27px;
 }
+* {
+  font-family: "apple sd gothic neo";
+}
 #title{
     font-size: 30px;
+    padding-top:70px;
+font-family: "apple sd gothic neo";
 }
 .qna-search{ 
     width: 70%;
@@ -26,6 +31,11 @@ body,html{
 }
 .qnasearch-input:focus{
     outline:none;
+}
+.searchbtn{
+
+    right:800px;
+    cursor: pointer;
 }
 
 .qnalist_filter{
@@ -48,6 +58,11 @@ body,html{
     margin-right: 6px;
     margin-left: 55%;
 
+}
+.write_btn :hover {
+    cursor: pointer;
+    background-color: #fff;
+    border: 2px solid #fcd11e;
 }
 
 
@@ -76,18 +91,21 @@ body,html{
     padding: 20px;
     margin: 20px 0;
     width: 150px;
-    height: 100%;
+    height: 50%;
     border-radius: 10px;
     border: 1px solid #cfcfcf;
 
 }
-.qna-select-item{
-margin-top: 5px;
-font-size: 12px;
-color: #707070;
+.checkitem{
+    display: flex;
+    flex-direction: row;
+    grid-gap: 15px;
+    gap: 15px;
+    margin-bottom: 10px;
+    font-size: 14px;
 }
 
-#apply-btn{
+.apply-btn{
     width: 100%;
     padding: 3px 0;
     border-radius: 15px;
@@ -96,6 +114,9 @@ color: #707070;
     background-color: #fcd11e;
     border: 2px solid #fff;
     margin-top: 10px;
+}
+.apply-btn :hover {
+    background-color:#ffeb99
 }
 
 .qnaContainer{
@@ -109,19 +130,10 @@ width: 800px;
 .qnaTitle{
 	margin-top: 20px;
 	font-size: 20px;
+	font-family: "apple sd gothic neo";
     
 }
-/* .qnaContent{
-    width: 800px;
-    
-    margin-bottom: 6px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    font-size: 15px;
-    color: #ababab;
-}  */
+
 .qnaHit,.userid,.date{  
     float: left;  
     display: flex;
@@ -131,6 +143,7 @@ width: 800px;
     gap: 16px;
     font-size: 12px;
     color: #ababab;
+    font-family: "apple sd gothic neo";
 }
 .myanimal{
     height: 22px;
@@ -143,6 +156,8 @@ width: 800px;
     display: inline-block;
     padding: 4px 15px;
     margin-right: 6px;
+    padding-top:5px;
+    font-family: "apple sd gothic neo";
 }
 .pagelist{
     display: flex;
@@ -161,47 +176,27 @@ input:focus{
 }
 
 
+.checkbox input {display:none;}
+.checkbox span {display:inline-block;vertical-align:middle;cursor:pointer;}
+.checkbox .icon {position:relative;width: 17px;height: 17px;border: 1px solid #c8ccd4;border-radius: 3px;transition: background 0.1s ease;}
+.checkbox .icon::after {content: '';position: absolute;top: 1px;left: 5px;width: 5px;height: 11px;border-right: 2px solid #fff;border-bottom: 2px solid #fff;transform: rotate(45deg) scale(0);transition: all 0.3s ease;transition-delay: 0.15s;opacity: 0;}
+
+
+.checkbox input:checked ~ .icon {border-color: transparent;background:  #fcd11e;animation: jelly 0.6s ease;}
+.checkbox input:checked ~ .icon::after {opacity: 1;transform: rotate(45deg) scale(1);
+}
+
+@keyframes jelly {
+	from {transform: scale(1, 1);}
+	30% {transform: scale(1.25, 0.75);}
+	40% {transform: scale(0.75, 1.25);}
+	50% {transform: scale(1.15, 0.85);}
+	65% {transform: scale(0.95, 1.05);}
+	75% {transform: scale(1.05, 0.95);}
+	to {transform: scale(1, 1);}
+}
 
 
 
-
-
-
-/* ul.pagination li{
-    display:inline-block;
-    width:30px;
-    height:30px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:1rem;
-    border:none
-}
-ul.pagination li:first-child{
-    border-radius:5px 0 0 5px;
-    border:none
-}
-ul.pagination li:last-child{
-    border-radius:0 5px 5px 0;
-    border:none
-}
-ul.pagination li a{
-    text-decoration:none;
-    color:#868688;
-    font-size:1rem;
-    border:none
-}
-ul.pagination li.active a{
-    color:#090909;border:none
-}
-ul.pagination li.active{
-    background-color:#ffeb994d;
-    border-radius:50%;
-    border:2px solid #fcd11e
-}
-.page-selection,ul.pagination li a.active,ul.pagination li a:hover{
-    color:#090909;
-    border:none
-} */
   
                                                             

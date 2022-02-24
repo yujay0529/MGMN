@@ -1,0 +1,101 @@
+@charset "UTF-8";
+@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+
+/* insertPostView.css */
+
+a { 	
+	text-decoration: none;
+	color : black;
+}
+
+h3 {
+    font-size: 22px;
+    font-family: 'Jeju Gothic', sans-serif;
+    font-style: normal;
+    margin-top: 5%;
+}
+ 
+div#wrap {
+   margin: 0 auto;
+   width: 1024px;
+}
+	    
+hr {
+    margin-top: 15px;
+    margin-bottom: 12px;
+    border: 0;
+    border-top: 1px solid sandybrown;
+}
+	
+	  
+table.insertTable {
+	  border-collapse: separate;
+	  border-spacing: 4px;
+	  text-align: left;
+	  line-height: 1.5;
+	  margin-bottom: 20px;
+      margin-top: 20px;
+      font-family: 'Jeju Gothic', sans-serif;
+}
+
+table.insertTable th {
+	  border-left: 3px solid orange ;
+	  padding: 10px;
+	  font-weight: bold;
+  	  border-radius: 5px;
+}
+table.insertTable td {
+	  width: 350px;
+	  padding: 10px;
+	  vertical-align: top;
+	  background: floralwhite;
+   	  border-radius: 6px;
+}
+
+div#detailViewContent {
+    background: white;
+    border-top: 1px solid sandybrown;
+    border-bottom: 1px solid sandybrown;
+}
+
+input[type=button]{
+	  background: sandybrown;
+	  border: 2px solid orange;
+	  border-radius: 5px;
+	  float: right;
+      margin-left: 25px;
+      margin-top: -10px;
+      font-family: 'Jeju Gothic', sans-serif;
+      padding: 3px;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+label {
+    background: floralwhite;
+    border-left: 3px solid orange;
+    border-radius: 5px;
+    padding: 4px;
+    padding-left: 10px;
+    padding-right: 200px;
+    font-family: 'Jeju Gothic', sans-serif;
+}
+
+form#commentInsertForm {
+    margin-top: 15px;
+    margin-left: 3px;
+}
+
+input#content {
+    background: antiquewhite;
+    border-color: burlywood;
+    padding-right: 101px;
+}
+
+button.btn.btn-default {
+    background: sandybrown;
+    border: 1px solid darkorange;
+    border-radius: 4px;
+}

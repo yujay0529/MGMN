@@ -14,15 +14,8 @@
 	    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 	    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 	    <link rel="stylesheet" href="/css/write.css">
+	    <link  href="<c:url value='/css/insertPostView.css' />" rel="stylesheet"  type="text/css" >
 	    <title>게시글 작성 페이지</title>
-	    <style type="text/css">
-			h3 {
-  					text-align: center; }
-  			div#wrap {
-				    margin: 0 auto;
-				    width: 1024px; }
-  					
-		</style>
 	    <script>
 	        $(document).ready(function () {
 	            $('#summernote').summernote({
@@ -44,15 +37,28 @@
 	             		alert("이미지를 추가해주세요.");
 	             		frmMkInsert.summernote.focus();
 	             		return false;
-	             	} else {
-	                alert("글 작성 완료");
-	                window.history.go(-1);
-	             	}
+	           
+	             	} else if($("#mkTitle").val().length > 20 || $("#mkTitle").val().length < 5 ) {
+	             		// alert($("#mkTitle").val().length);
+	            		alert("게시글 제목은 5~20자로 적어주세요");
+	            		mkTitle.focus();
+	            		return false;
+	            	
+	            	} else if($("#mkPrice").val().length > 20 || $("#mkPrice").val().length == 0 ) {
+	            		alert("가격 항목을 확인해주세요");
+	            		mkPrice.focus();
+	            		return false;
+	            	
+	            	}else {
+		                alert("글 작성 완료");
+		                window.history.go(-1);
+		             	}
 	            });
 	            
 	            $('#cancelBtn').on('click',function() {
 	            	window.history.go(-1);
 	            })
+	   
 	           
 	        });
 	        
@@ -61,20 +67,24 @@
 	</head>
 	<body>
 		<div id="wrap">
-			<h3>우리동네 중고거래 상품 등록</h3>
+			<h3>우리동네 중고거래 글쓰기</h3>
 			<hr>
 			<form id="frmMkInsert" method="post" action="<c:url value='/insertPost'/> ">
 				<div id="insertWholePost">
-					<div class="insertPost">작성자 <input type="text" name="userId" id="userId" value="kim" readonly></div>	<!-- id 값 일단 고정 로그인이랑 연동시킬 예정 -->
-					<div class="insertPost">게시글 제목<input type="text" name="mkTitle" id="mkTitle"></div>
+					<table class="insertTable">
+						<tr><th>작성자</th><td><input type="text" name="userId" id="userId" value="${sessionScope.sid }" readonly></td></tr>
+						<tr><th>게시글 제목</th><td><input type="text" name="mkTitle" id="mkTitle"></td></tr>
 					<%-- <div class="insertPost">지역<input type="text" name="mkRegion" id="mkRegion" value="${paging.mkRegion }" readonly></div> --%>
-					<div class="insertPost">제품 가격<input type="text" name="mkPrice" id="mkPrice"></div>
-					<div class="insertPost">카테고리<input type="text" name="ctgId" id="ctgId"></div>
+						<tr><th>제품 가격</th><td><input type="text" name="mkPrice" id="mkPrice"></td></tr>
+						<tr><th>카테고리</th><td><input type="radio" id="ctgId1" name="ctgId" value="1" checked>강아지
+			                                     			  <input type="radio" id="ctgId2" name="ctgId" value="2">고양이
+			                                     			  <input type="radio" id="ctgId3" name="ctgId" value="3">기 타</td></tr>
+					</table>
 				</div>
 		        <div>
 			        <textarea id="summernote" name="mkContent"></textarea>
 		        </div>
-				<div><input id='submit_btn' type='submit' value='등록'>&nbsp;&nbsp;<input type='reset' value='취소' id="cancelBtn"></div>
+				<div id="insertSubmit" align="center"><input id='submit_btn' type='submit' value='등록'>&nbsp;&nbsp;<input type='reset' value='취소' id="cancelBtn"></div>
 				<input type="hidden" name="mkImg" id="mkImg">
 				
 			</form>

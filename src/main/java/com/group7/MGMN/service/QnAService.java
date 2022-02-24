@@ -50,28 +50,27 @@ public class QnAService implements IQnAService {
 	}
 
 	@Override
-	public ArrayList<QnAVO> qnaSearch(HashMap<String, Object> map) {
+	public ArrayList<QnAVO> qnaSearch(HashMap<String, Object> map)throws Exception {
 		return dao.qnaSearch(map);
 	}
 	
 	@Override
-	public int hitUp(int qnaNo) throws Exception {
-		return dao.hitUp(qnaNo);
+	public int qnahitUp(int qnaNo) throws Exception {
+		return dao.qnahitUp(qnaNo);
 	}
-	
-	@Override
-	public List<CategoryVO> category() throws Exception{
-		return dao.category();	
-		}
+
 
 	@Override
-	public int countBoard() {
-		return dao.countBoard();
+	public int qnacountBoard() {
+		return dao.qnacountBoard();
 	}
 
 	@Override
-	public List<QnAVO> selectBoard(PagingVO vo) {
-		return dao.selectBoard(vo);
+	public List<QnAVO> qnaselectBoard(PagingVO vo) {
+		return dao.qnaselectBoard(vo);
 	}
-
+	@Override
+	public ArrayList<QnAVO> qnaCheck(HashMap<String, Object> map)throws Exception {
+		return dao.qnaCheck(map);
+	}
 	}

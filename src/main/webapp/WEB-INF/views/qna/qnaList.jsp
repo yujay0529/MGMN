@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -10,67 +9,88 @@
     <meta charSet="utf-8"/>
     <title>반려동물 Q&amp;A - 물개무냥</title>  
      <script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
-    <script src="<c:url value='/js/qnaSearch.js'/>"></script>
-    <link rel="stylesheet" href="/css/qna.css"> 
-   
+
+      <link rel="stylesheet" href="/css/qna.css"> 
+    
+
+
 
 </head>
+
 <body>
-   <div id = "wrap">
-            <div id="title">Q&amp;A</div>
-                    <div class="qna-search"><!--검색창-->
-                    <form id = "qnaSearch" action="">
-                    <select id="type" name="type">
-						<option value="">검색 조건 선택</option>
-						<option value="qnaTandC">제목 + 내용  </option>
-						<option value="qnaTitle">제목 </option>
-						<option value="qnaContent">내용 </option>
-					</select>
-                    <img src="/image/search.svg">
-                        <input type="text" placeholder="찾으시는 질문이 있으신가요?" size="40" maxLength="200" style="width:300px;height:20px;font-size:17px;border:0;margin-bottom:5px;"  class="qnaserch-input" value=""/>
-                  </form>
-                    </div>
+<jsp:include page="/WEB-INF/views/layout/top.jsp" flush='true' /> 
+  
+   <div id = "qnawrap">
+      <!-- TOP  -->
+		
+	            <div id="title">Q&amp;A</div>
+	                    <div class="qna-search"><!--검색창-->
+	                    <form id = "qnaSearch" action="/qna/qnaSearch" name="qnaSearch" method="POST">
+		                    <select id="type" name="type">
+								<option value="qnaTandC" >제목 + 내용  </option>
+								<option value="qnaTitle">제목 </option>
+								<option value="qnaContent">내용 </option>
+							</select>
+	
+	                      
+	                        <input type="text"	 name="keyword" id="keyword" placeholder="찾으시는 질문이 있으신가요?" value=""
+	                        		 size="40" maxLength="200" style="width:300px;height:20px;font-size:17px;border:0;margin-bottom:5px;"  class="qnaserch-input" />
+	                         <button type ="submit" class ="searchbtn" onclick=""style="border:none; background-color:transparent;"> <img src="/image/search.svg"></button>
+					   </form>
+	             </div>
+
                     
                         <div class="qnalist_filter"><!--글목록필터-->
-                            <input type="radio" name="radio" id="최신 순" value="최신 순" checked />
-                                <label for="최신 순">최신 순</label>                  
-                            <input type="radio" name="radio" id="조회 수 순 " value="조회 수 순 "/>
-                                    <label for="조회 수 순 ">조회 수 순 </label> 
-                             <!-- 글쓰기 버튼 -->
-                             <button class = "write_btn"> <a href ="<c:url value='/qna/write'/>">새 글</a></button> 
-                        </div>
-                                
-                            <div class="qna-filter-box"><!--동물유형필터-->
-                                <div class="qna-filter-box-title">동물유형</div>
-                                <div class="qna-select-item">
-                                    <input type="checkbox" name="dog" id="dog"/>
-                                    <label for="dog">강아지</label>
-                                </div>
-                                <div class="qna-select-item">
-                                    <input type="checkbox" name="cat" id="cat"/>
-                                    <label for="cat">고양이</label>
-                                </div>
-
-                                <div class="qna-select-item">
-                                    <input type="checkbox" name="etc" id="etc"/>
-                                    <label for="etc">기타</label>
-                                </div>
-                                <div class="filter_apply">
-                                    <input id="apply-btn" type="submit" value="적용">
-                                </div>
-                            </div>
+	                            <input type="radio" name="radio" id="최신 순" value="최신 순" checked />
+	                                <label for="최신 순">최신 순</label>                  
+	                            <input type="radio" name="radio" id="조회 수 순 " value="조회 수 순 "/>
+	                                    <label for="조회 수 순 ">조회 수 순 </label> 
+	                             <!-- 글쓰기 버튼 -->
+	                             <c:if test="${sessionScope.userId != null }"><!-- 회원만 글쓰기 가능  -->
+	                             <button class = "write_btn"> <a href ="<c:url value='/qna/write'/>">새 글</a></button> 
+	                             </c:if>
+	                        </div>
+	                    
+	                      
+	                            <div class="qna-filter-box"><!--동물유형필터-->
+	                                   <form id = "qnaCheck" action="/qna/qnaCheck" name="qnaCheck" method="POST">
+	                                <div class="qna-filter-box-title">동물유형</div>
+	                                
+	                                <div class="checkitem">
+	                                <label class="checkbox" for ="dog">
+	                                    <input type="checkbox"  name ="animal" id="dog" value="강아지"/>
+	                                     <span class="icon"></span>   강아지 </label>
+	                                </div>
+	                                
+	                                 <div class="checkitem">
+	                                <label class="checkbox" for="cat">
+	                                    <input type="checkbox"name ="animal"  id="cat"value="고양이"/>
+	                                    <span class="icon"></span>  고양이 </label>
+	                                    </div>
+	                                
+	  							<div class="checkitem">
+	                                <label class="checkbox" for ="etc">
+	                                    <input type="checkbox"name ="animal" id="etc"value="기타"/>
+	                                    <span class="icon"></span>  기타 </label>
+	                                   </div>
+	                              
+	                                <div class="filter_apply">
+	                                <button class ="apply-btn" type="submit">  적용 </button>  
+	                                </div>
+	                                </form>
+                          	  </div>
+                           
                             
-                            <div id="searchResultbox"></div><!-- 검색결과 창  -->
+     
                             <!--글목록-->
                             <div class="qnaContainer">
                         	    <div class="qnalist">
 	                                <div class="qnalist-wrapper">
 	                                    <c:forEach items="${qnaList }" var="qna"><a href="<c:url value='/qna/detailqna/${qna.qnaNo}'/>">
-	                                        <div class="qnaTitle">${qna.qnaTitle }</div>
-	                                       <%--  <div class="qnaContent">${qna.qnaContent}</div>    --%>                            
+	                                        <div class="qnaTitle">${qna.qnaTitle }</div>                     
 	                                        <div class="qnaHit"><div style="color: black;">조회수 ${qna.qnaHit}</div></div>
 	                                        <div class="userid">${qna.userId}</div>        
-	                                        <div class="date"><fmt:formatDate value="${qna.qnaCreateDate}" pattern="yyyy.MM.dd"/></div>      
+	                                        <div class="date"><fmt:formatDate value="  ${qna.qnaCreateDate}" pattern="yyyy.MM.dd"/></div>      
 			                                    <div class="animal-filter">
 			                                   	 <button class="myanimal">${qna.category}</button>
 			                                    </div>
@@ -81,21 +101,7 @@
 		                          </div>
 		                          
 		                <div class='paging'>
-									<%-- 				<div calss="pageNum" style="position: left;">	
-													
-														<select id="cntPerPage" name="sel" onchange="selChange()" >
-															<option value="5"
-																<c:if test="${paging.cntPerPage == 5}">selected</c:if>>5개 보기</option>
-															<option value="10"
-																<c:if test="${paging.cntPerPage == 10}">selected</c:if>>10개 보기</option>
-															<option value="15"
-																<c:if test="${paging.cntPerPage == 15}">selected</c:if>>15개 보기</option>
-															<option value="20"
-																<c:if test="${paging.cntPerPage == 20}">selected</c:if>>20개 보기</option>
-														</select>
-														</div><!-- 옵션선택 끝 --> --%>
-							
-									<!-- 페이지 넘기기 -->		
+										
 					      	<div class="pagelist">
 								<c:if test="${paging.startPage != 1 }">
 									<a href="<c:url value='/qnaList?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}'/>">‹&emsp;</a>
@@ -115,12 +121,13 @@
 								</c:if>
 								</div>
 							
-						</div>
+						</div><br><br>
 		
 	
 	<!-- 페이지 넘기기 끝 -->
 
-
-    </div>
+    </div> 
+     <jsp:include page="/WEB-INF/views/layout/bottom.jsp" flush='true' /> 
   </body>
+
  </html>
