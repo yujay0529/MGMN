@@ -30,10 +30,13 @@
                 <div>
                 <div class="qnaDetail-userid" style="color: black;">${qna.userId }	</div>		
                 <div class="qnaDetail-date"><fmt:formatDate value="${qna.qnaCreateDate}" pattern="yyyy.MM.dd"/></div>
-                 <button calss = "qnaupdate"><a href ="<c:url value='/qna/updateqnaForm/${qna.qnaNo}'/>"> 수정</a></button>
+                <c:if test="${sessionScope.userId ==qna.userId || 'admin'}">
+                 <button calss = "qnaupdate"><a href ="/qna/updateqnaForm/${qna.qnaNo}"> 수정</a></button>
 		                <!--  삭제 : 삭제 여부 확인 처리 (자바스크립트로) -->
 		                                    <button class ="qnadelete"><a href="javascript:deleteCheck();">삭제</a></button><br>
-		                                   <script type="text/javascript">
+		                                   <script type="text/javascript">           
+		                      
+		                     
 												function deleteCheck(){
 													var answer = confirm("해당 글을 삭제하시겠습니까?");
 													if(answer == true){
@@ -41,6 +44,7 @@
 													}
 												}
 							</script>
+							</c:if>
 			  <button calss = "qnaList"><a href ="<c:url value='/qnaList'/>"> 목록 </a></button>
             </div>
         </div><hr>

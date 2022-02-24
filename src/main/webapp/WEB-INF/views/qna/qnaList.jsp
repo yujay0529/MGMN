@@ -10,7 +10,6 @@
     <meta charSet="utf-8"/>
     <title>반려동물 Q&amp;A - 물개무냥</title>  
      <script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
-<script src="<c:url value='/js/qnaSearch.js'/>"></script>
     <link rel="stylesheet" href="/css/qna.css"> 
 
 
@@ -20,55 +19,60 @@
             <div id="title">Q&amp;A</div>
                     <div class="qna-search"><!--검색창-->
                     <form id = "qnaSearch" action="/qna/qnaSearch" name="qnaSearch" method="POST">
-                    <select id="type" name="type">
-						<option value="qnaTandC" >제목 + 내용  </option>
-						<option value="qnaTitle">제목 </option>
-						<option value="qnaContent">내용 </option>
-					</select>
+	                    <select id="type" name="type">
+							<option value="qnaTandC" >제목 + 내용  </option>
+							<option value="qnaTitle">제목 </option>
+							<option value="qnaContent">내용 </option>
+						</select>
 
                       
                         <input type="text"	 name="keyword" id="keyword" placeholder="찾으시는 질문이 있으신가요?" value=""
                         		 size="40" maxLength="200" style="width:300px;height:20px;font-size:17px;border:0;margin-bottom:5px;"  class="qnaserch-input" />
-                        		 <button type ="submit" class ="searchbtn" onclick=""style="border:none; background-color:transparent;"> <img src="/image/search.svg"></button>
-                        		 
-                        	
-                        		
-                  </form>
-                    </div>
-                    
-                  
+                         <button type ="submit" class ="searchbtn" onclick=""style="border:none; background-color:transparent;"> <img src="/image/search.svg"></button>
+				   </form>
+             </div>
+
                     
                         <div class="qnalist_filter"><!--글목록필터-->
-                            <input type="radio" name="radio" id="최신 순" value="최신 순" checked />
-                                <label for="최신 순">최신 순</label>                  
-                            <input type="radio" name="radio" id="조회 수 순 " value="조회 수 순 "/>
-                                    <label for="조회 수 순 ">조회 수 순 </label> 
-                             <!-- 글쓰기 버튼 -->
-                             <c:if test="${sessionScope.userId != null }"><!-- 회원만 글쓰기 가능  -->
-                             <button class = "write_btn"> <a href ="<c:url value='/qna/write'/>">새 글</a></button> 
-                             </c:if>
-                        </div>
-                          <div id="searchResultbox"></div>
-                                
-                            <div class="qna-filter-box"><!--동물유형필터-->
-                                <div class="qna-filter-box-title">동물유형</div>
-                                <div class="qna-select-item">
-                                    <input type="checkbox"  name ="animal" id="ch1" value="dog"/>
-                                    <label for="ch1">강아지</label>
-                                </div>
-                                <div class="qna-select-item">
-                                    <input type="checkbox"name ="animal"  id="ch2"value="cat"/>
-                                    <label for="ch2">고양이</label>
-                                </div>
-
-                                <div class="qna-select-item">
-                                    <input type="checkbox"name ="animal" id="ch3"value="etc"/>
-                                    <label for="ch3">기타</label>
-                                </div>
-                                <div class="filter_apply">
-                                <button class ="apply-btn" >적용 </button>  
-                                </div>
-                            </div>
+	                            <input type="radio" name="radio" id="최신 순" value="최신 순" checked />
+	                                <label for="최신 순">최신 순</label>                  
+	                            <input type="radio" name="radio" id="조회 수 순 " value="조회 수 순 "/>
+	                                    <label for="조회 수 순 ">조회 수 순 </label> 
+	                             <!-- 글쓰기 버튼 -->
+	                             <c:if test="${sessionScope.userId != null }"><!-- 회원만 글쓰기 가능  -->
+	                             <button class = "write_btn"> <a href ="<c:url value='/qna/write'/>">새 글</a></button> 
+	                             </c:if>
+	                        </div>
+	                    
+	                      
+	                            <div class="qna-filter-box"><!--동물유형필터-->
+	                                   <form id = "qnaCheck" action="" name="qnaCheck" method="POST">
+	                                <div class="qna-filter-box-title">동물유형</div>
+	                                
+	                                <div class="checkitem">
+	                                <label class="checkbox" for ="dog">
+	                                    <input type="checkbox"  name ="animal" id="dog" value="강아지"/>
+	                                     <span class="icon"></span>   강아지 </label>
+	                                </div>
+	                                
+	                                 <div class="checkitem">
+	                                <label class="checkbox" for="cat">
+	                                    <input type="checkbox"name ="animal"  id="cat"value="고양이"/>
+	                                    <span class="icon"></span>  고양이 </label>
+	                                    </div>
+	                                
+	  							<div class="checkitem">
+	                                <label class="checkbox" for ="etc">
+	                                    <input type="checkbox"name ="animal" id="etc"value="기타"/>
+	                                    <span class="icon"></span>  기타 </label>
+	                                   </div>
+	                              
+	                                <div class="filter_apply">
+	                                <button class ="apply-btn" type="submit">  적용 </button>  
+	                                </div>
+	                                </form>
+                          	  </div>
+                           
                             
                             <div id="searchResultbox"></div><!-- 검색결과 창  -->
                             <!--글목록-->
@@ -114,7 +118,6 @@
 		
 	
 	<!-- 페이지 넘기기 끝 -->
-
 
     </div>
   </body>

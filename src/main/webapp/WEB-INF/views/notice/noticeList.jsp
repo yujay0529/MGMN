@@ -43,10 +43,18 @@
                             <input type="radio" name="radio" id="오래된 순  " value="오래된 순  "/>
                                     <label for="오래된 순 ">오래된 순  </label> 
                              <!-- 글쓰기 버튼 -->
-                         <%--      <c:if test="${sessionScope.userId = 'admin'}"><!-- 회원만 글쓰기 가능 -->
-                             <button class = "write_btn"> <a href ="<c:url value='/notice/write'/>">새 글</a></button> 
-                             </c:if> --%>
-                               <button class = "write_btn"> <a href ="<c:url value='/notice/write'/>">새 글</a></button> 
+                       <c:choose>
+
+						    <c:when test="${sessionScope.userId=='admin'}">
+						
+						 <button class = "write_btn"> <a href ="<c:url value='/notice/write'/>">공지사항 쓰기 </a></button> 
+						
+						    </c:when>
+						
+						</c:choose>
+                            
+             
+                            <%--    <button class = "write_btn"> <a href ="<c:url value='/notice/write'/>">새 글</a></button>  --%>
                         </div>
                        </div>
 
@@ -88,75 +96,58 @@
                                 <td class="hit">${noti.noticeHit }</td>
                                 </tr>
                          </c:forEach>
-                               
-            <!-- ~~~~~~~~~~페이징  ~~~~~~~-->
-		<%-- 	 <div class='paging'>
-				<div calss="pageNum" style="position: left;">	
-				
-					<select id="cntPerPage" name="sel" onchange="selChange()" >
-						<option value="5"
-							<c:if test="${paging.cntPerPage == 5}">selected</c:if>>5개 보기</option>
-						<option value="10"
-							<c:if test="${paging.cntPerPage == 10}">selected</c:if>>10개 보기</option>
-						<option value="15"
-							<c:if test="${paging.cntPerPage == 15}">selected</c:if>>15개 보기</option>
-						<option value="20"
-							<c:if test="${paging.cntPerPage == 20}">selected</c:if>>20개 보기</option>
-					</select>
-					</div><!-- 옵션선택 끝 --> --%>
-				 
-				
-						
-						<!-- 페이지 넘기기 -->		
-		      			<div class="pagelist">
-					<c:if test="${paging.startPage != 1 }">
-						<a href="<c:url value='/notiList?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}'/>">◀</a>
-					</c:if>
-					<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
-						<c:choose>
-							<c:when test="${p == paging.nowPage }">
-								<b>${p }</b>
-							</c:when>
-							<c:when test="${p != paging.nowPage }">
-								<a href="<c:url value='/notiList?nowPage=${p }&cntPerPage=${paging.cntPerPage}'/>">${p }</a>
-							</c:when>
-						</c:choose>
-					</c:forEach>
-					<c:if test="${paging.endPage != paging.lastPage}">
-						<a href="<c:url value='/notiList?nowPage=${paging.endPage + 1 }&cntPerPage=${paging.cntPerPage}'/>">▶</a>
-					</c:if>
-					</div>
-				
-			</div>
-		
-	
-	<!-- 페이지 넘기기 끝 -->
-                            </tbody>
+
                     </center>
                     </table>
 
                     <table class="search_table">
-                        <form id = "notiSearch" action="">
+                        <form id = "noticeSearch"  action="/notice/noticeSearch" name="noticeSearch" method="POST">
                             <tr>
 
                                 <td>
-                                    <select class="search_mode" name="search_mode">
-                                        <option value="3">제목+내용</option>
-                                        <option value="1">제목</option>
-                                        <option value="2">내용</option>
+                                    <select class="type" name="type">
+                                        <option value="TnC">제목+내용</option>
+                                        <option value="T">제목</option>
+                                        <option value="C">내용</option>
                                     </select>
                                 </td>
-                                <input type="hidden" name="boardcode" value="${param.boardcode }">
-                                <input type="hidden" name="page"value="1">
-                                <td class="search_text"><input type="text" name="keyword" size="20" 
-                                placeholder="검색어를 입력해주세요." value="${param.keyword }"></td>
-                                <td class="search_btn"><input type="submit" value="검색"></td>
+                     
+                                <td class="search_text"><input type="text" name="keyword" size="20"    id="keyword" placeholder="검색어를 입력해주세요." value=""></td>
+                                <td class="search_btn"><input type="submit" onclick="" value="검색"></td>
 
                             </tr>
                         </form>
                     </table> 
                     
-                    <div id="searchResultbox"></div>
+            
+				
+						
+	 					<div class='paging'>
+										
+					      	<div class="pagelist">
+								<c:if test="${paging.startPage != 1 }">
+									<a href="<c:url value='/notiList?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}'/>">‹&emsp;</a>
+								</c:if>
+								<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
+									<c:choose>
+										<c:when test="${p == paging.nowPage }">
+											<b>${p }&emsp;</b>
+										</c:when>
+										<c:when test="${p != paging.nowPage }">
+											<a href="<c:url value='/notiList?nowPage=${p }&cntPerPage=${paging.cntPerPage}'/>">${p }&emsp;</a>
+										</c:when>
+									</c:choose>
+								</c:forEach>
+								<c:if test="${paging.endPage != paging.lastPage}">
+									<a href="<c:url value='/notiList?nowPage=${paging.endPage + 1 }&cntPerPage=${paging.cntPerPage}'/>">›</a>
+								</c:if>
+								</div>
+							
+						</div>
+		
+		
+	
+	<!-- 페이지 넘기기 끝 -->
 
 
                 </div>

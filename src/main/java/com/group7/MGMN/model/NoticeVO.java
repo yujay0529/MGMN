@@ -13,6 +13,10 @@ public class NoticeVO {
 	private int noticeHit;
 	private Date noticeCreateDate;
 	private String userId;
+	private String type;
+	private String keyword;
+	
+	
 	public int getNoticeNo() {
 		return noticeNo;
 	}
@@ -51,12 +55,27 @@ public class NoticeVO {
 		this.userId = userId;
 	}
 	
+	
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public String getKeyword() {
+		return keyword;
+	}
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+	
 	@Override
 	public String toString() {
 		return "NoticeVO [noticeNo=" + noticeNo + ", noticeTitle=" + noticeTitle + ", noticeContent=" + noticeContent
-				+ ", noticeHit=" + noticeHit + ", noticeCreateDate=" + noticeCreateDate
-				+ ", userId=" + userId + "]";
+				+ ", noticeHit=" + noticeHit + ", noticeCreateDate=" + noticeCreateDate + ", userId=" + userId
+				+ ", type=" + type + ", keyword=" + keyword + "]";
 	}
+
 	
 	
 	

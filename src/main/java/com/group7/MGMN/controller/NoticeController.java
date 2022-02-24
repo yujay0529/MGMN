@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.group7.MGMN.model.NoticeVO;
 import com.group7.MGMN.model.PagingVO;
+import com.group7.MGMN.model.QnAVO;
 import com.group7.MGMN.service.NoticeService;
 
 //noticeController 공지사항페이지!!!!!!
@@ -100,15 +101,27 @@ public class NoticeController {
 
 
 	// 상품 검색
-	@ResponseBody
 	@RequestMapping("/notice/noticeSearch")
-	public ArrayList<NoticeVO> noticeSearch(@RequestParam HashMap<String, Object> param,
-											Model model){
+	public String noticeSearch(
+		@RequestParam HashMap<String, Object> param, Model model
+			, @RequestParam(value="nowPage", required=false)String nowPage
+			, @RequestParam(value="cntPerPage", required=false)String cntPerPage
+			,@RequestParam("keyword") String keyword
+			,@RequestParam("type") String type)throws Exception{
+			
+			
+			
+			
+			
+			System.out.println("keyword" + keyword + ", " + type);
+			NoticeVO noti = new NoticeVO();
+			noti.setType(type);
+			noti.setKeyword(keyword);
+			ArrayList<NoticeVO> noticeList = notiservice.noticeSearch(param);
+			model.addAttribute("noticeList", noticeList);
 
-		ArrayList<NoticeVO> notiList = notiservice.noticeSearch(param);
-		model.addAttribute("notiList", notiList);
 
-		return notiList;
+		return "notice/noticeList";
 	}
 
 }
