@@ -28,7 +28,7 @@
   	<!-- 게시글 등록 -->
   	<insert id="insertPost" parameterType="com.group7.MGMN.model.MarketVO">
   		INSERT INTO market
-  					VALUES(#{mkNo}, #{mkTitle}, #{mkContent}, #{mkPrice}, #{mkRegion},#{mkImg}, #{userId}, #{ctgId})
+  					VALUES(#{mkNo}, #{mkTitle}, #{mkContent}, #{mkPrice}, #{mkRegion},#{mkImg}, #{userId}, #{ctgId}, now(), #{mkHit})
   	</insert>
   	
   	<!-- 게시글 수정 -->
@@ -42,6 +42,11 @@
   		DELETE FROM market WHERE mkNo=#{mkNo}
   	</delete>
   	
+  	 <!-- 조회수 올리기 -->
+	<update id="hitUp">
+		update market set mkHit = mkHit+1 where mkNo = #{mkNo}
+	</update>
+  	
   	<!-- 페이징 -->
   	<!-- 총 게시글 개수 출력, 검색결과 반영 -->
   	<select id="countMkBoard" parameterType="hashMap" resultType="int">
@@ -49,7 +54,7 @@
 
   	</select>
   	
-  	<!-- 페이징 처리 후 게시글 조회, 검색추가-->
+  	<!-- 페이징 처리 후 게시글 조회-->
   	<select id="selectMkBoard" parameterType="hashMap" resultType="com.group7.MGMN.model.MarketVO">
   	SELECT * 
 		FROM (
@@ -60,12 +65,77 @@
 						ORDER BY mkNo DESC 
 						)Q, (SELECT @ROWNUM:=0)A
 						)B
-			WHERE RN BETWEEN #{start} AND #{end}
+						<!-- <choose>
+							<when test="searchType == 'mkTitle'">
+								AND mkTitle LIKE CONCAT('%', #{searchKeyword},'%')
+							</when>
+							<when test="searchType == 'mkContent'">
+								AND mkContent LIKE CONCAT('%', #{searchKeyword},'%')
+							</when>
+							<when test="searchType == 'mk_title_content'">
+								AND (mkTitle LIKE CONCAT('%', #{searchKeyword},'%') 
+										OR mkContent LIKE CONCAT('%', #{searchKeyword},'%'))
+							</when>
+							<when test="searchType == 'userId'">
+								AND userId LIKE CONCAT('%', #{searchKeyword},'%')
+							</when>
+						</choose> -->
+				WHERE RN BETWEEN #{start} AND #{end}
   	</select>
-
+  	
+  	<!-- 상품 검색 -->
+  	<select id="mkSearchPost" parameterType="hashmap" resultMap="mkResult">			<!-- id값 dao와 동일하게 설정 -->
+  		SELECT * FROM market WHERE 
+  		<choose>
+  			<when test="searchType != null and searchType.equals('mkTitle')">
+  				mkTitle LIKE CONCAT('%', #{searchKeyword}, '%')
+  			</when>
+  			<when test="searchType != null and searchType.equals('mkContent')">
+  				mkContent LIKE CONCAT('%', #{searchKeyword}, '%')
+  			</when>
+  		</choose>
+  	</select>
+  	
+  	<!-- 검색 / 페이징 처리 후 게시글 조회-->
+  	<select id="searchSelectMkBoard" parameterType="hashMap" resultMap="mkResult">
+  	SELECT * 
+		FROM (
+			SELECT @ROWNUM:=@ROWNUM +1 AS RN, Q.* 
+				FROM (
+						SELECT * FROM market Q
+						WHERE mkRegion=#{mkRegion} and
+							<choose>
+				  			<when test="searchType != null and searchType.equals('mkTitle')">
+				  				mkTitle LIKE CONCAT('%', #{searchKeyword}, '%')
+				  			</when>
+				  			<when test="searchType != null and searchType.equals('mkContent')">
+				  				mkContent LIKE CONCAT('%', #{searchKeyword}, '%')
+				  			</when>
+				  		</choose>
+						ORDER BY mkNo DESC 
+						)Q, (SELECT @ROWNUM:=0)A
+						)B
+						
+						
+						<!-- <choose>
+							<when test="searchType == 'mkTitle'">
+								AND mkTitle LIKE CONCAT('%', #{searchKeyword},'%')
+							</when>
+							<when test="searchType == 'mkContent'">
+								AND mkContent LIKE CONCAT('%', #{searchKeyword},'%')
+							</when>
+							<when test="searchType == 'mk_title_content'">
+								AND (mkTitle LIKE CONCAT('%', #{searchKeyword},'%') 
+										OR mkContent LIKE CONCAT('%', #{searchKeyword},'%'))
+							</when>
+							<when test="searchType == 'userId'">
+								AND userId LIKE CONCAT('%', #{searchKeyword},'%')
+							</when>
+						</choose> -->
+				WHERE RN BETWEEN #{start} AND #{end}
+  	</select>
+  	
   </mapper>
-  
-  
   
   
   

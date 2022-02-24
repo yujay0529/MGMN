@@ -5,7 +5,13 @@ public class PagingVO {
 	// 현재페이지, 시작페이지, 끝페이지, 게시글 총 갯수, 페이지당 글 갯수, 마지막페이지, SQL쿼리에 쓸 start, end
 	private int nowPage, startPage, endPage, total, cntPerPage, lastPage, start, end;
 	private int cntPage = 5;
+	// 중고거래 지역 조회를 위해 추가
 	private String mkRegion;
+	// 검색 기능 추가
+	private String searchType;
+	
+	private String searchKeyword;
+
 	
 	public PagingVO() {
 	}
@@ -100,6 +106,20 @@ public class PagingVO {
 	public void setMkRegion(String mkRegion) {
 		this.mkRegion = mkRegion;
 	}
+	
+	public String getSearchType() {
+		return searchType;
+	}
+	public void setSearchType(String searchType) {
+		this.searchType = searchType;
+	}
+	public String getSearchKeyword() {
+		return searchKeyword;
+	}
+	public void setSearchKeyword(String searchKeyword) {
+		this.searchKeyword = searchKeyword;
+	}
+	
 	@Override
 	public String toString() {
 		return "PagingVO [nowPage=" + nowPage + ", startPage=" + startPage + ", endPage=" + endPage + ", total=" + total

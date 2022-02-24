@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import com.group7.MGMN.dao.IMarketDAO;
 import com.group7.MGMN.model.MarketVO;
 import com.group7.MGMN.model.PagingVO;
-import com.group7.MGMN.model.QnAVO;
 
 @Service
 public class MarketService implements IMarketService {
@@ -53,21 +52,38 @@ public class MarketService implements IMarketService {
 	public MarketVO detailViewPost(int mkNo) {
 		return dao.detailViewPost(mkNo);
 	}
-
+	
+	// 조회수
 	@Override
-	public ArrayList<MarketVO> mkSearchPost(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
-		return null;
+	public int hitUp(int mkNo) throws Exception {
+		return dao.hitUp(mkNo);
 	}
+	
 	
 	// 페이징 (검색 추가)
 	@Override
 	public int countMkBoard() {
 		return dao.countMkBoard();
 	}
+	
 	@Override
 	public List<MarketVO> selectMkBoard(PagingVO pagingvo) {
+		
+		
 		return dao.selectMkBoard(pagingvo);
 	}
+
+	@Override
+	public ArrayList<MarketVO> mkSearchPost(HashMap<String, Object> map) {
+		
+		return dao.mkSearchPost(map);
+	}
+	
+	@Override
+	public ArrayList<MarketVO> searchSelectMkBoard(PagingVO pagingvo) {
+		return dao.searchSelectMkBoard(pagingvo);
+	}
+	
+	
 
 }

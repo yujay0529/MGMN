@@ -47,10 +47,19 @@
 			                <input type="text" name="qnaTitle" placeholder="제목을 입력하세요"
 			                       style="border: 0; border-radius:5px; width:100%; height: 50px; padding:5px; font-size: 40px;">
 			            </div>
+			                   
+			                   	<select name="category">
+			                   		<option value="강아지 ">강아지</option>
+			                   		<option value="고양이 ">고양이 </option>
+			                   		<option value="기타">기타 </option>		                   		
+			                   	</select>
+			                   	
 			            <div class="pt-1" id="writeSection">
 			                <textarea id="summernote" name="qnaContent"></textarea>
 			                <div class="pt-1 text-right" style="padding-bottom: 15%;">
 			                    <input type="file" name="profile" style="padding-top: 10px;">
+			        
+			                   	
 			                    <button class="btn btn-success" id="submit_btn" type="submit"
 			                            style="margin-left: 90%; width:10%;">등록</button>
 			                </div>

@@ -29,16 +29,16 @@
         INSERT INTO
         mkComment (cmtNo, mkNo, content, userId, commentDate)
         VALUES(#{cmtNo},#{mkNo},#{content},#{userId},now()) 
-       
+
     </insert>
     
     <update id="commentUpdate" parameterType="com.group7.MGMN.model.MarketCommentVO">
         UPDATE mkComment
             SET
             content = #{content}
-        WHERE cmtNo = #{cmtNo}
+            WHERE cmtNo = #{cmtNo}
     </update>
-    
+
     <delete id="commentDelete" parameterType="int">
         DELETE FROM mkComment WHERE cmtNo = #{cmtNo}
     </delete>

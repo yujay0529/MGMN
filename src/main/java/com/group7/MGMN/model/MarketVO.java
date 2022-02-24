@@ -1,5 +1,7 @@
 package com.group7.MGMN.model;
 
+import java.util.Date;
+
 public class MarketVO {
 	private int mkNo;
 	private String mkTitle;
@@ -9,6 +11,8 @@ public class MarketVO {
 	private String mkImg;
 	private String userId;
 	private String ctgId;
+	private Date mkCreateDate;
+	private int mkHit;
 	
 	public int getMkNo() {
 		return mkNo;
@@ -58,13 +62,24 @@ public class MarketVO {
 	public void setCtgId(String ctgId) {
 		this.ctgId = ctgId;
 	}
+	public Date getMkCreateDate() {
+		return mkCreateDate;
+	}
+	public void setMkCreateDate(Date mkCreateDate) {
+		this.mkCreateDate = mkCreateDate;
+	}
+	public int getMkHit() {
+		return mkHit;
+	}
+	public void setMkHit(int mkHit) {
+		this.mkHit = mkHit;
+	}
 	
 	@Override
 	public String toString() {
 		return "MarketVO [mkNo=" + mkNo + ", mkTitle=" + mkTitle + ", mkContent=" + mkContent + ", mkRegion=" + mkRegion
-				+ ", mkPrice=" + mkPrice + ", mkImg=" + mkImg + ", userId=" + userId + ", ctgId=" + ctgId + "]";
+				+ ", mkPrice=" + mkPrice + ", mkImg=" + mkImg + ", userId=" + userId + ", ctgId=" + ctgId
+				+ ", mkCreateDate=" + mkCreateDate + ", mkHit=" + mkHit + "]";
 	}
-	
-	
 	
 }

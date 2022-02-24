@@ -19,10 +19,10 @@ public interface IMarketCommentDAO {
     public int commentUpdate(MarketCommentVO comment) throws Exception;
  
     // 댓글 삭제
+
     public int commentDelete(int cmtNo) throws Exception;
 
 
 
-
-
 }
+

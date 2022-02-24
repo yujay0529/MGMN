@@ -22,6 +22,8 @@
 					<a href="<c:url value='/'/>">HOME</a>
 					<a href="<c:url value='/joinForm'/>">회원가입</a>
 					<a href="<c:url value='/loginForm'/>">로그인</a>
+					<a href="<c:url value='/store'/>">스토어</a>
+					
 				</c:if>
 				<!-- 로그인 성공한 경우 보여줄 메뉴 항목  -->	
 						<c:if test="${not empty sessionScope.sid}">
@@ -30,7 +32,9 @@
 						&nbsp;
 						<a href="<c:url value='/mypage'/>"> ${sessionScope.sid} 님 환영합니다!</a>
 						&nbsp;
-						<a href="<c:url value='/logout'/>">로그아웃</a> 	
+						<a href="<c:url value='/logout'/>">로그아웃</a>
+						&nbsp;
+						<a href="<c:url value='/mypet'/>">마이펫</a> 
 						</c:if>
 				
 			</div>

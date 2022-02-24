@@ -24,6 +24,7 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.*;
 
+
 public class GeolocationAPI {
 	private final String accessKey;
 	private final String secretKey;
@@ -39,8 +40,8 @@ public class GeolocationAPI {
 	}
 
 	public static String getLocation(String ip) {
-		String accessKey = "572FC0EF42E6019CDE12";
-		String secretKey = "4A6116122E462B6A29848AA2C83CA77074771CDC";
+		String accessKey = "02C4A18CD11518AA65CF";
+		String secretKey = "7CD8DEAF3F8DEE13EFB22BE1D3CBA42EDDCF377C";
 		String IP = ip;
 		String result = "";
 
@@ -64,8 +65,8 @@ public class GeolocationAPI {
 	
 	// 동 까지만
 	public static String getLocation2(String ip) {
-		String accessKey = "572FC0EF42E6019CDE12";
-		String secretKey = "4A6116122E462B6A29848AA2C83CA77074771CDC";
+		String accessKey = "02C4A18CD11518AA65CF";
+		String secretKey = "7CD8DEAF3F8DEE13EFB22BE1D3CBA42EDDCF377C";
 		String IP = ip;
 		String result = "";
 
@@ -260,6 +261,7 @@ public class GeolocationAPI {
 
 		return result;
 	}
+
 	
 	// 구 까지만 toString
 	private static String jsonToString2(String str) {
@@ -320,4 +322,5 @@ public class GeolocationAPI {
 		System.out.println("longitude = " + longitude);
 
 	}
+
 }

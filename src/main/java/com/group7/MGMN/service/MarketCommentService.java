@@ -47,3 +47,4 @@ public class MarketCommentService implements IMarketCommentService {
 	}
 
 }
+

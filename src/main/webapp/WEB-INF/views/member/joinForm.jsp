@@ -9,8 +9,8 @@
 		<link href="<c:url value='/css/join.css'/>" rel="stylesheet" type="text/css">	
 		<script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
 		<script src="<c:url value='/js/memIdCheck.js'/>"></script>
-		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>	
-		<script src="<c:url value='/js/searchZip.js'/>"></script>	
+		<script src="https://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+		<script src="<c:url value='/js/searchZip.js'/>"></script>
 	</head>
 	<body>
 		<div id="wrap"> 

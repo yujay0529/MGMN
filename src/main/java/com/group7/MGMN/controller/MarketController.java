@@ -1,5 +1,8 @@
 package com.group7.MGMN.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.group7.MGMN.model.MarketVO;
 import com.group7.MGMN.model.PagingVO;
@@ -68,10 +73,11 @@ public class MarketController {
 	
 	//상품 상세 정보 페이지로 이동
 	@RequestMapping("/market/detailViewPost/{mkNo}")
-	public String detailViewPost(@PathVariable int mkNo, Model model) {
+	public String detailViewPost(@PathVariable int mkNo, Model model) throws Exception {
 		MarketVO mkVO = service.detailViewPost(mkNo);
 		
 		model.addAttribute("mkVO", mkVO);
+		service.hitUp(mkNo);	//조회수증가
 		
 		return "market/detailViewPost";
 	}
@@ -128,9 +134,77 @@ public class MarketController {
 		return "redirect:/market/listRegionPost/" + mkRegion;
 	}
 	
+	
+	// 게시글 검색
+	@RequestMapping("/market/marketSearch2")
+	public ModelAndView list(	//옵션, 키워드, 페이지의 기본값을 각각 설정
+						@RequestParam(defaultValue="1") int nowPage,
+						@RequestParam(defaultValue="userId") String searchType,
+						@RequestParam(defaultValue="") String keyword
+						) throws Exception {
+		
+		// 레코드 개수를 계산
+		int count = 1000;
+		
+		// 페이지 관련 설정, 시작번호와 끝버호를 구해서 각각 변수에 저장
+		// Pager pager = new Pager(count, nowPage);
+		
+		return null;
+	}
+	
+	// @ResponseBody
+	@RequestMapping("/market/marketSearch")
+	//	public ArrayList<ProductVO> productSearch(@RequestParam("type") String type,
+	//										  @RequestParam("keyword") String keyword) {
+	public String marketSearch(@RequestParam HashMap<String,Object> param
+								 ,@RequestParam(value="nowPage", required=false)String nowPage
+								 ,@RequestParam(value="cntPerPage", required=false)String cntPerPage
+								 ,Model model
+								 ,HttpSession session) {
+		
+		
+		  if (nowPage == null && cntPerPage == null) { 
+			  nowPage = "1"; cntPerPage = "8";
+		  } else if (nowPage == null) { 
+			  nowPage = "1"; 
+		  } else if (cntPerPage == null) {
+			  cntPerPage = "8"; }
+		  	System.out.println(nowPage);
+			System.out.println(cntPerPage);
+		
+		
+		ArrayList<MarketVO> mkList = service.mkSearchPost(param);
+		model.addAttribute("mkList", mkList);
+		
+		int total = mkList.size();
+		
+		System.out.println("total : "+total);
+		PagingVO vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		
+		vo.setSearchType((String)param.get("searchType"));
+		vo.setSearchKeyword((String)param.get("searchKeyword"));
+		
+		String mkRegion = (String)session.getAttribute("address");
+		vo.setMkRegion(mkRegion);
+		
+		
+		model.addAttribute("paging", vo);
+		model.addAttribute("mkList", service.searchSelectMkBoard(vo));
+		
+		//System.out.println(mkList.size());
+		
+		// prdList로 제대로 반화되었는지 확인하기 위한 코드
+		//		for(int i =0; i < mkList.size(); i++) {
+		//			MarketVO mkVO = (MarketVO) mkList.get(i);
+		//			System.out.println(mkVO.getMkTitle());
+		//		}
+		// System.out.println("a");
+		
+		return "market/searchResultView";
+	
+	}
+
 }
-
-
 
 
 
