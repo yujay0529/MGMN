@@ -4,77 +4,74 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>top</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
 
-<script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
-<script src="<c:url value='/js/index.js'/>"></script>
+        <script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
+        <script src="<c:url value='/js/index.js'/>"></script>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="description" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+        <!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
 
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
+        <script src="/assets/js/vendor/jquery-1.11.2.min.js"></script>
+        <script src="/assets/js/vendor/bootstrap.min.js"></script>
 
-<script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
-<script src="assets/js/vendor/bootstrap.min.js"></script>
+        <script src="/assets/js/plugins.js"></script>
+        <script src="/assets/js/main.js"></script>
+        <!--For Plugins external css-->
+        <link rel="stylesheet" href="/assets/css/plugins.css" />
 
-<script src="assets/js/plugins.js"></script>
-<script src="assets/js/main.js"></script>
-<!--For Plugins external css-->
-<link rel="stylesheet" href="assets/css/plugins.css" />
+        <!--Theme custom css -->
+        <link rel="stylesheet" href="/assets/css/style.css">
 
-<!--Theme custom css -->
-<link rel="stylesheet" href="assets/css/style.css">
+        <!--Theme Responsive css-->
+        <link rel="stylesheet" href="/assets/css/responsive.css" />
 
-<!--Theme Responsive css-->
-<link rel="stylesheet" href="assets/css/responsive.css" />
+        <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 
+        <script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
 
-<script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <script type="text/javascript">
+          function toMarket() { // 중고거래 링크 접근과 동시에 ip => 주소 
+            // ip 구하는 api 키
+            // IP API 변경
+            // let apiKey = 'e467b63698e3483a919b49c7ee41550f';
 
-<script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
-
-<script type="text/javascript">
-	function toMarket() { // 중고거래 링크 접근과 동시에 ip => 주소 
-		// ip 구하는 api 키
-		// IP API 변경
-		// let apiKey = 'e467b63698e3483a919b49c7ee41550f';
-
-		$.getJSON("https://api.ipify.org?format=jsonp&callback=?", function(
-				data) {
-			// $.getJSON('https://ipgeolocation.abstractapi.com/v1/?api_key=' + apiKey, function (data) {
-			console.log(data.ip);
-			// console.log(data.ip_address);
-			// ip 주소를 RestController 로 post => geolocation api 실행
-			$.ajax({
-				type : "post",
-				url : "/location2",
-				data : {
-					ip : data.ip
-				// ip: data.ip_address
-				},
-				dataType : "text",
-				success : function(data) {
-					location.href = "/market/listRegionPost";
-				},
-				error : function(data, textStatus) {
-					console.log(data);
-					console.log(textStatus);
-				}
-			})
-		});
-	}
-</script>
+            $.getJSON("https://api.ipify.org?format=jsonp&callback=?", function(
+                data) {
+              // $.getJSON('https://ipgeolocation.abstractapi.com/v1/?api_key=' + apiKey, function (data) {
+              console.log(data.ip);
+              // console.log(data.ip_address);
+              // ip 주소를 RestController 로 post => geolocation api 실행
+              $.ajax({
+                type : "post",
+                url : "/location2",
+                data : {
+                  ip : data.ip
+                // ip: data.ip_address
+                },
+                dataType : "text",
+                success : function(data) {
+                  location.href = "/market/listRegionPost";
+                },
+                error : function(data, textStatus) {
+                  console.log(data);
+                  console.log(textStatus);
+                }
+              })
+            });
+          }
+        </script>
 
 
 
 
-
-</head>
 <body>
 	<header>
 		<div id="headerBox">

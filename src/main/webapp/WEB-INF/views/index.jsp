@@ -142,17 +142,19 @@
 
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="portfolio-item">
-                                    <h4>SEARCH ENGINE OPTIMIZATION</h4>
+                                    <h4>Q&A🙋‍♀️</h4>
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
-                                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est. laboru
+                                        사료 하나를 사도 수 많은 웹사이트를 뒤져야 하는 반려인! <br>
+                                        이제 물어볼개 무엇이냥의 Q&A페이지로 강아지나 고양이 나에게 딱 맞는 카테고리를 선택해  질문을 올릴 수 있다. 
+                                        사진을 첨부한 글 작성 기능과 원하는 내용만 쏙쏙 골라 볼 수 있는 검색 기능 그리고 귀여운 효과와 함께 원하는 카테고리를 고를 수 있는 기능까지!<br>
+                                        더 이상 여러 사이트 돌아다니며 시간낭비하지 말고 물어볼개 무엇이냥 Q&A페이지에서 한 번에 해결하자 
                                     </p>
-                                    <button class="btn pt-btn btn-primary">View More</button>
+                                    <button class="btn pt-btn btn-primary" > <a href="/qnaList">View More</a></button>
                                 </div>
                             </div>
 
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <img class="portfolio-img img-responsive" src="assets/images/monitor.png" alt="" />
+                                <img class="portfolio-img img-responsive" src="assets/images/qnaimg.png" alt="" />
                             </div>
 
                         </div>

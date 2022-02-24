@@ -21,8 +21,8 @@ body,html{
 
  }
 
- .table_title h1{
-     margin-top: 30px;
+ .table_title h2{
+     margin-top: 40px;
  }
 
 
@@ -109,7 +109,7 @@ body,html{
 }
 .sub_news .title { 
     text-align: left;
-     padding-left: 15px; 
+    padding-left: 15px; 
      font-size:15px; 
     }
 

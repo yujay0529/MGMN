@@ -14,16 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-    <link rel="stylesheet" href="/css/write.css">
-    <script src="/js/login.js"></script>
-    <script src="/js/dropdown.js"></script>
-    <script src="/js/slideShow.js"></script>
-    <script src="/js/gallery.js"></script>
-    <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/menu.css">
-    <link rel="stylesheet" href="/css/slideShow.css">
-    <link rel="stylesheet" href="/css/gallery.css">
+
     <link rel="stylesheet" href="/css/write.css">
     <title>Write</title>
     <script>
@@ -43,6 +34,8 @@
 </head>
 
 <body>
+<jsp:include page="/WEB-INF/views/layout/top.jsp" flush='true' /> 
+
 <div id="wrap">
 </div>
 
@@ -65,7 +58,7 @@
         </form>
     </main>
 </div>
-
+<jsp:include page="/WEB-INF/views/layout/bottom.jsp" flush='true' /> 
 </body>
 
 </html>

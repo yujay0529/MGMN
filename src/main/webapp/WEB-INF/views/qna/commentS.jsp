@@ -19,11 +19,11 @@
 				        success : function(data){
 				            var a =''; 
 				            $.each(data, function(key, value){ 
-				                a += '<div class="commentArea" style="border-bottom:0px solid grey; margin-bottom: 15px;">';
-				                a += '<div class="commentInfo'+value.commentNo+'" style="font-size:17px">'+' id : '+value.userId;
+				                a += '<div class="commentArea" style="border-bottom:1px solid lightgrey; margin-bottom: 15px;">';
+				                a += '<div class="commentInfo'+value.commentNo+'" style="font-size:17px;">'+'  '+value.userId;
 				                a += '<a onclick="commentUpdate('+value.commentNo+',\''+value.content+'\');"> 수정 </a>';
 				                a += '<a onclick="commentDelete('+value.commentNo+');"> 삭제 </a> </div>';
-				                a += '<div class="commentContent'+value.commentNo+'"> <p>  '+value.content +'</p>';
+				                a += '<div class="commentContent'+value.commentNo+'"style="font-weight:bold;"> <p>  '+value.content +'</p>';
 				                a += '</div></div>';
 				            });
 				            
@@ -55,6 +55,7 @@
 				    a += '<input type="text" class="form-control" name="content_'+commentNo+'" value="'+content+'"/>';
 				    a += '<span class="input-group-btn"><button class="btn btn-default" type="button" onclick="commentUpdateProc('+commentNo+');">수정</button> </span>';
 				    a += '</div>';
+				 
 				    
 				    $('.commentContent'+commentNo).html(a);
 				    

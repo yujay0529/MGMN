@@ -15,9 +15,9 @@
 </head>
 
 <body>
-
- <div id="wrap">
  <jsp:include page="/WEB-INF/views/layout/top.jsp" flush='true' /> 
+ <div id="wrap">
+
     <div class="qnaDetailView">
         <div class="qnaDetail">
             <div class="qnaDetailTitle">
@@ -33,8 +33,9 @@
                 <div>
                 <div class="qnaDetail-userid" style="color: black;">${qna.userId }	</div>		
                 <div class="qnaDetail-date"><fmt:formatDate value="${qna.qnaCreateDate}" pattern="yyyy.MM.dd"/></div>
-                <c:if test="${sessionScope.userId ==qna.userId || 'admin'}">
-                 <button calss = "qnaupdate"><a href ="/qna/updateqnaForm/${qna.qnaNo}"> 수정</a></button>
+                <c:if test="${sessionScope.userId ==qna.userId}">
+               
+                 <button id ="qnaupdate"><a href ="/qna/updateqnaForm/${qna.qnaNo}"> 수정</a></button>
 		                <!--  삭제 : 삭제 여부 확인 처리 (자바스크립트로) -->
 		                                    <button class ="qnadelete"><a href="javascript:deleteCheck();">삭제</a></button><br>
 		                                   <script type="text/javascript">           
@@ -48,7 +49,8 @@
 												}
 							</script>
 							</c:if>
-			  <button calss = "qnaList"><a href ="<c:url value='/qnaList'/>"> 목록 </a></button>
+			  <button id ="qnaList"><a href ="<c:url value='/qnaList'/>"> 목록 </a></button>
+			  
             </div>
         </div><hr>
       
@@ -74,9 +76,8 @@
 							 
 				<!--                     추가                         -->
 				  <%@ include file="commentS.jsp" %>
-
-
-       
+  
  </div>
+  <jsp:include page="/WEB-INF/views/layout/bottom.jsp" flush='true' /> 
   </body>
  </html>
