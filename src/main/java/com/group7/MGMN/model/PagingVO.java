@@ -5,6 +5,7 @@ public class PagingVO {
 	// 현재페이지, 시작페이지, 끝페이지, 게시글 총 갯수, 페이지당 글 갯수, 마지막페이지, SQL쿼리에 쓸 start, end
 	private int nowPage, startPage, endPage, total, cntPerPage, lastPage, start, end;
 	private int cntPage = 5;
+
 	// 중고거래 지역 조회를 위해 추가
 	private String mkRegion;
 	// 검색 기능 추가
@@ -12,7 +13,6 @@ public class PagingVO {
 	
 	private String searchKeyword;
 
-	
 	public PagingVO() {
 	}
 	public PagingVO(int total, int nowPage, int cntPerPage) {
@@ -38,7 +38,10 @@ public class PagingVO {
 		if (getStartPage() < 1) {
 			setStartPage(1);
 		}
+		// 검색을 위한 데이터 전달
+
 	}
+	
 	// DB 쿼리에서 사용할 start, end값 계산
 	public void calcStartEnd(int nowPage, int cntPerPage) {
 		setEnd(nowPage * cntPerPage);

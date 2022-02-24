@@ -36,6 +36,7 @@ import com.group7.MGMN.dao.IShopDAO;
 @MapperScan(basePackageClasses = IQnACommentDAO.class)
 @MapperScan(basePackageClasses = IMarketCommentDAO.class)
 @MapperScan(basePackageClasses = IShopDAO.class)
+
 public class MgmnApplication {
 
 	public static void main(String[] args) {

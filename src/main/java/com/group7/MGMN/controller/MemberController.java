@@ -24,23 +24,33 @@ public class MemberController {
 		return "/member/loginForm";
 	}
 	
+	// 로그인 폼으로 이동
+		@RequestMapping("/mypet")
+		public String mypet() {
+			return "/mypet";
+		}
+		
 	// 로그인 처리 : id와 pwd 전달 받아서 로그인 체크
 	@ResponseBody
 	@RequestMapping("/login")
-	public String loginCheck(@RequestParam HashMap<String, Object> param, HttpSession session) {
+	public String loginCheck(@RequestParam HashMap<String, Object> param, 
+										@RequestParam("id") String userId,
+							            @RequestParam("pwd") String userwd,HttpSession session) {
 
-		// 로그인 체크 결과
-		MemberVO vo = service.loginCheck(param);
-		String result = "fail";
-
-		if (vo != null) {
-			// 로그인 성공하면 세션 변수 지정
-			session.setAttribute("sid", vo.getUserId());
-			result = "success";
-		}
-
-		return result;
-	}
+        // 로그인 체크 결과
+        MemberVO vo = service.loginCheck(param);
+     
+        String result = "fail";
+        System.out.println("userwd : " + userwd);
+       System. out.println("vo : " + vo);
+      
+        if(vo != null ) {
+            session.setAttribute("sid", vo.getUserId());
+            session.setAttribute("userId", userId);
+            result = "success";
+        }
+        return result;
+    }
 
 	// 로그아웃
 	@RequestMapping("/logout")
@@ -82,6 +92,5 @@ public class MemberController {
 
 			return result;
 		}
-		/* @RequestMapping("/join") */
-
+	
 }

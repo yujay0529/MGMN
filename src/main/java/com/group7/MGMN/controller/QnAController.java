@@ -2,6 +2,7 @@ package com.group7.MGMN.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -22,20 +23,14 @@ public class QnAController {
 	@Autowired
 	QnAService qnaService;
 
-//	@RequestMapping("/qnaList")//질문 글목록 
-//	public String qnaList(Model model) {
-//		ArrayList<QnAVO> qnaList = qnaService.qnaList();
-//		model.addAttribute("qnaList", qnaList);
-//
-//		return "qna/qnaList";
-//	}	
-	//+ 페이징 추가 아좌좌
+
+	//+ 페이징 추가 
 		@RequestMapping("/qnaList")
-		public String qnaPaging(PagingVO vo, Model model
+		public String qnaPaging(PagingVO vo, Model model 
 				, @RequestParam(value="nowPage", required=false)String nowPage
 				, @RequestParam(value="cntPerPage", required=false)String cntPerPage) {
 
-			int total = qnaService.countBoard();
+			int total = qnaService.qnacountBoard();
 			if (nowPage == null && cntPerPage == null) {
 				nowPage = "1";
 				cntPerPage = "10";
@@ -47,7 +42,7 @@ public class QnAController {
 			System.out.println("total : "+total);
 			vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
 			model.addAttribute("paging", vo);
-			model.addAttribute("qnaList", qnaService.selectBoard(vo));
+			model.addAttribute("qnaList", qnaService.qnaselectBoard(vo));
 			return "qna/qnaList";
 		}
 		
@@ -56,7 +51,7 @@ public class QnAController {
 		public String detailqna(@PathVariable int qnaNo, Model model) throws Exception {
 			QnAVO qnaVO = qnaService.detailqna(qnaNo);
 			model.addAttribute("qna", qnaVO);
-			qnaService.hitUp(qnaNo);//조회수증가
+			qnaService.qnahitUp(qnaNo);//조회수증가
 		
 			return "qna/qnaDetail";
 			
@@ -91,6 +86,9 @@ public class QnAController {
 			model.addAttribute("qna", qnaVO);
 			return "qna/updateqnaForm";
 		}
+	
+
+	        
 
 		// 글 수정 : 수정된 글 DB에 저장
 		@RequestMapping("/qna/updateqna")
@@ -98,21 +96,49 @@ public class QnAController {
 			String userId = (String) session.getAttribute("userId");
 			qnaVO.setUserId(userId);		
 			qnaService.updateqna(qnaVO);
-			System.out.println("id"+userId);
+			System.out.println("qnaVO"+qnaVO);
 
-			return "redirect:../qnaList"; 
-
+			return "redirect:../qnaList";
 		}
-		
+
+	
 		//검색 
-		@ResponseBody
+	
 		@RequestMapping("/qna/qnaSearch")
-		public ArrayList<QnAVO> qnaSearch(@RequestParam HashMap<String, Object> param, 
-																					Model model){
-			
+		public String qnaSearch(
+				@RequestParam HashMap<String, Object> param, Model model
+																,@RequestParam("keyword") String keyword
+																,@RequestParam("type") String type
+																,@RequestParam("animal") String animal)throws Exception{
+
+			System.out.println("keyword" + keyword + ", " + type);
+			QnAVO qnAVO = new QnAVO();
+			qnAVO.setType(type);
+			qnAVO.setKeyword(keyword);
+			qnAVO.setAnimal(animal);
 			ArrayList<QnAVO> qnaList = qnaService.qnaSearch(param);
 			model.addAttribute("qnaList", qnaList);
+
 			
-			return qnaList;
+			return "qna/qnaList";
 		}	
+		
+		@RequestMapping("/qna/qnaCheck")
+		public String qnaCheck(
+				@RequestParam HashMap<String, Object> param, Model model
+																,@RequestParam("animal") String animal)throws Exception{
+
+			System.out.println("animal" + animal );
+			System.out.println("param" + param );
+			QnAVO qnAVO = new QnAVO();
+
+			qnAVO.setAnimal(animal);
+			ArrayList<QnAVO> qnaList = qnaService.qnaCheck(param);
+			model.addAttribute("qnaList", qnaList);
+
+			
+			return "qna/qnaList";
+		}	
+		
+		
 }
