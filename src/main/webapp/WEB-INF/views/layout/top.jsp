@@ -7,7 +7,6 @@
 <meta charset="UTF-8">
 <title>top</title>
 
-
 <script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
 <script src="<c:url value='/js/index.js'/>"></script>
 <head>
