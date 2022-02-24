@@ -1,0 +1,52 @@
+@charset "UTF-8";
+*{margin:0 auto;}
+#title {
+	text-align:center;
+	color:black;
+	margin-top:30px;
+	margin-bottom:20px;
+	}
+	
+#detailForm {
+	position:relative;
+	width:600px;
+	height:800px;
+}
+
+#detailForm table {
+	
+	width:650px;
+	text-align:left;
+	border-collapse: collapse;
+	background-color: #EDDBC3;
+	border-radius: 8px;
+	font-family: 'Do Hyeon', sans-serif;
+	}
+	
+#detailForm table th {
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	padding-right:5px;
+	
+	}
+
+#detailForm table td {
+	text-align:left;
+	padding-left:5px;
+	height:500px;
+	background-color:white;
+
+	}
+
+.bottom_line {
+	border-bottom:solid 3px #ffffff;
+}
+
+#wrap {
+	margin:0 auto;
+	width:100%;
+	padding:10px;
+}	
+
+	
