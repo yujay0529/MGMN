@@ -40,7 +40,7 @@
 
 
 <div id="wrap">
-<jsp:include page="/WEB-INF/views/layout/top.jsp" flush='true' /> 
+
 
 <div class="writeform">
     <main role="main" class="container">
@@ -61,7 +61,7 @@
         </form>
     </main>
 </div>
-<jsp:include page="/WEB-INF/views/layout/bottom.jsp" flush='true' /> 
+
 </div>
 
 </body>

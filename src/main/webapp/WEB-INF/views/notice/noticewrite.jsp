@@ -34,7 +34,7 @@
 </head>
 
 <body>
-<jsp:include page="/WEB-INF/views/layout/top.jsp" flush='true' /> 
+
 
 <div id="wrap">
 </div>
@@ -45,7 +45,7 @@
             <!-- method="POST" action="/bulletin_wr01" -->
             <div class="pt-1">
                 <input type="text" name="noticeTitle" placeholder="제목을 입력하세요"
-                       style="border: 0; border-radius:5px; width:100%; height: 50px; padding:5px; font-size: 40px;">
+                       style="border: 0; border-radius:5px; width:100%; height: 50px; padding:5px; font-size: 40px; ;">
             </div>
             <div class="pt-1" id="writeSection">
                 <textarea id="summernote" name="noticeContent"></textarea>
@@ -58,7 +58,7 @@
         </form>
     </main>
 </div>
-<jsp:include page="/WEB-INF/views/layout/bottom.jsp" flush='true' /> 
+
 </body>
 
 </html>
