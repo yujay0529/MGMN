@@ -126,6 +126,7 @@ body,html{
     justify-content: center;
     align-items: center;
     border: solid 0px;
+    padding-top:20px;
 
 }
 .list{
@@ -145,10 +146,14 @@ body,html{
     border-width: 0px;
 
 }
+a:link{color:black;}
+a:visited { color: #ababab; }
+a:hover { color:#ffeb99; }
+a{ text-decoration-line: none;}
 
 
 .pagelist{
     display: flex;
     justify-content: center;
-    margin-top: 40px;
+    margin-top: 20px;
 }

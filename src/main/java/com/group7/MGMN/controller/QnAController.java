@@ -4,16 +4,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.sql.rowset.serial.SerialException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.group7.MGMN.model.PagingVO;
 import com.group7.MGMN.model.QnAVO;
@@ -24,24 +25,13 @@ public class QnAController {
 	@Autowired
 	QnAService qnaService;
 
-//	@RequestMapping("/qnaList")//질문 글목록 
-//	public String qnaList(Model model) {
-//		ArrayList<QnAVO> qnaList = qnaService.qnaList();
-//		model.addAttribute("qnaList", qnaList);
-//
-//		return "qna/qnaList";
-//	}	
-	//+ 페이징 추가 아좌좌
+
+	//+ 페이징 추가 
 		@RequestMapping("/qnaList")
 		public String qnaPaging(PagingVO vo, Model model 
 				, @RequestParam(value="nowPage", required=false)String nowPage
-				, @RequestParam(value="cntPerPage", required=false)String cntPerPage
-				,@RequestParam(value="animal",required=false) List<String> animal) {
-			
-	
+				, @RequestParam(value="cntPerPage", required=false)String cntPerPage) {
 
-			System.out.println("animal : "+animal);
-			
 			int total = qnaService.qnacountBoard();
 			if (nowPage == null && cntPerPage == null) {
 				nowPage = "1";
@@ -119,37 +109,20 @@ public class QnAController {
 		@RequestMapping("/qna/qnaSearch")
 		public String qnaSearch(
 				@RequestParam HashMap<String, Object> param, Model model
-																, @RequestParam(value="nowPage", required=false)String nowPage
-																, @RequestParam(value="cntPerPage", required=false)String cntPerPage
 																,@RequestParam("keyword") String keyword
-																,@RequestParam("type") String type)throws Exception{
-			
-	PagingVO vo =new PagingVO();
-			
-			int total = qnaService.qnacountBoard();
-			if (nowPage == null && cntPerPage == null) {
-				nowPage = "1";
-				cntPerPage = "10";
-			} else if (nowPage == null) {
-				nowPage = "1";
-			} else if (cntPerPage == null) {
-				cntPerPage = "10";
-			}
-			System.out.println("total : "+total);
-			vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
-			model.addAttribute("paging", vo);
-			model.addAttribute("qnaList", qnaService.qnaselectBoard(vo));
-			
-			
-			
+																,@RequestParam("type") String type
+																,@RequestParam(value="animal",required=false) List<String> animal)throws Exception{
+
 			System.out.println("keyword" + keyword + ", " + type);
 			QnAVO qnAVO = new QnAVO();
 			qnAVO.setType(type);
 			qnAVO.setKeyword(keyword);
 			ArrayList<QnAVO> qnaList = qnaService.qnaSearch(param);
 			model.addAttribute("qnaList", qnaList);
+
 			
-		
+			
+			
 			
 			return "qna/qnaList";
 		}	

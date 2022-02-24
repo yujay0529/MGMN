@@ -96,10 +96,13 @@ body,html{
     border: 1px solid #cfcfcf;
 
 }
-.qna-select-item{
-margin-top: 5px;
-font-size: 12px;
-color: #707070;
+.checkitem{
+    display: flex;
+    flex-direction: row;
+    grid-gap: 15px;
+    gap: 15px;
+    margin-bottom: 10px;
+    font-size: 14px;
 }
 
 .apply-btn{
@@ -167,6 +170,27 @@ a{ text-decoration-line: none;}
 
 input:focus{
 	outline:none;
+}
+
+
+.checkbox input {display:none;}
+.checkbox span {display:inline-block;vertical-align:middle;cursor:pointer;}
+.checkbox .icon {position:relative;width: 17px;height: 17px;border: 1px solid #c8ccd4;border-radius: 3px;transition: background 0.1s ease;}
+.checkbox .icon::after {content: '';position: absolute;top: 1px;left: 5px;width: 5px;height: 11px;border-right: 2px solid #fff;border-bottom: 2px solid #fff;transform: rotate(45deg) scale(0);transition: all 0.3s ease;transition-delay: 0.15s;opacity: 0;}
+
+
+.checkbox input:checked ~ .icon {border-color: transparent;background:  #fcd11e;animation: jelly 0.6s ease;}
+.checkbox input:checked ~ .icon::after {opacity: 1;transform: rotate(45deg) scale(1);
+}
+
+@keyframes jelly {
+	from {transform: scale(1, 1);}
+	30% {transform: scale(1.25, 0.75);}
+	40% {transform: scale(0.75, 1.25);}
+	50% {transform: scale(1.15, 0.85);}
+	65% {transform: scale(0.95, 1.05);}
+	75% {transform: scale(1.05, 0.95);}
+	to {transform: scale(1, 1);}
 }
 
 

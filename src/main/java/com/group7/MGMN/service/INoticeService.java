@@ -16,7 +16,7 @@ public interface INoticeService {
 	void updateNotice(NoticeVO notiVo);			// 글 수정
 	void deleteNotice(int noticeNo);		//글 삭제
 	NoticeVO detailNotice(int noticeNo);// 공지 상세 조회
-	ArrayList<NoticeVO> noticeSearch(HashMap<String, Object> map); // 글 검색
+	ArrayList<NoticeVO> noticeSearch(HashMap<String, Object> map)throws Exception; // 글 검색
 	public int noticountBoard();// 게시물 총 갯수
 	public List<NoticeVO> notiselectBoard(PagingVO vo);// 페이징 처리 게시글 조회
 	public int notihitUp(int noticeNo)throws Exception;//조회수

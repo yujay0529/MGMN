@@ -1,5 +1,6 @@
 package com.group7.MGMN.model;
 
+import java.awt.Checkbox;
 import java.sql.Date;
 
 public class QnAVO {
@@ -15,7 +16,7 @@ public class QnAVO {
 	
 	private String type;//검색타입 
 	private String keyword;//검색 내용 
-	
+
 
 	public int getQnaNo() {
 		return qnaNo;

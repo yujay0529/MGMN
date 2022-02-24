@@ -75,10 +75,14 @@
   		<select id="noticeSearch"  resultType="com.group7.MGMN.model.NoticeVO" parameterType="hashmap">
   			SELECT * FROM notice WHERE
   			<choose>
-  				<when test="type != null and type.equals('noticeTitle')">
+  				<when test="type != null and type.equals('T')">
   					noticeTitle LIKE CONCAT('%', #{keyword}, '%')
   				</when>  				
-  				<when test="type != null and type.equals('noticeContent')">
+  				<when test="type != null and type.equals('C')">
+  					noticeContent LIKE CONCAT('%', #{keyword}, '%')
+  				</when>
+  				<when test="type != null and type.equals('TnC')">
+  					noticeTitle LIKE CONCAT('%', #{keyword}, '%') or
   					noticeContent LIKE CONCAT('%', #{keyword}, '%')
   				</when>
   			</choose>

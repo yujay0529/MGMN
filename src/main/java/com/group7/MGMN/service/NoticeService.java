@@ -46,7 +46,8 @@ public class NoticeService implements INoticeService {
 	}
 	//검색
 	@Override
-	public ArrayList<NoticeVO> noticeSearch(HashMap<String, Object> map) {
+	
+	public ArrayList<NoticeVO> noticeSearch(HashMap<String, Object> map)throws Exception {
 		return dao.noticeSearch(map);
 	}
 	
