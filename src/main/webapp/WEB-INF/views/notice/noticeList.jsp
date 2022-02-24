@@ -32,8 +32,8 @@
                     <center>
                        <div class="table_title">
 
-                           <h1 style="color:rgba(51,51,51);">공지사항</h1>
-                           <h3 style="color:rgba(51,51,51);">Notice</h3>
+                           <h2 style="color:rgba(51,51,51);">공지사항</h2>
+                           <h4 style="color:rgba(51,51,51);">Notice</h4>
 
                        </div>
 
@@ -48,7 +48,7 @@
 
 						    <c:when test="${sessionScope.userId=='admin'}">
 						
-						 <button class = "write_btn"> <a href ="<c:url value='/notice/write'/>">공지사항 쓰기 </a></button> 
+						 <button class = "write_btn"> <a href ="<c:url value='/notice/noticewrite'/>">공지사항 쓰기 </a></button> 
 						
 						    </c:when>
 						

@@ -58,9 +58,9 @@ public class QnAController {
 		}
 		
 		// 새글쓰기창으로 이동
-		@RequestMapping("/qna/write")
-		public String write() {
-			return "qna/write";
+		@RequestMapping("/qna/qnawrite")
+		public String qnawrite() {
+			return "qna/qnawrite";
 		}
 		
 		//새글업로드

@@ -11,16 +11,14 @@ body,html{
     margin: 0 auto;
     padding: 0 27px;
 }
-* {
-  font-family: "apple sd gothic neo";
-}
+
 #title{
     font-size: 30px;
-    padding-top:70px;
+    padding-top:10%;
 font-family: "apple sd gothic neo";
 }
 .qna-search{ 
-    width: 70%;
+    width: 75%;
     border: 2px solid #fcd11e;
     border-radius: 24px;
     padding: 15px 18px 11px 15px;
@@ -61,15 +59,14 @@ font-family: "apple sd gothic neo";
 }
 .write_btn :hover {
     cursor: pointer;
-    background-color: #fff;
+    background-color: #fcd11e;
     border: 2px solid #fcd11e;
 }
 
 
-.qnalist_filter input[type=radio]:checked{
+#qnalist_filter input[type=radio]:checked{
     background-color: #fff;
     border: 4px solid #fcd11e;
-    
     appearance: none;
     width: 0.8rem;
     height: 0.8rem;
@@ -115,8 +112,22 @@ font-family: "apple sd gothic neo";
     border: 2px solid #fff;
     margin-top: 10px;
 }
-.apply-btn :hover {
-    background-color:#ffeb99
+.apply-btn:active {
+    margin-left:5px;
+    margin-top:5px;
+    box-shadow:none;
+    
+}
+
+.none-btn{
+    width: 100%;
+    padding: 3px 0;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 11px;
+    background-color:  #fff;
+    border: 2px solid #fcd11e;
+    margin-top: 10px;
 }
 
 .qnaContainer{
@@ -130,7 +141,7 @@ width: 800px;
 .qnaTitle{
 	margin-top: 20px;
 	font-size: 20px;
-	font-family: "apple sd gothic neo";
+	font-family: "apple sd gothic neo" !important;
     
 }
 
@@ -143,7 +154,7 @@ width: 800px;
     gap: 16px;
     font-size: 12px;
     color: #ababab;
-    font-family: "apple sd gothic neo";
+    font-family: "apple sd gothic neo"!important;
 }
 .myanimal{
     height: 22px;
@@ -157,7 +168,7 @@ width: 800px;
     padding: 4px 15px;
     margin-right: 6px;
     padding-top:5px;
-    font-family: "apple sd gothic neo";
+    font-family: "apple sd gothic neo"!important;
 }
 .pagelist{
     display: flex;

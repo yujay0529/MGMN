@@ -48,9 +48,9 @@ public class NoticeController {
 
 
 	// 새글쓰기창으로 이동
-	@RequestMapping("/notice/write")
-	public String write() {
-		return "notice/write";
+	@RequestMapping("/notice/noticewrite")
+	public String noticewrite() {
+		return "notice/noticewrite";
 	}
 
 

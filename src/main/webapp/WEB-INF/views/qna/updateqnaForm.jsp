@@ -36,6 +36,7 @@
 	
 	<body>
 			<div id="wrap">
+			<jsp:include page="/WEB-INF/views/layout/top.jsp" flush='true' /> 
 			<div class="writeform">
 			    <main role="main" class="container">
 			        <form name="form" method="post" action="<c:url value='/qna/updateqna'/>">
@@ -62,6 +63,7 @@
 			            </div>
 			        </form>
 			    </main>
+			    <jsp:include page="/WEB-INF/views/layout/bottom.jsp" flush='true' /> 
 			</div>
 	</body>
 
