@@ -18,7 +18,7 @@
 		<jsp:include page="/WEB-INF/views/layout/top.jsp" flush='true' />
 
 		<!--  로그인 폼  -->
-
+		<div id="register">
 		<form action="<c:url value="loginForm"/>" method="post" id="loginForm"
 			class="loginForm">
 			<h2>Login</h2>
@@ -28,18 +28,20 @@
 			<div class="passForm">
 				<input type="password" id="pwd" class="pw" placeholder="PW">
 			</div>
-			<button type="submit" id="button" class="btn" onclick="button()">
+			<button type="submit" id="button" class="BTN" onclick="button()">
 				LOG IN</button>
 
 			<div class="bottomText">
 				Don't you have ID? <a href="#">sign up</a>
 			</div>
 
+		</form>
+		</div>
+		<div class="bottom">
 			<!-- BOTTOM  -->
 			<jsp:include page="/WEB-INF/views/layout/bottom.jsp" flush='true' />
-		</form>
+		</div>
 	</div>
 </body>
 </html>
-
 

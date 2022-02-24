@@ -963,7 +963,7 @@ input:-ms-input-placeholder {
 
 .hire-content{
     background: url(../images/hire-us.png) no-repeat center top scroll;
-    background-size
+    /* background-size */
     -moz-background-size: cover;
     -webkit-background-size: cover;
     -o-background-size: cover;
@@ -971,7 +971,6 @@ input:-ms-input-placeholder {
     width: 100%;
     overflow: hidden;
     max-height: 500px;
-
 }
 .img-overlay{
     background-color: rgba(245, 216, 150, 0.5);

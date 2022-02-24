@@ -118,16 +118,19 @@
                         <div class="portfolio">
 
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <img src="assets/images/monitor.png" alt="" />
+                                <img src="assets/images/park1.png" alt="" />
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="portfolio-item">
-                                    <h4>WEB DESIGN</h4>
+                                    <h4>간단한 로그인/회원가입, 개성있는 마이페이지, 신나는 이벤트!</h4>
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
-                                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est. laboru
+                                        깔끔한 오렌지 디자인의 로그인 페이지, 회원가입 페이지 구현.<br>
+                                        개성있는 마이페이지+반려견 페이지를 구현하여 내 반려견 정보를 한눈에!<br>
+                                        모두가 참여하는 신나는 이벤트!! 
                                     </p>
-                                    <button class="btn pt-btn btn-primary">View More</button>
+                                    <button class="btn pt-btn btn-primary">
+                                <a href="<c:url value='/loginForm'/>">View More</a></button>
+                                  
                                 </div>
                             </div>
 
@@ -226,8 +229,8 @@
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="team-member">
                                 <img class="img-circle" src="assets/images/team/3.png" alt="" />
-                                <h5>LENNERD SHELLY</h5>
-                                <p>REVIEWER</p>
+                                <h5>PARK KEUN WOO</h5>
+                                <p>DEVELOPER</p>
                             </div>
                         </div>
 
