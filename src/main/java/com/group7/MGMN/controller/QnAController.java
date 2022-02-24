@@ -108,14 +108,12 @@ public class QnAController {
 		public String qnaSearch(
 				@RequestParam HashMap<String, Object> param, Model model
 																,@RequestParam("keyword") String keyword
-																,@RequestParam("type") String type
-																,@RequestParam("animal") String animal)throws Exception{
+																,@RequestParam("type") String type)throws Exception{
 
 			System.out.println("keyword" + keyword + ", " + type);
 			QnAVO qnAVO = new QnAVO();
 			qnAVO.setType(type);
 			qnAVO.setKeyword(keyword);
-			qnAVO.setAnimal(animal);
 			ArrayList<QnAVO> qnaList = qnaService.qnaSearch(param);
 			model.addAttribute("qnaList", qnaList);
 
