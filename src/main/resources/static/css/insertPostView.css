@@ -1,0 +1,89 @@
+@charset "UTF-8";
+@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+
+/* insertPostView.css */
+
+
+h3 {
+    font-size: 23px;
+    font-family: 'Jeju Gothic', sans-serif;
+    font-style: normal;
+    margin-top: 5%;
+}
+div#wrap {
+   margin: 0 auto;
+   width: 1024px; }
+	    
+hr {
+    margin-top: 15px;
+    margin-bottom: 12px;
+    border: 0;
+    border-top: 1px solid sandybrown;
+}
+	
+	  
+table.insertTable {
+	  border-collapse: separate;
+	  border-spacing: 1px;
+	  text-align: left;
+	  line-height: 1.5;
+	  font-family: 'Jeju Gothic', sans-serif;
+	}
+table.insertTable th {
+	  border-left: 1px;
+	  border-left-color: orange;
+	  padding: 10px;
+	  font-weight: bold;
+	  font-family: 'Jeju Gothic', sans-serif;
+	}
+table.insertTable td {
+	  width: 350px;
+	  padding: 10px;
+	  vertical-align: top;
+	}
+	
+input[type=text]{ 
+	  border: 2px solid orange;
+	  border-radius: 5px 5px 20px 5px;
+    }
+    
+input#submit_btn {
+    background-color: sandybrown;
+    border: 0px;
+    margin: 10px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 5px;
+    color: ghostwhite;
+}
+
+input#cancelBtn {
+    background-color: sandybrown;
+    border: 0px;
+    margin: 10px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 5px;
+    color: ghostwhite;
+}
+
+input[type='radio'] {
+    -webkit-appearance:none;
+    width:16px;
+    height:16px;
+    border:1px solid darkgray;
+     border-radius:50%;
+    outline:none;
+    background: ghosewhite;
+  }
+  input[type='radio']:before {
+    content:'';
+    display:block;
+    width:60%;
+    height:60%;
+    margin: 20% auto;  
+    border-radius:50%;  
+  }
+  input[type='radio']:checked:before {
+  	background:sandybrown;
+  }

@@ -9,6 +9,7 @@
 		<meta name="viewport" content="width=device-width"/>
 		<meta charset="UTF-8">
 		<title>중고마켓 상세 페이지</title>
+		<link  href="<c:url value='/css/detailViewPost.css' />" rel="stylesheet"  type="text/css" >
 		<script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
 		<script type="text/javascript">
 			function deleteCheck() {
@@ -22,26 +23,34 @@
 	</head>
 	<body>
 		<div id="wrap">
-			<div>글번호&nbsp;&nbsp;${mkVO.mkNo }</div>
-			<div>글이름&nbsp;&nbsp;${mkVO.mkTitle }</div>
-			<div>글내용&nbsp;&nbsp;${mkVO.mkContent }</div>
-			<div>가격&nbsp;&nbsp;${mkVO.mkPrice }</div>
-			<div>지역&nbsp;&nbsp;${mkVO.mkRegion }</div>
-			<div>등록자 아이디&nbsp;&nbsp;${mkVO.userId }</div>
-			<div>카테고리&nbsp;&nbsp;${mkVO.ctgId }</div>
-		<br>
+			<a href="<c:url value='/market/listRegionPost' />"><h3>우리동네 중고거래</h3></a>
+			<!-- 게시글 삭제 -->
+		<c:if test="${sessionScope.sid == mkVO.userId }">
+			<input type="button" id="deleteBtn" value="게시글 삭제" onClick = "location.href='javascript:deleteCheck();'">
+		</c:if>
 		
 		<!-- 수정 화면으로 이동 -->
-		<a href="<c:url value='/market/updatePostForm/${mkVO.mkNo }' />">정보 수정</a><br><br>
-		
-		<!-- 게시글 삭제 -->
-		<a href="javascript:deleteCheck();">게시글 삭제</a><br><br>
-		
-			
+		<c:if test="${sessionScope.sid == mkVO.userId }">
+			<input type="button" id="updateBtn" value="게시글 수정" onClick ="location.href='<c:url value="/market/updatePostForm/${mkVO.mkNo }" />'">
+		</c:if>
+			<hr>
+			<div id="detailViewInfo">
+				<table class="insertTable">
+					<tr><th>글쓴이</th><td>${mkVO.userId }</td></tr>
+					<tr><th>제 목</th><td>${mkVO.mkTitle }</td></tr>
+					<tr><th>가 격</th><td>${mkVO.mkPrice }</td></tr>
+					<tr><th>지 역</th><td>${mkVO.mkRegion }</td></tr>
+				</table>
+				<div id="detailViewContent">
+					${mkVO.mkContent }
+				</div>
+			</div>
+		<br>
+	
 			<!--  댓글 창 -->
 		    <div class="container">
-		        <label for="content">댓글 목록</label>
-		        <form name="commentInsertForm" >
+		        <label for="content" id="commentList">댓글 목록</label>
+		        <form name="commentInsertForm" id="commentInsertForm">
 		            <div class="input-group">
 		               <input type="hidden" name="mkNo" value="${mkVO.mkNo }"/>
 		               <input type="text" class="form-control" id="content" name="content" placeholder="댓글을 작성해주세요.">
@@ -51,6 +60,8 @@
 		              </div>
 		        </form>
 		    </div>
+		    <br>
+		    <hr>
 		    
 		    <div class="container">
 		        <div class="commentList"></div>
