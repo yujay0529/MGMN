@@ -17,11 +17,12 @@ function commentList(){
         success : function(data){
             var a =''; 
             $.each(data, function(key, value){ 
-                a += '<div class="commentArea" style="border-bottom:1px solid darkgray; margin-bottom: 15px;">';
+                a += '<div class="commentArea" style="width:89%; border-bottom:1px solid sandybrown; margin-bottom: 15px;">';
                 a += '<div class="commentInfo'+value.cmtNo+'">'+' 작성자 : '+value.userId;
-                a += '<a onclick="commentUpdate('+value.cmtNo+',\''+value.content+'\');"> 수정 </a>';
-                a += '<a onclick="commentDelete('+value.cmtNo+');"> 삭제 </a> </div>';
-                a += '<div class="commentContent'+value.cmtNo+'"> <p> 내용 : '+value.content +'</p>';
+                a += '<div class="commentContent'+value.cmtNo+'"> <p>'+value.content +'</p>';
+                a += '<a onclick="commentUpdate('+value.cmtNo+',\''+value.content+'\');"> <button>수정</button> </a>';
+                a += '<a onclick="commentDelete('+value.cmtNo+');"> <button>삭제</button> </a> </div>';
+               
                 a += '</div></div>';
             });
             

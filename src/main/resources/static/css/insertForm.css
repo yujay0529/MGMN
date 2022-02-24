@@ -1,0 +1,43 @@
+@charset "UTF-8";
+*{margin:0 auto;}
+#wrap {
+   margin:0 auto;
+   width:100%;
+   padding:10px;
+}   
+#title2 {
+   text-align:center;
+   color:black;
+   margin-top:30px;
+   margin-bottom:20px;
+   font-family: 'Do Hyeon', sans-serif;
+   }
+#insertForm{
+   position:relative;
+   width:800px;
+   height:500px;
+   margin-top:150px;
+   
+}
+#insertForm table {
+   width:800px;
+   text-align:left;
+   border:0;
+   }
+#insertForm table input{
+   width:800px;
+   
+}
+#insertForm table th{
+   width:200px;
+   text-align:center;
+   font-size: 15px;
+   font-family: 'Do Hyeon', sans-serif;
+}
+#insertForm table textarea{
+   width:500px;
+   height:300px;
+}
+#insertForm table #button{
+   text-align:right;
+}

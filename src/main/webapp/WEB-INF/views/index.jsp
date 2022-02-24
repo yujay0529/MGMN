@@ -118,16 +118,19 @@
                         <div class="portfolio">
 
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <img src="assets/images/monitor.png" alt="" />
+                                <img src="assets/images/park1.png" alt="" />
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="portfolio-item">
-                                    <h4>WEB DESIGN</h4>
+                                    <h4>간단한 로그인/회원가입, 개성있는 마이페이지, 신나는 이벤트!</h4>
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
-                                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est. laboru
+                                        깔끔한 오렌지 디자인의 로그인 페이지, 회원가입 페이지 구현.<br>
+                                        개성있는 마이페이지+반려견 페이지를 구현하여 내 반려견 정보를 한눈에!<br>
+                                        모두가 참여하는 신나는 이벤트!! 
                                     </p>
-                                    <button class="btn pt-btn btn-primary">View More</button>
+                                    <button class="btn pt-btn btn-primary">
+                                <a href="<c:url value='/loginForm'/>">View More</a></button>
+                                  
                                 </div>
                             </div>
 
@@ -160,16 +163,19 @@
 
                         <div class="portfolio">
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <img class="portfolio-img img-responsive" src="assets/images/monitor.png" alt="" />
+                                <img class="portfolio-img img-responsive" src="assets/images/monitorMarket.png" alt="" />
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="portfolio-item">
-                                    <h4>AFFILIATE MARKETING</h4>
+                                    <h4>우리동네 중고거래 페이지</h4>
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
-                                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est. laboru
+                                        가까운 반려인들끼리 다양한 반려동물 물품들을<br>
+                                        구매/판매/나눔 할 수 있는 우리동네 중고거래 게시판 페이지입니다.<br>
+                                        접속 IP를 바탕으로 이용자의 위치정보를 가져오고<br>
+                                        이를 기반으로 동네마다 다른 페이지를 구성하여<br>
+                                        가까운 이용자들끼리의 다양하고 편리한거래를 기대할 수 있습니다.
                                     </p>
-                                    <button class="btn pt-btn btn-primary">View More</button>
+                                    <button class="btn pt-btn btn-primary">우리동네 중고거래</button>
                                 </div>
                             </div>
                         </div>
@@ -225,8 +231,8 @@
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="team-member">
                                 <img class="img-circle" src="assets/images/team/3.png" alt="" />
-                                <h5>LENNERD SHELLY</h5>
-                                <p>REVIEWER</p>
+                                <h5>PARK KEUN WOO</h5>
+                                <p>DEVELOPER</p>
                             </div>
                         </div>
 

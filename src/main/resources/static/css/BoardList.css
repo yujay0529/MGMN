@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+/* .area_head {
+    position: fixed;
+    text-align:center;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid #ebebeb;
+    background-color: #fff;
+    background-color: rgba(255,255,255,.95);
+} */
+#wrap{
+   margin:0 auto;
+   width:100%;
+}
+#img {
+   width:20%;
+   height:180px;
+}
+
+#img img {
+   width: 100% !important;
+   height: 100%;
+}
+
+table {
+   border-collapse: collapse;
+   width: 60%;
+   background-color: #EDDBC3;
+   border-radius: 8px;
+   font-family: 'Do Hyeon', sans-serif;
+   height:180px;
+   margin-top:50px;
+}
+
+#title{
+   font-size:25px;
+   font-weight:bold;
+   height:90px;
+   line-height:90px;
+}
+#title a{
+   color:#3C3B3B;
+}
+table td{
+   font-size:18px;
+   font-weight:bold;
+   
+}
+
+#botton {
+   background-color: #FFBF00;
+   border:none;
+   border-radius: 2px;
+   font-size: 20px;
+   font-weight:bold;
+   color:white;
+   float:right;
+   
+}

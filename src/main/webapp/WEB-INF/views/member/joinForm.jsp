@@ -25,13 +25,13 @@
 			<form id="joinForm" name="joinForm" method="post"
 				action="<c:url value='/join'/>">
 				<div class="flex">
-					<ul class="container">
+					<ul class="container3">
 						<li class="item center">이름</li>
 						<li class="item"><input id="userName" name="userName" placeholder="이름을 입력하세요." 
 							autofocus required></li>
 						<li class="item"></li>
 					</ul>
-					<ul class="container">
+					<ul class="container3">
 						<li class="item center">아이디</li>
 						<li class="item"><input type="text" id="userId" name="userId"
 							placeholder="아이디를 입력하세요." required></li>
@@ -39,30 +39,30 @@
 							<button id="idCheck" class="idcheck">중복확인</button>
 						</li>
 					</ul>
-					<ul class="container">
+					<ul class="container3">
 						<li class="item center">비밀번호</li>
 						<li class="item"><input type="password" id="userPwd"
 							name="userPwd" placeholder="비밀번호를 입력하세요." required></li>
 						<li class="item"></li>
 					</ul>
-					<ul class="container">
+					<ul class="container3">
 						<li class="item center">비밀번호 확인</li>
 						<li class="item"><input type="password" id="userPwd2"
 							name="userPwd2" placeholder="비밀번호를 다시 입력하세요." required></li>
 						<li class="item"></li>
 					</ul>
-					<ul class="container">
+					<ul class="container3">
 						<li class="item center">이메일</li>
 						<li class="item"><input type="text" id="userEmail"
 							name="userEmail" placeholder="이메일을 입력하세요." required></li>
 						<li class="item"></li>
 					</ul>
-					<ul class="container">
+					<ul class="container3">
 						<li class="item center">생년월일</li>
 						<li class="item"><input type="date" required></li>
 						<li class="item"></li>
 					</ul>
-					<ul class="container">
+					<ul class="container3">
 						<li class="item center">성별</li>
 						<li class="item"><select name="gender" id="gender">
 								<option value="선택" selected>선택</option>
@@ -81,7 +81,7 @@
 							name="userHp3" size="4" placeholder="0000"></li>
 						<li class="item"></li>
 					</ul>
-					<ul class="container">
+					<ul class="container3">
 						<li class="item center">우편번호</li>
 						<li class="item">
 						<input type="text" id="userZipcode"
@@ -92,7 +92,7 @@
 					</ul>
 					
 					
-					<ul class="container">
+					<ul class="container3">
 						<li class="item center">주소1</li>
 						<li class="item">	
 						<input
@@ -100,14 +100,14 @@
 							>
 					</ul>
 					
-					<ul class="container">
+					<ul class="container3">
 						<li class="item center">주소2</li>
 						<li class="item"><input type="text" id="userAddress2"
 							name="userAddress2" size="70" placeholder="상세 주소를 입력하세요." >
 						
 						<li class="item"></li>
 					</ul>
-					<ul class="container">
+					<ul class="container3">
 						<li class="item center"></li>
 						<li class="item">
 							<button type="submit" class="submit">가입하기</button>

@@ -32,10 +32,10 @@ $(document).ready(function () {
 </head>
 
 <body>
- 	<div id="wrap">
-			
-		<!-- TOP  -->
-		
+    <div id="wrap">
+         
+      <!-- TOP  -->
+      
     <form id="insertForm" name="insertForm" method="post"  action="<c:url value='/insertBoard'/>">
      <h2 id="title2"> 게시글 작성 </h2>
      <table border="2">
@@ -52,13 +52,13 @@ $(document).ready(function () {
         <textarea class="form-control" name="brdCon" id="summernote" rows="5"></textarea>
       </td></tr>
       <tr><th colspan="2" id="button"><button type="submit" class="btn btn-primary">작성</button>
-	  </th></tr>
+     </th></tr>
     </table>
     <input type="hidden" name="brdImg" id="brdImg">
     </form>
 
-	<!-- BOTTOM  -->
-	
-	</div>
+   <!-- BOTTOM  -->
+   
+   </div>
 </body>
 </html>
