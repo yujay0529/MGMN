@@ -3,28 +3,29 @@
 
 /* insertPostView.css */
 
-a { 	
+div#wrap a { 	
 	text-decoration: none;
 	color : black;
 }
 
-h3 {
-    font-size: 22px;
-    font-family: 'Jeju Gothic', sans-serif;
-    font-style: normal;
-    margin-top: 5%;
-}
- 
 div#wrap {
    margin: 0 auto;
    width: 1024px;
 }
+
+div#wrap h3 {
+    font-size: 22px !important;
+    font-family: 'Jeju Gothic', sans-serif !important;
+    font-style: normal !important;
+    margin-top: 5%; 
+}
+ 
 	    
-hr {
+div#wrap hr {
     margin-top: 15px;
     margin-bottom: 12px;
     border: 0;
-    border-top: 1px solid sandybrown;
+    border-top: 1px solid sandybrown !important;
 }
 	
 	  
@@ -35,11 +36,11 @@ table.insertTable {
 	  line-height: 1.5;
 	  margin-bottom: 20px;
       margin-top: 20px;
-      font-family: 'Jeju Gothic', sans-serif;
+      font-family: 'Jeju Gothic', sans-serif !important;
 }
 
 table.insertTable th {
-	  border-left: 3px solid orange ;
+	  border-left: 3px solid orange !important;
 	  padding: 10px;
 	  font-weight: bold;
   	  border-radius: 5px;
@@ -56,6 +57,7 @@ div#detailViewContent {
     background: white;
     border-top: 1px solid sandybrown;
     border-bottom: 1px solid sandybrown;
+    padding: 15px;
 }
 
 input[type=button]{
@@ -63,9 +65,9 @@ input[type=button]{
 	  border: 2px solid orange;
 	  border-radius: 5px;
 	  float: right;
-      margin-left: 25px;
-      margin-top: -10px;
-      font-family: 'Jeju Gothic', sans-serif;
+      margin-left: 20px;
+      margin-top: -12px;
+      font-family: 'Jeju Gothic', sans-serif !important;
       padding: 3px;
 }
 
@@ -79,23 +81,60 @@ label {
     border-radius: 5px;
     padding: 4px;
     padding-left: 10px;
-    padding-right: 200px;
-    font-family: 'Jeju Gothic', sans-serif;
+    padding-right: 268px;
+    font-family: 'Jeju Gothic', sans-serif !important;
 }
 
 form#commentInsertForm {
     margin-top: 15px;
     margin-left: 3px;
 }
+.commentList {
+	font-family: 'Jeju Gothic', sans-serif !important;
+}
+
+div .commentList button {
+    width: 40px;
+    height: 25px;
+    font-size: small;
+    margin-bottom: 10px;
+}
 
 input#content {
     background: antiquewhite;
     border-color: burlywood;
-    padding-right: 101px;
+    height: 30px;
+    width: 300px;
+}
+
+button.btn.btn-default {
+    padding: 4px;
+}
+
+span.input-group-btn {
+    display: block;
 }
 
 button.btn.btn-default {
     background: sandybrown;
     border: 1px solid darkorange;
     border-radius: 4px;
+}
+
+.navbar {
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+}
+.navbar-default {
+    background-color: #ffc038 !important;
+    border: transparent;
+    padding-top: 30px;
+}
+
+header {
+    height: 110px;
+}
+
+nav.navbar.navbar-default.navbar-fixed-top {
+    padding: 10px;
 }
