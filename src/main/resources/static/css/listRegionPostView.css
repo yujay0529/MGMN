@@ -6,20 +6,19 @@
 
 a { 	
 	text-decoration: none;
-	color : black; }
+	color : black;
+}
 
-h3 {
-    font-size: 22px;
-    font-family: 'Jeju Gothic', sans-serif;
-    font-style: normal;
+#pageTitle h3 {
+    font-size: 22px !important;
+    font-family: 'Jeju Gothic', sans-serif !important;
+    font-style: normal !important;
     margin-top: 5%;
 }
 	
 hr {
-    margin-top: 15px;
-    margin-bottom: 12px;
-    border: 0;
-    border-top: 1px solid sandybrown;
+    border: 0 !important;
+    border-top: 1px solid sandybrown !important;
 }
 div#wrap {
 	width: 1024px;
@@ -36,7 +35,7 @@ div#thumbnail img{width:250px;}
 }
 
 .productWrap #thumbnail {
- 			width: 100%;
+ 	width: 100%;
 }
 
 div#thumbnail img {
@@ -64,20 +63,23 @@ div#wrapWholePost {
 .marketSearch {
     display: flex;
     background: floralwhite;
-    margin-top: -12px;
-    margin-bottom: -15px;
+    margin-top: -20px;
+    margin-bottom: -20px;
+    padding: 8px;
 }
 
 .marketSearch h4 {
-    margin-left: 2%;
-    margin-right: 4%;
-    background: floralwhite;
-    border-radius: 5px;
-    font-family: 'Jeju Gothic', sans-serif;
+    margin-left: 2% !important;
+    margin-right: 4% !important;
+    background: floralwhite !important;
+    border-radius: 5px !important;
+    font-family: 'Jeju Gothic', sans-serif !important;
+    font-size: larger;
+    margin-top: 8px;
 }
 
 form#searchForm {
-    margin-top: 1.7%;
+    margin-top: 1%;
 }
 
 select {
@@ -90,12 +92,15 @@ select {
     background: antiquewhite;
     font-family: 'Jeju Gothic', sans-serif;
     border-radius: 10px 10px 0px 0px;
+    height: 25px;
+    padding: 2px;
 }
 
 .boardPrice {
     background: floralwhite;
     font-family: 'Jeju Gothic', sans-serif;
     font-size: smaller;
+    height: 15px;
 }
 
 .boardDateHit {
@@ -105,17 +110,17 @@ select {
 }
 
 #boardDate {
-    font-family: 'Jeju Gothic', sans-serif;
-    font-size: smaller;
-    width: 100%;
-    padding: 4px;
-    margin-left: -13px;
+    font-family: 'Jeju Gothic', sans-serif !important;
+    font-size: smaller !important;
+    width: 100% !important; 
+    padding: 4px !important;
+    margin-left: -13px !important;
 }
 
 #boardHit {
-    font-family: 'Jeju Gothic', sans-serif;
-    font-size: smaller;
-    width: 100%;
+    font-family: 'Jeju Gothic', sans-serif !important;
+    font-size: smaller !important;
+    width: 100% ;
 }
 
 #boardHit img {
@@ -123,8 +128,10 @@ select {
 }
 
 #boardHit h4 {
-    display: inline;
-    padding: 3px;
+    display: inline !important;
+    padding: 3px !important;
+    font-family: 'Jeju Gothic', sans-serif !important;
+    font-size: larger;
 }
 
 input[type="text"] {
@@ -137,7 +144,6 @@ input[type="submit"] {
     background: wheat;
     padding-left: 10px;
     padding-right: 10px;
-    font-family: sans-serif;
 }
 
 .pagelist {
@@ -160,4 +166,22 @@ input[type="submit"] {
     padding-left: 14px;
     margin-right: 14px;
     color: white;
+}
+
+.navbar {
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+}
+.navbar-default {
+    background-color: #ffc038 !important;
+    border: transparent;
+    padding-top: 30px;
+}
+
+header {
+    height: 80px;
+}
+
+nav.navbar.navbar-default.navbar-fixed-top {
+    padding: 10px;
 }

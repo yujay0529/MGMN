@@ -10,34 +10,34 @@
 <script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
 <script src="<c:url value='/js/index.js'/>"></script>
 <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title></title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
+<link rel="stylesheet" href="<c:url value='/assets/css/bootstrap.min.css' />">
+<!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
 
-    <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
-        <script src="assets/js/vendor/bootstrap.min.js"></script>
+<script src="<c:url value='/assets/js/vendor/jquery-1.11.2.min.js' />"></script>
+<script src="<c:url value='/assets/js/vendor/bootstrap.min.js' />"></script>
 
-        <script src="assets/js/plugins.js"></script>
-        <script src="assets/js/main.js"></script>
-        <!--For Plugins external css-->
-        <link rel="stylesheet" href="assets/css/plugins.css" />
+<script src="<c:url value='/assets/js/plugins.js' />"></script>
+<script src="<c:url value='/assets/js/main.js' />"></script>
+<!--For Plugins external css-->
+<link rel="stylesheet" href="<c:url value='/assets/css/plugins.css' />" />
 
-        <!--Theme custom css -->
-        <link rel="stylesheet" href="assets/css/style.css">
+<!--Theme custom css -->
+<link rel="stylesheet" href="<c:url value='/assets/css/style.css' />" />
 
-        <!--Theme Responsive css-->
-        <link rel="stylesheet" href="assets/css/responsive.css" />
-  
+<!--Theme Responsive css-->
+<link rel="stylesheet" href="<c:url value='/assets/css/responsive.css' />" />
 
-        <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-        
-        <script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
+
+<script src="<c:url value='/assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js' />"></script>
+
+<script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
 
 <script type="text/javascript">
 				
@@ -90,7 +90,9 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="/" style="width:300px;height:20px;font-size:30px;">MGMN</a>
+                        <a class="navbar-brand" href="<c:url value='/' />" style="width:300px;height:20px;font-size:30px;">
+                        	<img src="<c:url value='/assets/images/MGMNLogo2.png' />">
+                        </a>
                     </div>
       
 
@@ -99,39 +101,36 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li class="active"><a href="/">Home<span class="sr-only">(current)</span></a></li>
                            <c:if test="${empty sessionScope.sid }">
-							<li><a href="<c:url value='/joinForm'/>">Join</a><li>
-							<li><a href="<c:url value='/loginForm'/>">Login</a><li>
-                            <li>  <a href="<c:url value='noticeList' />">Notice</a></li>
-                            <li>  <a href="javascript:toMarket();">Market</a></li>
-                            <li>  <a href="<c:url value='qnaList' />">Q&A</a></li>
-                            <li><a href="<c:url value='shops' />">ShopList</a></li>
-                            <li><a href="#our-feature">Blog</a></li>
-                            <li><a href="#">Contact Us</a></li>
+								<li><a href="<c:url value='/joinForm'/>">Join</a><li>
+								<li><a href="<c:url value='/loginForm'/>">Login</a><li>
+	                            <li>  <a href="<c:url value='noticeList' />">Notice</a></li>
+	                            <li>  <a href="javascript:toMarket();">Market</a></li>
+	                            <li>  <a href="<c:url value='qnaList' />">Q&A</a></li>
+	                            <li><a href="<c:url value='shops' />">ShopList</a></li>
+	                            <li><a href="#our-feature">Blog</a></li>
+	                            <li><a href="#">Contact Us</a></li>
                             </c:if>
-                            		
+                
+                           	<c:if test="${not empty sessionScope.sid}">
+	                            <li>  <a href="javascript:toMarket();">Market</a></li>
+	                            <li>  <a href="<c:url value='qnaList' />">Q&A</a></li>
+	                            <li><a href="<c:url value='shops' />">ShopList</a></li>
+	                            <li><a href="<c:url value='/store'/>">스토어</a></li>
+	                            <li>  <a href="<c:url value='noticeList' />">Notice</a></li>
+								<li><a href="<c:url value='/BoardList'/>">이벤트</a><li>			
+								<li><a href="<c:url value='/mypet'/>">마이펫</a> </li>
+								<li><a href="<c:url value='/mypage'/>"> ${sessionScope.sid} 님 환영합니다!</a></li>
+								<li><a href="<c:url value='/logout'/>">로그아웃</a></li>
+									&nbsp;
+							</c:if>
 						
-                            	<c:if test="${not empty sessionScope.sid}">
-
-						
-                            <li>  <a href="javascript:toMarket();">Market</a></li>
-                            <li>  <a href="<c:url value='qnaList' />">Q&A</a></li>
-                            <li><a href="<c:url value='shops' />">ShopList</a></li>
-                            <li><a href="<c:url value='/store'/>">스토어</a></li>
-                            <li>  <a href="<c:url value='noticeList' />">Notice</a></li>
-							<li><a href="<c:url value='/BoardList'/>">이벤트</a><li>			
-							<li><a href="<c:url value='/mypet'/>">마이펫</a> </li>
-							<li><a href="<c:url value='/mypage'/>"> ${sessionScope.sid} 님 환영합니다!</a></li>
-							<li><a href="<c:url value='/logout'/>">로그아웃</a></li>
-								&nbsp;
-						</c:if>
-						</div>
                         </ul>
-						
-		
-                    </div><!-- /.navbar-collapse -->
-                </div><!-- /.container-fluid -->
-            </nav>
-        </div>
-			</div>
+                        
+                    	</div><!--collapse navbar-collapse -->
+                	</div><!--container -->
+            	</nav>
+        	</div> <!--main-menu  -->
+		</div> <!-- headerBox -->
+	</header>
 </body>
 </html>
