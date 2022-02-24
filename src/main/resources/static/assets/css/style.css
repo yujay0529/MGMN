@@ -596,6 +596,10 @@ input:-ms-input-placeholder {
     color:#fff;
 }
 
+.navbar-brand img {
+    width: 170px;
+}
+
 .contact-number{
     font-size:12px;
     font-weight:600;

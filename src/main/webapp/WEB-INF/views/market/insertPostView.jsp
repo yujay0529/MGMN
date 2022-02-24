@@ -86,9 +86,8 @@
 		        </div>
 				<div id="insertSubmit" align="center"><input id='submit_btn' type='submit' value='등록'>&nbsp;&nbsp;<input type='reset' value='취소' id="cancelBtn"></div>
 				<input type="hidden" name="mkImg" id="mkImg">
-				
 			</form>
-			
 		</div>
+		
 	</body>
 </html>

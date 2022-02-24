@@ -1,12 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
+
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title>top</title>
+
+<script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
+<script src="<c:url value='/js/index.js'/>"></script>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -32,7 +37,6 @@
 <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 
 <script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
-<script src="<c:url value='/js/index.js'/>"></script>
 
 <script type="text/javascript">
 	function toMarket() { // 중고거래 링크 접근과 동시에 ip => 주소 
@@ -126,8 +130,8 @@
 									<li><a href="<c:url value='/mypage'/>">
 											${sessionScope.sid} 님 환영합니다!</a></li>
 									<li><a href="<c:url value='/logout'/>">로그아웃</a></li>
-								&nbsp;
-						</c:if>
+                        &nbsp;
+                  </c:if>
 						</div>
 						</ul>
 
