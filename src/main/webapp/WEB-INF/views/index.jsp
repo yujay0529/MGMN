@@ -175,7 +175,7 @@
                                         이를 기반으로 동네마다 다른 페이지를 구성하여<br>
                                         가까운 이용자들끼리의 다양하고 편리한거래를 기대할 수 있습니다.
                                     </p>
-                                    <button class="btn pt-btn btn-primary">우리동네 중고거래</button>
+                                    <button class="btn pt-btn btn-primary">View More</button>
                                 </div>
                             </div>
                         </div>
@@ -214,9 +214,9 @@
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="team-member">
 
-                                <img class="img-circle" src="assets/images/team/1.png" alt="" />
-                                <h5>SAYED MIRAJ</h5>
-                                <p>UI & UX DESIGNER</p>
+                                <img class="img-circle" src="assets/images/team/4.png" alt="" />
+                                <h5>KIM TAE HYEONG</h5>
+                                <p>DEVELOPER</p>
                             </div>
                         </div>
 
@@ -238,9 +238,17 @@
 
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="team-member">
-                                <img class="img-circle" src="assets/images/team/4.png" alt="" />
-                                <h5>SHELDON CUPPER</h5>
-                                <p>MARKETTER</p>
+                                <img class="img-circle" src="assets/images/mjs.png" alt="" />
+                                <h5>MOON JAE SUB</h5>
+                                <p>DEVELOPER</p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="team-member">
+                                <img class="img-circle" src="assets/images/team/1.png" alt="" />
+                                <h5>LEE SEUNG JUN</h5>
+                                <p>DEVELOPER</p>
                             </div>
                         </div>
 
