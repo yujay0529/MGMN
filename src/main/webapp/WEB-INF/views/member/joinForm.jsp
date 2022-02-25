@@ -85,7 +85,7 @@
 						<li class="item center">우편번호</li>
 						<li class="item">
 						<input type="text" id="userZipcode"
-							name="userZipcode" size="5" placeholder="우편번호 찾기를 눌러주세요." readonly>
+							name="userZipcode" size="5" placeholder="우편번호 찾기를 눌러주세요." required></li>
 						<li class="item">
 							<button id="searchZip" class="searchZip">우편번호찾기</button>
 						</li>

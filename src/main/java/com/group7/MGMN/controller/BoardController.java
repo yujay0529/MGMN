@@ -50,10 +50,10 @@ public class BoardController {
 	}
 	@RequestMapping("/board/deleteBoard/{brdNo}")
 	public String deleteProduct(@PathVariable String brdNo) {
-		//System.out.println(prdNo); // 상품번호 전달되는지 확인
+
 		service.deleteBoard(brdNo);
 		return "redirect:/BoardList";
-		//return "redirect:/product/listAllProduct"; // 이렇게 해도 오류 없음
+
 	}
 	@RequestMapping(value="/board/updateBoard", method=RequestMethod.GET)
 	public void getUpdateBoard(@RequestParam("brdNo") String brdNo, Model model) {
