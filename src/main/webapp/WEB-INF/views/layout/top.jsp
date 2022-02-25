@@ -82,7 +82,9 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="/" style="width:300px;height:20px;font-size:30px;">MGMN</a>
+                        <a class="navbar-brand" href="/" style="width:300px;height:20px;font-size:30px;">
+                        	<img src="<c:url value='/image/MGMNLogo2.png' />">
+                        </a>
                     </div>
       
 
@@ -93,9 +95,9 @@
                            <c:if test="${empty sessionScope.sid }">
 							<li><a href="<c:url value='/joinForm'/>">Join</a><li>
 							<li><a href="<c:url value='/loginForm'/>">Login</a><li>
-                            <li>  <a href="<c:url value='noticeList' />">Notice</a></li>
-                            <li>  <a href="javascript:toMarket();">Market</a></li>
-                            <li>  <a href="<c:url value='qnaList' />">Q&A</a></li>
+                            <li><a href="<c:url value='/noticeList' />">Notice</a></li>
+                            <li><a href="javascript:toMarket();">Market</a></li>
+                            <li><a href="<c:url value='/qnaList' />">Q&A</a></li>
                             <li><a href="<c:url value='shops' />">ShopList</a></li>
                             <li><a href="#our-feature">Blog</a></li>
                             <li><a href="#">Contact Us</a></li>
@@ -105,11 +107,11 @@
                             	<c:if test="${not empty sessionScope.sid}">
 
 						
-                            <li>  <a href="javascript:toMarket();">Market</a></li>
-                            <li>  <a href="<c:url value='qnaList' />">Q&A</a></li>
+                            <li><a href="javascript:toMarket();">Market</a></li>
+                            <li><a href="<c:url value='qnaList' />">Q&A</a></li>
                             <li><a href="<c:url value='shops' />">ShopList</a></li>
                             <li><a href="<c:url value='/store'/>">스토어</a></li>
-                            <li>  <a href="<c:url value='noticeList' />">Notice</a></li>
+                            <li><a href="<c:url value='noticeList' />">Notice</a></li>
 							<li><a href="<c:url value='/BoardList'/>">이벤트</a><li>			
 							<li><a href="<c:url value='/mypet'/>">마이펫</a> </li>
 							<li><a href="<c:url value='/mypage'/>"> ${sessionScope.sid} 님 환영합니다!</a></li>
