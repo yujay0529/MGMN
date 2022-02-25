@@ -45,10 +45,14 @@
                                         ${noti.noticeContent } </div>
                                 </td>
                             </tr>
+                         
                             <tr class="view_edit">
                                 <td align="left"></td>
                                 <td colspan="8" align="right">
                                     <button onclick="history.back(-1)" style="cursor:pointer;">목록</button>
+                                    <c:choose>
+
+						  					  <c:when test="${sessionScope.userId=='admin'}">
                                     
                                     <button><a href ="<c:url value='/notice/updateNoticeForm/${noti.noticeNo}'/>"> 수정</a> </button>
                                   <!--  삭제 : 삭제 여부 확인 처리 (자바스크립트로) -->
@@ -62,7 +66,9 @@
 														location.href="/notice/deleteNotice/${noti.noticeNo}";
 													}
 												}
-							</script>
+											</script>
+									</c:when>
+							</c:choose>
 
                                     <a href="<c:url value='/'/>">메인 화면으로 이동</a>
                                     </td>
