@@ -122,12 +122,11 @@
                     
             
 				
-						
-	 					<div class='paging'>
+				  <div class='paging'>
 										
 					      	<div class="pagelist">
 								<c:if test="${paging.startPage != 1 }">
-									<a href="<c:url value='/notiList?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}'/>">‹&emsp;</a>
+									<a href="<c:url value='/noticeList?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}'/>">‹&emsp;</a>
 								</c:if>
 								<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
 									<c:choose>
@@ -135,17 +134,17 @@
 											<b>${p }&emsp;</b>
 										</c:when>
 										<c:when test="${p != paging.nowPage }">
-											<a href="<c:url value='/notiList?nowPage=${p }&cntPerPage=${paging.cntPerPage}'/>">${p }&emsp;</a>
+											<a href="<c:url value='/noticeList?nowPage=${p }&cntPerPage=${paging.cntPerPage}'/>">${p }&emsp;</a>
 										</c:when>
 									</c:choose>
 								</c:forEach>
 								<c:if test="${paging.endPage != paging.lastPage}">
-									<a href="<c:url value='/notiList?nowPage=${paging.endPage + 1 }&cntPerPage=${paging.cntPerPage}'/>">›</a>
+									<a href="<c:url value='/noticeList?nowPage=${paging.endPage + 1 }&cntPerPage=${paging.cntPerPage}'/>">›</a>
 								</c:if>
 								</div>
 							
-						</div>
-						<br><br>
+						</div><br><br>
+		
 		
 		
 	

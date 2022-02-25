@@ -74,7 +74,7 @@
                             <a target="_blank" href="#"><i class="fa fa-linkedin"></i></a>
                         </div>
 
-                        <p>Made with <i class="fa fa-heart"></i> by <a target="_blank" href="http://bootstrapthemes.co"> Bootstrap Themes </a>2016. All rights reserved.</p>
+                        <p>mgmn </a>2022 k-digital traning.</p>
                     </div>
 
                 </div>	
