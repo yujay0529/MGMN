@@ -80,7 +80,7 @@ public class NoticeController {
 	@RequestMapping("notice/deleteNotice/{noticeNo}")
 	public String deleteNotice(@PathVariable int noticeNo) {
 		notiservice.deleteNotice(noticeNo);
-		return "redirect:/notiList";
+		return "redirect:/noticeList";
 	}
 	//글 수정화면으로 이동
 	@RequestMapping("/notice/updateNoticeForm/{noticeNo}")
@@ -94,7 +94,7 @@ public class NoticeController {
 	@RequestMapping("/notice/updateNotice")
 	public String updateNotice(NoticeVO noti) {
 		notiservice.updateNotice(noti);		
-		return "redirect:../notiList";  // 전체 상품 조회 페이지로 포워딩
+		return "redirect:../noticeList";  // 전체 상품 조회 페이지로 포워딩
 	}
 	
 	

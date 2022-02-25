@@ -149,7 +149,7 @@
                                         사진을 첨부한 글 작성 기능과 원하는 내용만 쏙쏙 골라 볼 수 있는 검색 기능 그리고 귀여운 효과와 함께 원하는 카테고리를 고를 수 있는 기능까지!<br>
                                         더 이상 여러 사이트 돌아다니며 시간낭비하지 말고 물어볼개 무엇이냥 Q&A페이지에서 한 번에 해결하자 
                                     </p>
-                                    <button class="btn pt-btn btn-primary" > <a href="/qnaList">View More</a></button>
+                                    <button class="btn pt-btn btn-primary" > <a href="<c:url value='/qnaList'/>">View More</a></button>
                                 </div>
                             </div>
 
