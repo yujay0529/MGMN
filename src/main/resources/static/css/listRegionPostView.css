@@ -179,11 +179,11 @@ input[type="submit"] {
 }
 
 header {
-    height: 120px;
+    height: 140px;
 }
 
 div#headerBox {
-    height: 60px;
+    height: 80px;
 }
 
 nav.navbar.navbar-default.navbar-fixed-top {

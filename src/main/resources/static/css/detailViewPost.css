@@ -135,6 +135,10 @@ header {
     height: 110px;
 }
 
+div#headerBox {
+    height: 100px;
+}
+
 nav.navbar.navbar-default.navbar-fixed-top {
     padding: 10px;
 }
