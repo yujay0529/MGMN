@@ -29,7 +29,7 @@
 		<!-- CONTENT -->
 		<div id="wrap">
 			<a href="<c:url value='/market/listRegionPost' />"><h3>우리동네 중고거래</h3></a>
-			<!-- 게시글 삭제 -->
+		<!-- 게시글 삭제 -->
 		<c:if test="${sessionScope.sid == mkVO.userId }">
 			<input type="button" id="deleteBtn" value="게시글 삭제" onClick = "location.href='javascript:deleteCheck();'">
 		</c:if>
@@ -60,8 +60,14 @@
 		               <input type="hidden" name="mkNo" value="${mkVO.mkNo }"/>
 		               <input type="text" class="form-control" id="content" name="content" placeholder="댓글을 작성해주세요.">
 		               <span class="input-group-btn">
-		                    <button class="btn btn-default" type="submit" name="commentInsertBtn">등록</button>
+		               		 <c:if test="${empty sessionScope.sid }">
+		               			<input type="button" id="toLogin" value="등록" onClick="location.href='<c:url value="/loginForm" />' ">
+		               		</c:if>
+		               		<c:if test="${not empty sessionScope.sid }">
+		                    	<button class="btn btn-default" type="submit" name="commentInsertBtn">등록</button>
+		                    </c:if>
 		               </span>
+		               <input type="hidden" name="userId" value="${sessionScope.sid }" />
 		              </div>
 		        </form>
 		    </div>

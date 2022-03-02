@@ -61,7 +61,7 @@
 			SELECT @ROWNUM:=@ROWNUM +1 AS RN, Q.* 
 				FROM (
 						SELECT * FROM market Q
-						WHERE mkRegion=#{mkRegion}
+						WHERE mkRegion=#{mkRegion}		<!-- mkRegion 값이 같은 조회페이지 출력 -->
 						ORDER BY mkNo DESC 
 						)Q, (SELECT @ROWNUM:=0)A
 						)B
