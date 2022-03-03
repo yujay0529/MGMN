@@ -1,3 +1,8 @@
+@charset "UTF-8";
+@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+
+/* shop.css */
+
 .container {
     margin: 0 auto;
     max-width: 1000px;
@@ -10,17 +15,19 @@
 }
 
 .search_button_wrapper {
-    margin: 10px;
+    margin: 20px;
 }
 
 .btn_class {
     border: none;
-    width: 80px;
-    height: 25px;
+    width: 100px;
+    height: 30px;
     border-radius: 5px;
     cursor: pointer;
-    background-color: white;
+    background-color: #ffc038;
     box-shadow: 2px 2px 5px #dbdbdb;
+    font-family: 'Jeju Gothic', sans-serif !important;
+    color:darkslategrey;
 }
 
 .search_button_wrapper {
@@ -33,3 +40,94 @@
 .shop_wrapper {
     border: 1px solid;
 }
+
+.navbar-brand img {
+    margin: 15px !important;
+    margin-left: -500px !important;
+}
+nav.navbar.navbar-default.navbar-fixed-top {
+    padding: 0px !important;
+    margin: -65px;
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    margin-left: 0px;
+}
+.row {
+    width: 1280px;
+    margin-left: 280px;
+}
+.socio-copyright .social {
+    padding-right: 210px;
+}
+.socio-copyright p {
+    padding-right: 210px;
+}
+div#contentCtn {
+    height: 850px;
+}
+#shopLogo img {
+    width: 350px;
+}
+.nowLocation ul {
+    display: flex;
+    padding: 10px;
+    font-size: larger;
+    font-family: 'Jeju Gothic', sans-serif !important;
+}
+.nowLocation ul li#leftList {
+    background: #ffc038;
+    padding: 5px;
+    border-radius: 2px 20px 20px 2px;
+    margin-right: 10px;
+    margin-left: 10px;
+    color: darkslategrey;
+    box-shadow: 2px 2px 5px #dbdbdb;
+}
+
+.nowLocation ul li#rightList {
+    background: #ffc038;
+    padding: 5px;
+    border-radius: 20px 2px 2px 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+    color: darkslategrey;
+    box-shadow: 2px 2px 5px #dbdbdb;
+}
+
+/* kakao map css */
+.map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
+.map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
+.map_wrap {position:relative;width:1280px;height:500px;}
+#menu_wrap {position:absolute;top:0;left:0;bottom:0;width:250px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
+.bg_white {background:#fff;}
+#menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
+#menu_wrap .option{text-align: center;}
+#menu_wrap .option p {margin:10px 0;}  
+#menu_wrap .option button {margin-left:5px;}
+#placesList li {list-style: none;}
+#placesList .item {position:relative;border-bottom:1px solid #888;overflow: hidden;cursor: pointer;min-height: 65px;}
+#placesList .item span {display: block;margin-top:4px;}
+#placesList .item h5, #placesList .item .info {text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+#placesList .item .info{padding:10px 0 10px 55px;}
+#placesList .info .gray {color:#8a8a8a;}
+#placesList .info .jibun {padding-left:26px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;}
+#placesList .info .tel {color:#009900;}
+#placesList .item .markerbg {float:left;position:absolute;width:36px; height:37px;margin:10px 0 0 10px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png) no-repeat;}
+#placesList .item .marker_1 {background-position: 0 -10px;}
+#placesList .item .marker_2 {background-position: 0 -56px;}
+#placesList .item .marker_3 {background-position: 0 -102px}
+#placesList .item .marker_4 {background-position: 0 -148px;}
+#placesList .item .marker_5 {background-position: 0 -194px;}
+#placesList .item .marker_6 {background-position: 0 -240px;}
+#placesList .item .marker_7 {background-position: 0 -286px;}
+#placesList .item .marker_8 {background-position: 0 -332px;}
+#placesList .item .marker_9 {background-position: 0 -378px;}
+#placesList .item .marker_10 {background-position: 0 -423px;}
+#placesList .item .marker_11 {background-position: 0 -470px;}
+#placesList .item .marker_12 {background-position: 0 -516px;}
+#placesList .item .marker_13 {background-position: 0 -562px;}
+#placesList .item .marker_14 {background-position: 0 -608px;}
+#placesList .item .marker_15 {background-position: 0 -654px;}
+#pagination {margin:10px auto;text-align: center;}
+#pagination a {display:inline-block;margin-right:10px;}
+#pagination .on {font-weight: bold; cursor: default;color:#777;}

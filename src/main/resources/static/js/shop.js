@@ -23,6 +23,9 @@ $(document).ready(() => {
             dataType: "text",
             success: function (data) {
                 //console.log(data);
+                
+                //sessionStorage에 저장 (자바스크립트에서 세션 사용하기)
+                sessionStorage.setItem("address",data);
 
                 // ip 주소에 해당하는 현재 위치 표시
                 $("#client-location").text(data);
