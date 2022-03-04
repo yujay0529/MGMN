@@ -22,4 +22,10 @@ public class HomeController {
 		return "index";
 
 	}
+	//티쳐블머신
+	@RequestMapping("/TeachableForm")
+	public String Teachable()  {
+		return "TeachableForm";
+
+	}
 }
