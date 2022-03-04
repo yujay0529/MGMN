@@ -54,7 +54,7 @@
 							},
 							dataType: "text",
 							success: function(data) {
-								location.href="/market/listRegionPost";
+								location.href="<c:url value='/market/listRegionPost' />";
 							},
 							error: function(data, textStatus) {
 								console.log(data);
@@ -98,7 +98,7 @@
                             <li><a href="<c:url value='/noticeList' />">Notice</a></li>
                             <li><a href="javascript:toMarket();">Market</a></li>
                             <li><a href="<c:url value='/qnaList' />">Q&A</a></li>
-                            <li><a href="<c:url value='shops' />">ShopList</a></li>
+                            <li><a href="<c:url value='/shops' />">ShopList</a></li>
                             <li><a href="#our-feature">Blog</a></li>
                             <li><a href="#">Contact Us</a></li>
                             </c:if>
@@ -108,10 +108,10 @@
 
 						
                             <li><a href="javascript:toMarket();">Market</a></li>
-                            <li><a href="<c:url value='qnaList' />">Q&A</a></li>
-                            <li><a href="<c:url value='shops' />">ShopList</a></li>
+                            <li><a href="<c:url value='/qnaList' />">Q&A</a></li>
+                            <li><a href="<c:url value='/shops' />">ShopList</a></li>
                             <li><a href="<c:url value='/store'/>">스토어</a></li>
-                            <li><a href="<c:url value='noticeList' />">Notice</a></li>
+                            <li><a href="<c:url value='/noticeList' />">Notice</a></li>
 							<li><a href="<c:url value='/BoardList'/>">이벤트</a><li>			
 							<li><a href="<c:url value='/mypet'/>">마이펫</a> </li>
 							<li><a href="<c:url value='/mypage'/>"> ${sessionScope.sid} 님 환영합니다!</a></li>
