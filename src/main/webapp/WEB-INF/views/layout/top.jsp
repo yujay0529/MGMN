@@ -12,24 +12,24 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-        <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="<c:url value='/assets/css/bootstrap.min.css' />">
         <!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
 
-    <script src="/assets/js/vendor/jquery-1.11.2.min.js"></script>
-        <script src="/assets/js/vendor/bootstrap.min.js"></script>
+    	<script src="<c:url value='/assets/js/vendor/jquery-1.11.2.min.js' />"></script>
+        <script src="<c:url value='/assets/js/vendor/bootstrap.min.js' />"></script>
 
-        <script src="/assets/js/plugins.js"></script>
-        <script src="/assets/js/main.js"></script>
+        <script src="<c:url value='/assets/js/plugins.js' />"></script>
+        <script src="<c:url value='/assets/js/main.js' />"></script>
         <!--For Plugins external css-->
-        <link rel="stylesheet" href="/assets/css/plugins.css" />
+        <link rel="stylesheet" href="<c:url value='/assets/css/plugins.css' />" />
 
         <!--Theme custom css -->
-        <link rel="stylesheet" href="/assets/css/style.css">
+        <link rel="stylesheet" href="<c:url value='/assets/css/style.css' />">
 
         <!--Theme Responsive css-->
-        <link rel="stylesheet" href="/assets/css/responsive.css" />
+        <link rel="stylesheet" href="<c:url value='/assets/css/responsive.css' />" />
 
-        <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <script src="<c:url value='assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js' />"></script>
         
         <script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
 
