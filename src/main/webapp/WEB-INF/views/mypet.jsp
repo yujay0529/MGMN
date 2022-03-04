@@ -23,7 +23,7 @@
 			<!-- active클래스 추가시 사진 포함게시물 아이콘 등장 -->
 			<div class="container-wrapper mypage-container">
 				<div class="list-title">
-					<h2>박근우님의 페이지</h2>
+					<h2>${sessionScope.sid}님의 페이지</h2>
 				</div>
 				<div class="main-content">
 					<div class="tab-content">
@@ -56,7 +56,7 @@
 										<span>1</span>
 									</div>
 									<p>
-										<span>Lv.1</span>박근우
+										<span>Lv.1</span>${sessionScope.sid}
 									</p>
 								</div>
 								<div class="follows">

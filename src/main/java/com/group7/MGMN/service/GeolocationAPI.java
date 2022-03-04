@@ -6,6 +6,27 @@
  */
 package com.group7.MGMN.service;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.math.BigDecimal;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.SortedMap;
+import java.util.SortedSet;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+import javax.servlet.http.HttpSession;
+
 import org.apache.commons.codec.binary.Base64;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -13,16 +34,6 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.json.JSONObject;
-
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.math.BigDecimal;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.util.*;
 
 
 public class GeolocationAPI {
@@ -78,6 +89,56 @@ public class GeolocationAPI {
 
 			// json => str
 			result = jsonToString2(str);
+
+		} catch (final Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+
+
+		return result;
+	}
+	
+	// 위도 구하기
+	public static BigDecimal getLat(String ip) {
+		String accessKey = "02C4A18CD11518AA65CF";
+		String secretKey = "7CD8DEAF3F8DEE13EFB22BE1D3CBA42EDDCF377C";
+		String IP = ip;
+		BigDecimal result = null;
+
+
+		try {
+			System.out.println(accessKey + secretKey + IP);
+			final GeolocationAPI geolocationAPI = new GeolocationAPI(accessKey, secretKey);
+			String str = geolocationAPI.run(IP);
+
+			// json => str
+			result = jsonToStringLat(str);
+
+		} catch (final Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+
+
+		return result;
+	}
+	
+	// 경도 구하기
+	public static BigDecimal getLong(String ip) {
+		String accessKey = "02C4A18CD11518AA65CF";
+		String secretKey = "7CD8DEAF3F8DEE13EFB22BE1D3CBA42EDDCF377C";
+		String IP = ip;
+		BigDecimal result = null;
+
+
+		try {
+			System.out.println(accessKey + secretKey + IP);
+			final GeolocationAPI geolocationAPI = new GeolocationAPI(accessKey, secretKey);
+			String str = geolocationAPI.run(IP);
+
+			// json => str
+			result = jsonToStringLong(str);
 
 		} catch (final Exception e) {
 			System.out.println(e.getMessage());
@@ -237,7 +298,7 @@ public class GeolocationAPI {
 	    return encodeBase64String;
 	}
 
-
+	// 시,구,동까지 toString
 	private static String jsonToString(String str) {
 		String result = "";
 
@@ -257,12 +318,12 @@ public class GeolocationAPI {
 		System.out.println("latitude = " + latitude);
 		System.out.println("longitude = " + longitude);
 		
+		
 		result = String.format("%s %s %s", province, country, location);
 
 		return result;
 	}
 
-	
 	// 구 까지만 toString
 	private static String jsonToString2(String str) {
 		String result = "";
@@ -288,6 +349,39 @@ public class GeolocationAPI {
 
 		return result;
 	}
+	
+	
+	// 위도 latitude toString
+	private static BigDecimal jsonToStringLat(String str) {
+		BigDecimal result;
+
+		JSONObject jsonObject = new JSONObject(str);
+		JSONObject geoLocationObj = jsonObject.getJSONObject("geoLocation");
+
+		//위도
+		BigDecimal latitude = (BigDecimal) geoLocationObj.get("lat");
+
+		result = latitude;
+
+		return result;
+	}
+	
+	// 경도 longitude toString
+	private static BigDecimal jsonToStringLong(String str) {
+		BigDecimal result;
+
+		JSONObject jsonObject = new JSONObject(str);
+		JSONObject geoLocationObj = jsonObject.getJSONObject("geoLocation");
+
+		//경도
+		BigDecimal longitude = (BigDecimal) geoLocationObj.get("long");
+
+		result = longitude;
+
+		return result;
+	}
+	
+	
 
 	public static void main(String[] args) {
 		String json = "{" +

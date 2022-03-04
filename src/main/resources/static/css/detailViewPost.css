@@ -111,6 +111,14 @@ button.btn.btn-default {
     padding: 4px;
 }
 
+input#toLogin {
+    width: 44px;
+    height: 30px;
+    float: none;
+    margin-top: 0px;
+    margin-left: 6px;
+}
+
 span.input-group-btn {
     display: block;
 }
@@ -133,6 +141,10 @@ button.btn.btn-default {
 
 header {
     height: 110px;
+}
+
+div#headerBox {
+    height: 100px;
 }
 
 nav.navbar.navbar-default.navbar-fixed-top {

@@ -242,7 +242,7 @@
 
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="team-member">
-                                <img class="img-circle" src="assets/images/team/p2.png" alt="" "/>
+                                <img class="img-circle" src="assets/images/team/p2.png" alt="" />
                                 <h5>YU JEONG EUN</h5>
                                 <p>DEVELOPER</p>
                             </div>
