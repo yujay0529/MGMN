@@ -99,7 +99,6 @@
                             <li><a href="javascript:toMarket();">Market</a></li>
                             <li><a href="<c:url value='/qnaList' />">Q&A</a></li>
                             <li><a href="<c:url value='shops' />">ShopList</a></li>
-                            <li><a href="#our-feature">Blog</a></li>
                             <li><a href="#">Contact Us</a></li>
                             </c:if>
                             		

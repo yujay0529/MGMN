@@ -138,5 +138,6 @@ public class QnAController {
 			return "qna/qnaList";
 		}	
 		
+
 		
 }
