@@ -32,8 +32,8 @@
                     <center>
                        <div class="table_title">
 
-                           <h1 style="color:rgba(51,51,51);">공지사항</h1>
-                           <h3 style="color:rgba(51,51,51);">Notice</h3>
+                           <h2 style="color:rgba(51,51,51);">공지사항</h2>
+                           <h4 style="color:rgba(51,51,51);">Notice</h4>
 
                        </div>
 
@@ -48,7 +48,7 @@
 
 						    <c:when test="${sessionScope.userId=='admin'}">
 						
-						 <button class = "write_btn"> <a href ="<c:url value='/notice/write'/>">공지사항 쓰기 </a></button> 
+						 <button class = "write_btn"> <a href ="<c:url value='/notice/noticewrite'/>">공지사항 쓰기 </a></button> 
 						
 						    </c:when>
 						
@@ -122,12 +122,11 @@
                     
             
 				
-						
-	 					<div class='paging'>
+				  <div class='paging'>
 										
 					      	<div class="pagelist">
 								<c:if test="${paging.startPage != 1 }">
-									<a href="<c:url value='/notiList?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}'/>">‹&emsp;</a>
+									<a href="<c:url value='/noticeList?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}'/>">‹&emsp;</a>
 								</c:if>
 								<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
 									<c:choose>
@@ -135,17 +134,17 @@
 											<b>${p }&emsp;</b>
 										</c:when>
 										<c:when test="${p != paging.nowPage }">
-											<a href="<c:url value='/notiList?nowPage=${p }&cntPerPage=${paging.cntPerPage}'/>">${p }&emsp;</a>
+											<a href="<c:url value='/noticeList?nowPage=${p }&cntPerPage=${paging.cntPerPage}'/>">${p }&emsp;</a>
 										</c:when>
 									</c:choose>
 								</c:forEach>
 								<c:if test="${paging.endPage != paging.lastPage}">
-									<a href="<c:url value='/notiList?nowPage=${paging.endPage + 1 }&cntPerPage=${paging.cntPerPage}'/>">›</a>
+									<a href="<c:url value='/noticeList?nowPage=${paging.endPage + 1 }&cntPerPage=${paging.cntPerPage}'/>">›</a>
 								</c:if>
 								</div>
 							
-						</div>
-						<br><br>
+						</div><br><br>
+		
 		
 		
 	

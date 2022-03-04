@@ -569,7 +569,7 @@ input:-ms-input-placeholder {
 /*Menubar Style*/
 
 .navbar-default {
-    background-color:transparent;
+    background-color:#ffc038;
     border:transparent;
  padding-top:30px;
 }
@@ -598,6 +598,10 @@ input:-ms-input-placeholder {
 
 .navbar-brand img {
     width: 170px;
+}
+
+nav.navbar.navbar-default.navbar-fixed-top {
+    padding: 8px !important;
 }
 
 .contact-number{
@@ -1083,4 +1087,13 @@ input:-ms-input-placeholder {
     background: #de9800;
     color: #fff;
     transform:scale(1.1);
-}	
+}
+
+/* 프로필 */
+.col-md-3 {
+    width: 20% !important;
+}
+
+img.img-circle {
+    width: 140px !important;
+}

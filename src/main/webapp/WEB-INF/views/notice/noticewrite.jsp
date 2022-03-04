@@ -10,20 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <!--  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-    <link rel="stylesheet" href="/css/write.css">
-    <script src="/js/login.js"></script>
-    <script src="/js/dropdown.js"></script>
-    <script src="/js/slideShow.js"></script>
-    <script src="/js/gallery.js"></script>
-    <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/menu.css">
-    <link rel="stylesheet" href="/css/slideShow.css">
-    <link rel="stylesheet" href="/css/gallery.css">
+
     <link rel="stylesheet" href="/css/write.css">
     <title>Write</title>
     <script>
@@ -43,6 +33,8 @@
 </head>
 
 <body>
+
+
 <div id="wrap">
 </div>
 
@@ -52,7 +44,7 @@
             <!-- method="POST" action="/bulletin_wr01" -->
             <div class="pt-1">
                 <input type="text" name="noticeTitle" placeholder="제목을 입력하세요"
-                       style="border: 0; border-radius:5px; width:100%; height: 50px; padding:5px; font-size: 40px;">
+                       style="border: 0; border-radius:5px; width:100%; height: 50px; padding:5px; font-size: 40px; ;">
             </div>
             <div class="pt-1" id="writeSection">
                 <textarea id="summernote" name="noticeContent"></textarea>

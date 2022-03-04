@@ -179,6 +179,10 @@ input[type="submit"] {
 }
 
 header {
+    height: 140px;
+}
+
+div#headerBox {
     height: 80px;
 }
 

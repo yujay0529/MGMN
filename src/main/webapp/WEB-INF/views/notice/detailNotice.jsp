@@ -45,23 +45,30 @@
                                         ${noti.noticeContent } </div>
                                 </td>
                             </tr>
+                         
                             <tr class="view_edit">
                                 <td align="left"></td>
                                 <td colspan="8" align="right">
                                     <button onclick="history.back(-1)" style="cursor:pointer;">목록</button>
+                                    <c:choose>
+
+						  					  <c:when test="${sessionScope.userId=='admin'}">
                                     
                                     <button><a href ="<c:url value='/notice/updateNoticeForm/${noti.noticeNo}'/>"> 수정</a> </button>
-                                    
-                                    <!-- 상품 정보 삭제 : 삭제 여부 확인 처리 (자바스크립트로) -->
-                                    <button><a href="javascript:deleteCheck();">삭제</a></button><br><br>
-                                   <script type="text/javascript">
-										function deleteCheck(){
-											var answer = confirm("해당 글을 삭제하시겠습니까?");
-											if(answer == true){
-												location.href="/notice/deleteNotice/${noti.noticeNo}";
-											}
-										}
-									</script>
+                                  <!--  삭제 : 삭제 여부 확인 처리 (자바스크립트로) -->
+		                                    <button class ="deleteNotice"><a href="javascript:deleteCheck();">삭제</a></button><br>
+		                                   <script type="text/javascript">           
+		                      
+		                     
+												function deleteCheck(){
+													var answer = confirm("해당 글을 삭제하시겠습니까?");
+													if(answer == true){
+														location.href="/notice/deleteNotice/${noti.noticeNo}";
+													}
+												}
+											</script>
+									</c:when>
+							</c:choose>
 
                                     <a href="<c:url value='/'/>">메인 화면으로 이동</a>
                                     </td>

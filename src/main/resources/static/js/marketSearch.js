@@ -5,7 +5,6 @@
 $(document).ready(function(){
 	$('#searchForm').on('submit', function(){
 		event.preventDefault();
-		alert("ddd");
 		
 		var formData = $(this).serialize();
 		// serialize() : 폼에 입력한 값을 쿼리 스트링 방식의 데이터로 변환

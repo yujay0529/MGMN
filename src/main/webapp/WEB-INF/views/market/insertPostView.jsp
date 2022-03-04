@@ -27,7 +27,7 @@
 	     
 	            $('#submit_btn').on('click', function () {
 	            	
-	            	var result = $("#summernote").val().indexOf("<p><img");			// indexOf 값을 못찾으면 -1 반환 => 유효성에 이용 가능
+	            	var result = $("#summernote").val().indexOf("<img");			// indexOf 값을 못찾으면 -1 반환 => 유효성에 이용 가능
 	            	/* alert(result); */
 	            	 if($("#summernote").val() == "") {		// 값을 비워둔 경우
 	             		alert("게시글 내용을 입력해주세요.");

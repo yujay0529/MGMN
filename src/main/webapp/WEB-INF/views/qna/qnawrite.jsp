@@ -8,13 +8,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/summernote-lite.css">
+	<link rel="stylesheet" href="/css/summernote-lite.mincss">
+    <link rel="stylesheet" href="/css/write.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!--  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-    <link rel="stylesheet" href="/css/write.css">
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset-context/cssreset-context-min.css">
+	
     <title>Write</title>
     <script>
         $(document).ready(function () {
@@ -23,50 +27,48 @@
                 tabsize: 2,
                 height: 400
             });
+
             $('#submit_btn').on('click', function () {
                 alert("글 작성 완료");
                 window.history.go(-2);
             });
         });
-        
-      
     </script>
-    
-
 </head>
-	
-	
-	<body>
-			<div id="wrap">
-			
-			<div class="writeform">
-			    <main role="main" class="container">
-			        <form name="form" action="<c:url value='/qna/insertqna'/>" method="post">
-			            <!-- method="POST" action="/bulletin_wr01" -->
-			            <div class="pt-1">
-			                <input type="text" name="qnaTitle" placeholder="제목을 입력하세요"
-			                       style="border: 0; border-radius:5px; width:100%; height: 50px; padding:5px; font-size: 40px;">
-			            </div>
-			                   
-			                   	<select name="category">
+
+<body>
+
+
+<div id="wrap">
+
+
+<div class="writeform">
+    <main role="main" class="container">
+        <form name="form" action="<c:url value='/qna/insertqna'/>" method="post">
+            <!-- method="POST" action="/bulletin_wr01" -->
+            <div class="pt-1" >
+                <input type="text" name="qnaTitle" placeholder="제목을 입력하세요"
+                       style="border: 0; border-radius:5px; width:100%; height: 50px; padding:5px; font-size: 40px;">
+                       <select name="category">
 			                   		<option value="강아지 ">강아지</option>
 			                   		<option value="고양이 ">고양이 </option>
 			                   		<option value="기타">기타 </option>		                   		
 			                   	</select>
-			                   	
-			            <div class="pt-1" id="writeSection">
-			                <textarea id="summernote" name="qnaContent"></textarea>
-			                <div class="pt-1 text-right" style="padding-bottom: 15%;">
-			                    <input type="file" name="profile" style="padding-top: 10px;">
-			        
-			                   	
-			                    <button class="btn btn-success" id="submit_btn" type="submit"
-			                            style="margin-left: 90%; width:10%;">등록</button>
-			                </div>
-			            </div>
-			        </form>
-			    </main>
-			</div>
-	</body>
+            </div>
+            <div class="pt-1" id="writeSection">
+                <textarea id="summernote" name="qnaContent"></textarea>
+                <div class="pt-1 text-right" style="padding-bottom: 15%;">
+                    <input type="file" name="profile" style="padding-top: 10px;">
+                    <button class="btn btn-success" id="submit_btn" type="submit"
+                            style="margin-left: 90%; width:10%;">등록</button>
+                </div>
+            </div>
+        </form>
+    </main>
+</div>
+
+</div>
+
+</body>
 
 </html>
