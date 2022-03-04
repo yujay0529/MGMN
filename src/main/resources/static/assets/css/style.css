@@ -1089,6 +1089,22 @@ nav.navbar.navbar-default.navbar-fixed-top {
     transform:scale(1.1);
 }
 
+/*챗봇 */
+.chatbot-btn{
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+    position: fixed;
+  	bottom:90px;
+    right: 50px;
+    font-weight: bold;
+    border-radius: 100%;
+    transition:all 500ms .2s;
+    cursor:pointer;
+}
+
 /* 프로필 */
 .col-md-3 {
     width: 20% !important;

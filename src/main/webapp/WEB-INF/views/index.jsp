@@ -13,7 +13,27 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
        
+		<script type="text/javascript">
+		function showPopUp() { 
+			//창 크기 지정 
+			var width = 550; 
+			var height = 800; 
+			
+			//pc화면기준 가운데 정렬 
+			var left = (window.screen.width / 2) ; 
+			var top = (window.screen.height / 4); 
+			//윈도우 속성 지정 
+			var windowStatus = 'width='+width+', height='+height+', left='+left+', top='+top+', scrollbars=yes, status=yes, resizable=yes, titlebar=yes'; 
+			//연결하고싶은url 
+			const url = "/ChatbotForm"; 
+			//등록된 url 및 window 속성 기준으로 팝업창을 연다. 
+			window.open(url, "hello popup", windowStatus); } 
+			</script>
+
 
         
     </head>
@@ -263,11 +283,27 @@
 
             <div class="scrollup">
                 <i class="fa fa-angle-double-up"></i>
+               
             </div>
 
         </div>
+        
+       <div class="chatbot">
 
-    
+            <div class="chatbot-btn">
+         	 	  <button class ="chatbot-btn" style="border:none; background-color:transparent;">	
+         					 <a href="javascript:showPopUp()"><img src="assets/images/chatbot.png"></a>
+         	 </button>
+            </div> 
+
+        </div>
+        
+        
+       
+
+
+
+<!--      -->
         <jsp:include page="/WEB-INF/views/layout/bottom.jsp" flush='true' />
     </body>
 </html>
