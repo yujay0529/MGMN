@@ -44,13 +44,13 @@
   	
   	 <!-- 조회수 올리기 -->
 	<update id="hitUp">
-		update market set mkHit = mkHit+1 where mkNo = #{mkNo}
+		UPDATE market SET mkHit = mkHit+1 WHERE mkNo = #{mkNo}
 	</update>
   	
   	<!-- 페이징 -->
   	<!-- 총 게시글 개수 출력, 검색결과 반영 -->
-  	<select id="countMkBoard" parameterType="hashMap" resultType="int">
-  		SELECT COUNT(*) FROM market
+  	<select id="countMkBoard" parameterType="String" resultType="int">
+  		SELECT COUNT(*) FROM market WHERE mkRegion=#{mkRegion}
 
   	</select>
   	
