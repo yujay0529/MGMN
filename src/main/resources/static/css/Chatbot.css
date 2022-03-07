@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+#wrap { margin:0 auto; width: 500px; 	height: 700px; } 
+
+#chatHeader {padding: 10px 15px; border-bottom: 1px solid #95a6b4;}
+#btnClose {border: none; background: none; float: right;}
+ 
+#chatBox {height: 600px; width: 490px; overflow-y:scroll; padding:10px 15px; background:#FFFAF0;} 	
+
+#message {width: 440px;}
+
+#btnSubmit {float: right; background:#eeeeee; height: 28px; padding-right:0;}
+
+.msgBox  span {padding:3px 5px; word-break:break-all; display:block;  max-width:300px;
+							margin-bottom: 10px; border-radius: 10px;}
+							 
+.msgBox.send  span {background:#ffeb99; float:right; }
+
+.msgBox #in {width:480px; background:#FFFAF0;}
+.msgBox.receive  span {background:#ffffff; float:left; }
+
