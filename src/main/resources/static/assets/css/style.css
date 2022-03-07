@@ -1029,9 +1029,8 @@ nav.navbar.navbar-default.navbar-fixed-top {
 }
 
 .main-footer {
-    margin-left: 150px;
-    padding: -13px;
-    margin-right: -200px;
+    margin-left: 150px !important;
+    margin-right: -200px !important;
 }
 
 .main-footer .footer-item h2{
