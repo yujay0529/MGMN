@@ -101,6 +101,7 @@
 									<li data-target="#carousel-example-generic" data-slide-to="2"></li>
 									<li data-target="#carousel-example-generic" data-slide-to="3"></li>
 
+
 								</ol>
 
 								<!-- Wrapper for slides -->
@@ -332,11 +333,6 @@
 		</div>
 	</div>
 
-
-
-
-
-	<!--      -->
-	<jsp:include page="/WEB-INF/views/layout/bottom.jsp" flush='true' />
-</body>
+	  <jsp:include page="/WEB-INF/views/layout/bottom.jsp" flush='true' />
+  </body>
 </html>
