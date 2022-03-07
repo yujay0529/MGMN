@@ -1027,6 +1027,13 @@ nav.navbar.navbar-default.navbar-fixed-top {
     background:#363636;
     color:#FFF;
 }
+
+.main-footer {
+    margin-left: 150px;
+    padding: -13px;
+    margin-right: -200px;
+}
+
 .main-footer .footer-item h2{
     color:#e6e9ed;
     font-size:18px;
@@ -1065,6 +1072,8 @@ nav.navbar.navbar-default.navbar-fixed-top {
     text-align:center;
     margin-top:10px;
 }
+
+
 
 /*Scroll Up*/
 

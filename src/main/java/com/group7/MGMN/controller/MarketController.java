@@ -50,7 +50,7 @@ public class MarketController {
 		String mkRegion = (String)session.getAttribute("address");
 		
 		// 페이징
-		int total = service.countMkBoard();
+		int total = service.countMkBoard(mkRegion);
 		if (nowPage == null && cntPerPage == null) {
 			nowPage = "1";
 			cntPerPage = "8";
@@ -60,9 +60,10 @@ public class MarketController {
 			cntPerPage = "8";
 		}
 		System.out.println("total : "+total);
-		PagingVO vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
 		
+		PagingVO vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
 		vo.setMkRegion(mkRegion);
+		
 		model.addAttribute("paging", vo);
 		model.addAttribute("mkList", service.selectMkBoard(vo));
 
