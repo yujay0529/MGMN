@@ -189,3 +189,9 @@ div#headerBox {
 nav.navbar.navbar-default.navbar-fixed-top {
     padding: 10px;
 }
+
+/* footer */
+.main-footer {
+    margin-left: 150px;
+    margin-right: -200px;
+}
