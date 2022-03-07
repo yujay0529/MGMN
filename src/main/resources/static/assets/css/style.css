@@ -1027,12 +1027,6 @@ nav.navbar.navbar-default.navbar-fixed-top {
     background:#363636;
     color:#FFF;
 }
-
-.main-footer {
-    margin-left: 150px !important;
-    margin-right: -200px !important;
-}
-
 .main-footer .footer-item h2{
     color:#e6e9ed;
     font-size:18px;
