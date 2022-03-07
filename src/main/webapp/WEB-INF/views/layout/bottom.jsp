@@ -6,6 +6,12 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>bottom</title>
+		<style type="text/css">
+			.main-footer {
+			    margin-left: 150px;
+			    margin-right: -200px;
+			}
+		</style>
 	</head>
 	<body>
 	   <!--Footer-->
