@@ -24,11 +24,6 @@ public class MemberController {
 		return "/member/loginForm";
 	}
 	
-	// 로그인 폼으로 이동
-		@RequestMapping("/mypet")
-		public String mypet() {
-			return "/mypet";
-		}
 		
 	// 로그인 처리 : id와 pwd 전달 받아서 로그인 체크
 	@ResponseBody

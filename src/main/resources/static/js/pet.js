@@ -604,26 +604,7 @@ var pagePopup = {
         $('#add_tag_update_btn').hide();
         $('#add_tag_submit_btn').show();
 
-        // $.ajax({
-        //     type: 'GET',
-        //     url: '/api/search'
-        //     , success: function (data) {
-        //         var a = 0;
-        //         for(var i = 0 ; i < data['record'].length; i++ ){
-        //             var html = '<div class="item-box product">\n' +
-        //                 '                                        <p>'+data['record'][i]['goods_name']+'</p>\n' +
-        //                 '                                        <a style="display:none;">'+data['record'][i]['goods_seq']+'</a>' +
-        //                 '                                        <input type="hidden" name="img_url" value="'+data['record'][i]['image']+'" >\n' +
-        //                 '                                    </div>'
-        //             $('.search-item.product').append(html);
-        //         }
-        //         var nonedataHtml = '<div class="none-data"><p>검색결과가 없습니다.</p></div>';
-        //         $('.search-item.product').append(nonedataHtml);
-        //     }, error: function (xhr, status, error) {
-        //         console.log('error');
-        //     }
-        // });
-
+      
         $('.add-tag-popup #tag_x').val(x);
         $('.add-tag-popup #tag_y').val(y);
         if ($('.add-tag-popup').css('display') != 'block') {
@@ -974,29 +955,7 @@ var pagePopup = {
 
         $('.sub-container').empty();
 
-        /*for (var j = 0; j < sub_img_cnt; j++) {
-        	var sub_img = $(".sub-wrapper").eq(j).children(".write-content").children(".write-inner").children(".inner-box").children(".write-img").children("img").attr("src");
-        	sub_img = typeof(sub_img) != "undefined" ? sub_img : null;
-        	console.log("sub" + j + " : " + sub_img);
-        	console.log(active_name);
-        	if (sub_img) {
-        		if (active_name === ('sub'+ j)) {
-        			sub_img_arr.push('			<img name=sub_img1 src="'+sub_img+'">');
-        		} else {
-        			sub_img_arr.push('			<img name=sub_img1 src="'+ sub_img +'">');
-        		}
-        	} else {
-        		sub_img_arr.push('');
-        	}
-        }
-
-        for (var k = 0; k < sub_video_cnt; k++) {
-        	if (typeof $("[name=sub_video]").eq(k).val() != "" && sub_video_type.length > 0) {
-        		sub_video_arr.push('			<iframe width="100%" height="593px" src="'+setVideoUrl($("[name=sub_video]").eq(k).val())+'" frameborder="0" allow="autoplay;" allowfullscreen></iframe>');
-        	} else {
-        		sub_video_arr.push('');
-        	}
-        }*/
+      
         var sub_preview = $("[name='sub_preview']");
 
         for (var i = 0; i < $(".sub-wrapper").length; i++) {
@@ -1112,15 +1071,3 @@ var pagePopup = {
         return years;
     }
 };
-
-function setVideoUrl(video) {
-    if (video.indexOf('https://tv.naver.com/v/') !== -1) {
-        video = video.replace('https://tv.naver.com/v/', 'https://tv.naver.com/embed/');
-    } else if (video.indexOf('https://youtu.be/') !== -1) {
-        video = video.replace('https://youtu.be/', 'https://www.youtube.com/embed/');
-    } else if (video.indexOf('https://www.youtube.com/watch?v=') !== -1) {
-        console.log(video);
-        video = video.replace('https://www.youtube.com/watch?v=', 'https://www.youtube.com/embed/');
-    }
-    return video;
-}
