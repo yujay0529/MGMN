@@ -313,13 +313,14 @@
 
 	<div class="chatbot">
 
-		<div class="chatbot-btn">
+<!-- 		<div class="chatbot-btn">
 			<button class="chatbot-btn"
 				style="border: none; background-color: transparent;">
 				<a href="javascript:showPopUp()"><img
 					src="assets/images/chatbot.png"></a>
 			</button>
-		</div>
+		</div> -->
+		<h1>서버테스트 </h1>
 
 	</div>
 	<div class="teachable">
