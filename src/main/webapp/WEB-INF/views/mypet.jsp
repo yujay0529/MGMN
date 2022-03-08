@@ -7,12 +7,109 @@
 <head>
 <meta charset="UTF-8">
 <title>mypetForm</title>
+<script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
+<script src="<c:url value='/js/pet.js'/>"></script>
 <link href="<c:url value='/css/mypet.css'/>" rel="stylesheet"
 	type="text/css">
 <link href="<c:url value='/css/mypet2.css'/>" rel="stylesheet"
 	type="text/css">
+<link href="<c:url value='/css/style5.css'/>" rel="stylesheet"
+	type="text/css">
+<style>
+.modal {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: none;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal.show {
+	display: block;
+}
+
+.modal_body {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 50%;
+	height: 50%;
+	padding: 40px;
+	text-align: center;
+	background-color: rgb(255, 255, 255);
+	border-radius: 10px;
+	box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+	transform: translateX(-50%) translateY(-50%);
+}
+</style>
+<style>
+.modal2 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: none;
+	background-color: rgba(0, 0, 0, 0.4);
+	z-index:-30;
+}
+
+.modal2.show {
+	display: block;
+}
+
+.modal2_body {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 50%;
+	height: 50%;
+	padding: 40px;
+	text-align: center;
+	background-color: rgb(255, 255, 255);
+	border-radius: 10px;
+	box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+	transform: translateX(-50%) translateY(-50%);
+}
+</style>
 </head>
 <body>
+	<div class="modal">
+		<div class="modal_body">
+			반려동물 상세
+
+			<div class="list-content">
+				<!-- contact 클래스 추가시 채택 -->
+				<div class="text-wrap">
+					<p>반려동물을 선택해주세요.</p>
+
+					<div class="radio-wrap">
+						<div class="dog-wrap">
+							<img src="/image/icon_dogbig.png" alt="">
+							<div class="dog">
+								<input type="radio" id="dog" name="type" value="dog" /> <label
+									for="dog"><span class="checkbox-custom"><span
+										class="inner-circle"></span></span><span class="checkbox-label">강아지</span></label>
+							</div>
+						</div>
+						<div class="cat-wrap">
+							<img src="/image/icon_catbig.png" alt="">
+							<div class="cat">
+								<input type="radio" id="cat" name="type" value="cat" /> <label
+									for="cat"><span class="checkbox-custom"><span
+										class="inner-circle"></span></span><span class="checkbox-label">고양이</span></label>
+							</div>
+						</div>
+					</div>
+					<div class="btn-wrap">
+						<button class="btn-select" onclick="pagePopup.openPetType()">선택</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div id="wrap">
 
 		<!-- TOP  -->
@@ -23,7 +120,7 @@
 			<!-- active클래스 추가시 사진 포함게시물 아이콘 등장 -->
 			<div class="container-wrapper mypage-container">
 				<div class="list-title">
-					<h2>${sessionScope.sid}님의 페이지</h2>
+					<h2>${sessionScope.sid}님의페이지</h2>
 				</div>
 				<div class="main-content">
 					<div class="tab-content">
@@ -38,12 +135,6 @@
 									게시글</li>
 								<li onclick="location.href='/mypage/main/like/total?page=1'">좋아요</li>
 								<li onclick="location.href='/mypage/main/point?page=1'">MY포인트</li>
-
-
-
-
-
-
 
 							</ul>
 						</div>
@@ -542,8 +633,8 @@
 									<div class="none-list">
 										<img src="/image/none_basket.png" alt="">
 										<p>등록된 반려동물이 없습니다.</p>
-										<button type="button" onclick="pagePopup.openPetType()">반려동물
-											추가하기</button>
+										<button type="button" class="btn-open-popup"
+											onclick="pagePopup.openPetType()">반려동물 추가하기</button>
 									</div>
 								</div>
 							</div>
@@ -847,6 +938,40 @@
 										<img src="/web/img/none_basket.png" alt="">
 										<p>데이터가 존재하지 않습니다.</p>
 									</div>
+
+									<div class="popup-wrapper mypage-petType-popup active">
+										<div class="popup-content">
+											<button class="closed" type="button"
+												onclick="pagePopup.closePopup()">
+												<img src="/web/img/btn_close_popup.png" alt="">
+											</button>
+											<div class="popup-inner fixed-size-424">
+												<span>반려동물 선택</span>
+												<div class="radio-content">
+													<div class="input-wrap">
+														<div class="radio">
+															<img src="/web/img/ico_write01.png" alt=""> <input
+																type="radio" id="q3" name="q3" value="dog"
+																autocomplete="off"> <label for="q3"><span
+																class="checkbox-custom"></span><span
+																class="checkbox-label">강아지</span></label>
+														</div>
+														<div class="radio">
+															<img src="/web/img/ico_write02.png" alt=""> <input
+																type="radio" id="q4" name="q3" value="cat"
+																autocomplete="off"> <label for="q4"><span
+																class="checkbox-custom"></span><span
+																class="checkbox-label">고양이</span></label>
+														</div>
+													</div>
+												</div>
+												<div class="btn-wrap">
+													<button class="submit fixed-size"
+														onclick="pagePopup.openAddPetForm()">선택하기</button>
+												</div>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 
@@ -860,6 +985,608 @@
 		<jsp:include page="/WEB-INF/views/layout/bottom.jsp" flush='true' />
 
 	</div>
+
+	<script>
+      const body = document.querySelector('body');
+      const modal = document.querySelector('.modal');
+      const btnOpenPopup = document.querySelector('.btn-open-popup');
+
+      btnOpenPopup.addEventListener('click', () => {
+        modal.classList.toggle('show');
+
+        if (modal.classList.contains('show')) {
+          body.style.overflow = 'hidden';
+        }
+      });
+
+      modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+          modal.classList.toggle('show');
+
+          if (!modal.classList.contains('show')) {
+            body.style.overflow = 'auto';
+          }
+        }
+      });
+    </script>
+    <script>
+      const body = document.querySelector('body');
+      const modal = document.querySelector('.modal2');
+      const btnOpenPopup = document.querySelector('.btn-select');
+
+      btnselect.addEventListener('click', () => {
+        modal.classList.toggle('show');
+
+        if (modal.classList.contains('show')) {
+          body.style.overflow = 'hidden';
+        }
+      });
+
+      modal.addEventListener('click', (event) => {
+        if (event.target === modal2) {
+          modal.classList.toggle('show');
+
+          if (!modal.classList.contains('show')) {
+            body.style.overflow = 'auto';
+          }
+        }
+      });
+    </script>
+    <div class="modal2">
+    <div class="modal2_body">
+    <div class="popup-wrapper mypage-petAddDog-popup active"><div class="popup-addPet">
+    <button class="closed" type="button" onclick="pagePopup.closePopup()"><img src="/web/img/btn_close_popup.png" alt=""></button>
+    <div class="popup-inner">
+        <span>강아지 정보입력</span>
+        <div class="input-content">
+            <div class="double-content left-content">
+                <div class="input-label custom-margin">
+                    <label for="">성별<span class="essential">*</span></label>
+                    <div class="input-wrap radio-wrap">
+                        <div class="radio">
+                            <input type="radio" id="dog_gender_m" name="dog_gender" value="M">
+                            <label for="dog_gender_m"><span class="checkbox-custom"></span><span class="checkbox-label">수컷</span></label>
+                        </div>
+                        <div class="radio">
+                            <input type="radio" id="dog_gender_w" name="dog_gender" value="W">
+                            <label for="dog_gender_w"><span class="checkbox-custom"></span><span class="checkbox-label">암컷</span></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-label">
+                    <label for="">중성화<span class="essential">*</span></label>
+                    <div class="input-wrap radio-wrap">
+                        <div class="radio">
+                            <input type="radio" id="dog_gender_y" name="dog_neutrality" value="Y">
+                            <label for="dog_gender_y"><span class="checkbox-custom"></span><span class="checkbox-label">예</span></label>
+                        </div>
+                        <div class="radio">
+                            <input type="radio" id="dog_gender_n" name="dog_neutrality" value="N">
+                            <label for="dog_gender_n"><span class="checkbox-custom"></span><span class="checkbox-label">아니오</span></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-label">
+                    <label for="">품종<span class="essential">*</span></label>
+                    <div class="input-wrap">
+                        <!-- none-data 제거시 검색종류 show -->
+                        <div class="searching">
+                            <input type="text" placeholder="반려동물 품종" id="search_dog" name="dog_kind" autocomplete="off">
+                            <input type="hidden" id="search_dog_id" name="dog_id">
+                        </div>
+                    </div>
+                </div>
+                <div class="input-label">
+                    <label for="">이름<span class="essential">*</span></label>
+                    <div class="input-wrap">
+                        <input type="text" placeholder="반려동물 이름" name="dog_name" maxlength="10">
+                    </div>
+                </div>
+                <div class="input-label">
+                    <label for="">생년월일<span class="essential">*</span></label>
+                    <div class="input-wrap birth-box">
+                        <div class="drop-content birth">
+                            <div class="drop-item"><span id="dog_birth_year">연도</span><img src="/web/img/btn_arrow_down.png" alt=""></div>
+                            <ul class="item-list sel-birth">
+                                                                    <li>2022</li>
+                                                                    <li>2021</li>
+                                                                    <li>2020</li>
+                                                                    <li>2019</li>
+                                                                    <li>2018</li>
+                                                                    <li>2017</li>
+                                                                    <li>2016</li>
+                                                                    <li>2015</li>
+                                                                    <li>2014</li>
+                                                                    <li>2013</li>
+                                                                    <li>2012</li>
+                                                                    <li>2011</li>
+                                                                    <li>2010</li>
+                                                                    <li>2009</li>
+                                                                    <li>2008</li>
+                                                                    <li>2007</li>
+                                                                    <li>2006</li>
+                                                                    <li>2005</li>
+                                                                    <li>2004</li>
+                                                                    <li>2003</li>
+                                                                    <li>2002</li>
+                                                                    <li>2001</li>
+                                                                    <li>2000</li>
+                                                                    <li>1999</li>
+                                                                    <li>1998</li>
+                                                                    <li>1997</li>
+                                                                    <li>1996</li>
+                                                                    <li>1995</li>
+                                                                    <li>1994</li>
+                                                                    <li>1993</li>
+                                                                    <li>1992</li>
+                                                                    <li>1991</li>
+                                                                    <li>1990</li>
+                                                                    <li>1989</li>
+                                                                    <li>1988</li>
+                                                                    <li>1987</li>
+                                                                    <li>1986</li>
+                                                                    <li>1985</li>
+                                                                    <li>1984</li>
+                                                                    <li>1983</li>
+                                                                    <li>1982</li>
+                                                                    <li>1981</li>
+                                                                    <li>1980</li>
+                                                                    <li>1979</li>
+                                                                    <li>1978</li>
+                                                                    <li>1977</li>
+                                                                    <li>1976</li>
+                                                                    <li>1975</li>
+                                                                    <li>1974</li>
+                                                                    <li>1973</li>
+                                                                    <li>1972</li>
+                                                                    <li>1971</li>
+                                                                    <li>1970</li>
+                                                                    <li>1969</li>
+                                                                    <li>1968</li>
+                                                                    <li>1967</li>
+                                                                    <li>1966</li>
+                                                                    <li>1965</li>
+                                                                    <li>1964</li>
+                                                                    <li>1963</li>
+                                                                    <li>1962</li>
+                                                                    <li>1961</li>
+                                                                    <li>1960</li>
+                                                                    <li>1959</li>
+                                                                    <li>1958</li>
+                                                                    <li>1957</li>
+                                                                    <li>1956</li>
+                                                                    <li>1955</li>
+                                                                    <li>1954</li>
+                                                                    <li>1953</li>
+                                                                    <li>1952</li>
+                                                                    <li>1951</li>
+                                                                    <li>1950</li>
+                                                                    <li>1949</li>
+                                                                    <li>1948</li>
+                                                                    <li>1947</li>
+                                                                    <li>1946</li>
+                                                                    <li>1945</li>
+                                                                    <li>1944</li>
+                                                                    <li>1943</li>
+                                                                    <li>1942</li>
+                                                                    <li>1941</li>
+                                                                    <li>1940</li>
+                                                                    <li>1939</li>
+                                                                    <li>1938</li>
+                                                                    <li>1937</li>
+                                                                    <li>1936</li>
+                                                                    <li>1935</li>
+                                                                    <li>1934</li>
+                                                                    <li>1933</li>
+                                                                    <li>1932</li>
+                                                                    <li>1931</li>
+                                                                    <li>1930</li>
+                                                                    <li>1929</li>
+                                                                    <li>1928</li>
+                                                                    <li>1927</li>
+                                                                    <li>1926</li>
+                                                                    <li>1925</li>
+                                                                    <li>1924</li>
+                                                                    <li>1923</li>
+                                                                    <li>1922</li>
+                                                            </ul>
+                        </div>
+                        <div class="drop-content birth">
+                            <div class="drop-item"><span id="dog_birth_month">월</span><img src="/web/img/btn_arrow_down.png" alt=""></div>
+                            <ul class="item-list sel-birth sel-month">
+                                                                    <li>1</li>
+                                                                    <li>2</li>
+                                                                    <li>3</li>
+                                                                    <li>4</li>
+                                                                    <li>5</li>
+                                                                    <li>6</li>
+                                                                    <li>7</li>
+                                                                    <li>8</li>
+                                                                    <li>9</li>
+                                                                    <li>10</li>
+                                                                    <li>11</li>
+                                                                    <li>12</li>
+                                                            </ul>
+                        </div>
+                        <div class="drop-content birth">
+                            <div class="drop-item"><span id="dog_birth_day">일</span><img src="/web/img/btn_arrow_down.png" alt=""></div>
+                            <ul class="item-list sel-birth sel-day"></ul>
+                        </div>
+                        <div class="estimate-box">
+                            <div class="checkbox-wrap">
+                                <input type="checkbox" id="dog_birth_check" name="dog_birth_check" value="Y">
+                                <label for="dog_birth_check"><span class="checkbox-custom"></span><span class="checkbox-label4">추정</span></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-label">
+                    <label for="">사진</label>
+                    <input type="hidden" name="dog_orientation" value="">
+                    <div class="input-wrap">
+                        <label for="temp_img" class="pet-profile" id="dog_img_view"></label>
+                        <input type="file" id="dog_img" name="dog_img" accept="image/*, .jfif" style="display: none;">
+                        <input type="file" id="temp_img" name="temp_img" accept="image/*, .jfif" style="display: none;">
+                    </div>
+                </div>
+            </div>
+            <div class="double-content right-content">
+                <div class="input-label">
+                    <label class="has-tooltip" for="">
+                        사이즈<span class="essential">*</span>
+                        <div class="tool-box">
+                            <img src="/web/img/ico_tooltip.png" alt="">
+                            <div class="tooltip-wrap">
+                                <img src="/web/img/tooltip_con.png" alt="">
+                                <table>
+                                    <tbody><tr>
+                                        <th>소형견</th>
+                                        <td>7kg 이하<br>(시츄, 미니핀, 닥스훈트 등)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>중형견</th>
+                                        <td>7~15kg<br>(비글, 웰시코기, 시바견 등)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>대형견</th>
+                                        <td>15kg 이상<br>(리트리버, 콜리, 허스키 등)</td>
+                                    </tr>
+                                </tbody></table>
+                            </div>
+                        </div>
+                    </label>
+                    <div class="input-wrap radio-wrap">
+                        <div class="radio">
+                            <input type="radio" id="dog_size_s" name="dog_size" value="S">
+                            <label for="dog_size_s"><span class="checkbox-custom"></span><span class="checkbox-label">소형견</span></label>
+                        </div>
+                        <div class="radio">
+                            <input type="radio" id="dog_size_m" name="dog_size" value="M">
+                            <label for="dog_size_m"><span class="checkbox-custom"></span><span class="checkbox-label">중형견</span></label>
+                        </div>
+                        <div class="radio">
+                            <input type="radio" id="dog_size_l" name="dog_size" value="L">
+                            <label for="dog_size_l"><span class="checkbox-custom"></span><span class="checkbox-label">대형견</span></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-label">
+                    <label for="">몸무게<span class="essential">*</span></label>
+                    <div class="input-wrap">
+                        <input type="text" placeholder="반려동물 몸무게" name="dog_weight" maxlength="4" onkeypress="return WitCommon.onlyNumber(event)" onkeyup="return WitCommon.removeChar(event)">
+                        <img src="/web/img/ico_kg.png" alt="">
+                    </div>
+                </div>
+                <div class="input-label">
+                    <label for="">목둘레</label>
+                    <div class="input-wrap">
+                        <input type="text" placeholder="반려동물 목둘레" name="dog_nack" maxlength="4" onkeypress="return WitCommon.onlyNumber(event)" onkeyup="return WitCommon.removeChar(event)">
+                        <img src="/web/img/ico_cm.png" alt="">
+                    </div>
+                </div>
+                <div class="input-label">
+                    <label for="">등길이</label>
+                    <div class="input-wrap">
+                        <input type="text" placeholder="반려동물 등길이" name="dog_back" maxlength="4" onkeypress="return WitCommon.onlyNumber(event)" onkeyup="return WitCommon.removeChar(event)">
+                        <img src="/web/img/ico_cm.png" alt="">
+                    </div>
+                </div>
+                <div class="input-label">
+                    <label for="">가슴둘레</label>
+                    <div class="input-wrap">
+                        <input type="text" placeholder="반려동물 가슴둘레" name="dog_chest" maxlength="4" onkeypress="return WitCommon.onlyNumber(event)" onkeyup="return WitCommon.removeChar(event)">
+                        <img src="/web/img/ico_cm.png" alt="">
+                    </div>
+                </div>
+                <div class="input-label">
+                    <label for="">특이사항</label>
+                    <div class="input-wrap">
+                        <textarea style="resize: none;" placeholder="성격, 알러지, 과거병력등을 입력해주세요.(50자 이내)" id="dog_uniqueness" maxlength="50"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-wrap">
+                <button class="submit" onclick="pageMypage.addPet('dog')">저장하기</button>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+<script>
+    //드롭박스
+    $('.drop-item').click(function () {
+        $(this).siblings('ul').fadeToggle();
+        $(this).children('img').toggleClass('active');
+        if ($(this).hasClass('active')) {
+            $(this).removeClass('active').children('img').attr("src", $(this).children('img').attr("src").replace("up", "down"));
+        } else {
+            $(this).addClass('active').children('img').attr("src", $(this).children('img').attr("src").replace("down", "up"));
+        }
+    });
+
+    $('.drop-content .item-list li').click(function () {
+        var listValue = $(this).text();
+        $(this).parent().siblings().children('span').text(listValue);
+        $(this).parent().fadeOut().siblings().removeClass('active').children('img').attr("src", $(this).parent().siblings().children('img').attr("src").replace("up", "down"));
+    });
+
+    $('.checked .item-list li').click(function () {
+        $(this).parents('.checked').next('.drop-content').children('.drop-item').children('.impact').show();
+    });
+
+    //견종 검색
+    $('#search_dog').keyup(function() {
+        var k = $(this).val();
+        $(".mypage-petAddDog-popup .search-wrap > .search-item > .item-box").hide();
+        var temp = $(".mypage-petAddDog-popup .search-wrap > .search-item > .item-box > p:contains('" + k + "')");
+        var tempUp = $(".mypage-petAddDog-popup .search-wrap > .search-item > .item-box > p:contains('" + k.toUpperCase() + "')");
+        if(k == "" || k == null || tempUp.length == 0 || temp.length == 0) $(".search-wrap").hide();
+        else $(".mypage-petAddDog-popup .search-wrap").show();
+        $(temp).parent().show();
+        $(tempUp).parent().show();
+    });
+
+    //검색한 견종 선택
+    $('.mypage-petAddDog-popup .item-box').click(function(){
+        var kind = $(this).find('span').text();
+        var id = $(this).find('a').text();
+        $('#search_dog').val(kind);
+        $('#search_dog_id').val(id);
+        $(".mypage-petAddDog-popup .search-wrap").hide();
+    });
+
+    //tooltip
+    $('.has-tooltip').mouseenter(function (e) {
+        $(this).find('.tooltip-wrap').show();
+    });
+    $('.has-tooltip').mouseleave(function (e) {
+        $(this).find('.tooltip-wrap').hide();
+    });
+
+    //검색바
+    $('.searching').mouseover(function () {
+        if ($('.searching').not('.active')) {
+            $(this).addClass('active');
+        }
+    });
+
+    $('.searching').mouseleave(function () {
+        $(this).removeClass('active');
+    });
+
+    function readImage(input, val) {
+        if (input.files && input.files[0]) {
+            //파일의 확장자명
+            var extension = input.files[0].name.substring(input.files[0].name.lastIndexOf('.') + 1, input.files[0].name.length);
+            pagePopup.openProgressPopup('로딩중 입니다. 잠시만 기다려주세요.');
+            try{
+                //input file temp -> real 교체
+                $('#dog_img').remove();
+                $('#temp_img').attr('name', 'dog_img');
+                $('#temp_img').attr('id', 'dog_img');
+                var tagHtml = '<input type="file" id="temp_img" name="temp_img" accept="image/*, .jfif" style="display: none;">';
+                $('#dog_img').after(tagHtml);
+
+                if(extension.toLowerCase() == 'gif'){
+                    $(val).css({"background":"url(" + window.URL.createObjectURL(input.files[0]) + ") center center no-repeat", 'background-size':'cover'});
+                    pagePopup.closeProgressPopup();
+                }else{
+                    var orientation = 0;
+                    EXIF.getData(input.files[0], function(){
+                        orientation = EXIF.getTag(input.files[0], 'Orientation');
+                        var rotate = 0;
+                        switch(orientation){
+                            case 0:
+                                rotate = 0;
+                                break;
+                            case 1:
+                                rotate = 0;
+                                break;
+                            case 2:
+                                rotate = 0;
+                                break;
+                            case 3:
+                                rotate = 180;
+                                break;
+                            case 4:
+                                rotate = 180;
+                                break;
+                            case 5:
+                                rotate = 90;
+                                break;
+                            case 6:
+                                rotate = 90;
+                                break;
+                            case 7:
+                                rotate = -90;
+                                break;
+                            case 8:
+                                rotate = -90;
+                                break;
+                            default:
+                                rotate = 0;
+                                break;
+                        }
+                        console.log(rotate);
+                        $('input[name=dog_orientation]').val(rotate);
+                        if(WitCommon._config.CURRENT_BROWSER == 'CHROME' || rotate == 0){
+                            loadImage(input.files[0], function(image){
+                                $(val).css({"background":"url(" + WitCommon.getUrlToBlobUrl(image.toDataURL()) + ") center center no-repeat", 'background-size':'cover'});
+                                pagePopup.closeProgressPopup();
+                            },{orientation:1, maxWidth:1055});
+                        }
+                        if(WitCommon._config.CURRENT_BROWSER != 'CHROME' && rotate != 0){
+                            loadImage(input.files[0], function(image){
+                                $(val).css({"background":"url(" + WitCommon.getUrlToBlobUrl(image.toDataURL()) + ") center center no-repeat", 'background-size':'cover'});
+                                pagePopup.closeProgressPopup();
+                            },{orientation:true, maxWidth:1055});
+                        }
+                    });
+                }
+
+            }catch(e){
+                pagePopup.closeProgressPopup();
+            }
+        }
+    }
+
+    $(document).on('change', '#temp_img', function(){
+        if($(this)[0].files.length <= 0 && WitCommon._config.TEMP_IMAGE != null){
+            $(this).replaceWith(WitCommon._config.TEMP_IMAGE);
+        }else if($(this)[0].files.length > 0){
+            if(WitCommon.checkIsImage(this, '#dog_img_view')) {
+                readImage(this, '#dog_img_view');
+            }
+        }
+        WitCommon._config.TEMP_IMAGE = null;
+    });
+
+    $(document).on('click', '#temp_img', function(){
+        if($(this)[0].files.length > 0){
+            WitCommon._config.TEMP_IMAGE = $(this).eq(0).clone();
+        }
+    });
+
+    $(document).ready(function(){
+        var petList;
+        $.get('/mypage/get/pet/dog', function(res){
+            petList = res;
+        });
+
+        var dogList = petList;
+        var items = dogList.map(function (n) { return { label: n.kind, id:n.id }});
+        var allowedChars = new RegExp(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/)
+
+        function charsAllowed(value) {
+            return allowedChars.test(value);
+        }
+
+        autocomplete({
+            input: document.getElementById('search_dog'),
+            minLength: 1,
+            onSelect: function (item, inputfield) {
+                inputfield.value = item.label
+                $('#search_dog_id').val(item.id);
+            },
+            fetch: function (text, callback) {
+                var match = text.toLowerCase();
+                callback(items.filter(function(n) { return n.label.toLowerCase().indexOf(match) !== -1; }));
+            },
+            render: function(item, value) {
+                var itemElement = document.createElement("div");
+                if (charsAllowed(value)) {
+                    var regex = new RegExp(value, 'gi');
+                    var inner = item.label.replace(regex, function(match) { return "<strong>" + match + "</strong>" });
+                    itemElement.innerHTML = inner;
+                } else {
+                    itemElement.textContent = item.label;
+                }
+                return itemElement;
+            },
+            emptyMsg: "검색 된 견종이 없습니다.",
+            customize: function(input, inputRect, container, maxHeight) {
+                if (maxHeight < 100) {
+                    container.style.top = "";
+                    container.style.bottom = (window.innerHeight - inputRect.bottom + input.offsetHeight) + "px";
+                    container.style.maxHeight = "140px";
+                }
+                if(maxHeight > 300){
+                    container.style.maxHeight = "300px";
+                }
+            }
+        })
+
+        document.querySelector("input").focus();
+
+        //# 기본값 셋팅
+        var sel_year = $('#dog_birth_year').text();
+        var sel_month = $('#dog_birth_month').text();
+        if(sel_year != '연도' && sel_month != '월'){
+            var dayCnt = new Date(sel_year, sel_month, 0).getDate();
+            var html = '';
+            for(var i=1; i<=dayCnt; i++){
+                html += '<li>' + i + '</li>';
+            }
+            $('.drop-content .sel-day').html(html);
+        }
+
+        $('.drop-content .sel-birth li').click(function () {
+            var today = new Date();
+            var mm = today.getMonth()+1;
+            var yyyy = today.getFullYear();
+            var sel_year = $('#dog_birth_year').text();
+            var sel_month = $('#dog_birth_month').text();
+            var sel_day = $('#dog_birth_day').text();
+
+            if(sel_year == '연도'){
+                pagePopup.alramPopup('연도를 먼저 선택해주세요.');
+                $('#dog_birth_month').text('월');
+                $('#dog_birth_day').text('일');
+            }else if(sel_month == '월' && sel_day != '일'){
+                pagePopup.alramPopup('월을 먼저 선택해주세요.');
+                $('#dog_birth_day').text('일');
+            }
+            if(sel_year == yyyy && sel_month > mm){
+                pagePopup.alramPopup('생년월일을 확인해주세요.');
+                $('#dog_birth_month').text('월');
+                $('#dog_birth_day').text('일');
+            }
+        });
+
+        $('.drop-content .sel-month li').click(function () {
+            $('#dog_birth_day').text('일');
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth()+1;
+            var yyyy = today.getFullYear();
+            var sel_year = $('#dog_birth_year').text();
+            var sel_month = $('#dog_birth_month').text();
+
+            if(sel_year != '연도' && sel_month != '월'){
+                $('.drop-content .sel-day').html("");
+                var dayCnt = new Date(sel_year, sel_month, 0).getDate();
+                var html = '';
+                for(var i=1; i<=dayCnt; i++){
+                    html += '<li>' + i + '</li>';
+                }
+                $('.drop-content .sel-day').html(html);
+
+                $('.drop-content .sel-day li').click(function () {
+                    var listValue = $(this).text();
+                    $(this).parent().siblings().children('span').text(listValue);
+                    $(this).parent().fadeOut().siblings().removeClass('active').children('img').attr("src", $(this).parent().siblings().children('img').attr("src").replace("up", "down"));
+
+                    if(sel_year == yyyy && sel_month == mm && listValue > dd){
+                        pagePopup.alramPopup('생년월일을 확인해주세요.');
+                        $('#dog_birth_day').text('일');
+                    }
+                });
+            }
+        });
+    });
+</script>
+</div>
 </body>
 <%-- =======
 <%@ page language="java" contentType="text/html; charset=UTF-8"

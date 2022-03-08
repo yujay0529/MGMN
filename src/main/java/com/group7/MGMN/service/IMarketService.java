@@ -18,7 +18,7 @@ public interface IMarketService {
 	ArrayList<MarketVO> mkSearchPost(HashMap<String, Object> map);	// 게시글 검색
 	
 	// 페이징
-	public int countMkBoard(); // 게시물 총 개수
+	public int countMkBoard(String mkRegion); // 게시물 총 개수
 	public List<MarketVO> selectMkBoard(PagingVO pagingvo);			// 페이징 처리 게시글 조회
 	public ArrayList<MarketVO> searchSelectMkBoard(PagingVO pagingvo); 	// 검색 후 페이징 처리 게시글 조회 
 }

@@ -62,8 +62,8 @@ public class MarketService implements IMarketService {
 	
 	// 페이징 (검색 추가)
 	@Override
-	public int countMkBoard() {
-		return dao.countMkBoard();
+	public int countMkBoard(String mkRegion) {
+		return dao.countMkBoard(mkRegion);
 	}
 	
 	@Override

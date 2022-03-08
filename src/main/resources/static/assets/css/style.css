@@ -1066,6 +1066,8 @@ nav.navbar.navbar-default.navbar-fixed-top {
     margin-top:10px;
 }
 
+
+
 /*Scroll Up*/
 
 .scrollup{
@@ -1105,6 +1107,21 @@ nav.navbar.navbar-default.navbar-fixed-top {
     cursor:pointer;
 }
 
+/*티쳐블 */
+.teachable-btn{
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+    position: fixed;
+  	bottom:150px;
+    right: 50px;
+    font-weight: bold;
+    border-radius: 100%;
+    transition:all 500ms .2s;
+    cursor:pointer;
+}
 /* 프로필 */
 .col-md-3 {
     width: 20% !important;

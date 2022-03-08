@@ -18,7 +18,7 @@ public interface IMarketDAO {
 	ArrayList<MarketVO> mkSearchPost(HashMap<String, Object> map);	// 게시글 검색
 	
 	// 페이징
-	public int countMkBoard(); // 게시물 총 개수(검색추가)
+	public int countMkBoard(String mkRegion); // 게시물 총 개수(검색추가)
 	
 	
 	public List<MarketVO> selectMkBoard(PagingVO pagingvo);	// 페이징 처리 게시글 조회
