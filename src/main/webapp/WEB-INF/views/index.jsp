@@ -328,7 +328,7 @@
 			<button class="teachable-btn"
 				style="border: none; background-color: transparent;">
 				<a href="/TeachableForm"><img
-					src="assets/images/none_basket.png"></a>
+					src="image/none_basket.png"></a>
 			</button>
 		</div>
 	</div>
