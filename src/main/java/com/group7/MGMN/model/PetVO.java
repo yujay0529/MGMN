@@ -6,6 +6,7 @@ public class PetVO {
 	private String petBreed;
 	private int petAge;
 	private String petGender;
+	private String dogCat;
 	private String userId;
 	
 	public int getPetNo() {
@@ -38,6 +39,12 @@ public class PetVO {
 	public void setPetGender(String petGender) {
 		this.petGender = petGender;
 	}
+	public String getDogCat() {
+		return dogCat;
+	}
+	public void setDogCat(String dogCat) {
+		this.dogCat = dogCat;
+	}
 	public String getUserId() {
 		return userId;
 	}
@@ -48,9 +55,8 @@ public class PetVO {
 	@Override
 	public String toString() {
 		return "PetVO [petNo=" + petNo + ", petName=" + petName + ", petBreed=" + petBreed + ", petAge=" + petAge
-				+ ", petGender=" + petGender + ", userId=" + userId + "]";
+				+ ", petGender=" + petGender + ", dogCat=" + dogCat + ", userId=" + userId + "]";
 	}
-	
 	
 
 }

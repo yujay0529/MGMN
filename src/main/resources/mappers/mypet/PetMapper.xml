@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.group7.MGMN.dao.IPetDAO">
+  	<resultMap type="com.group7.MGMN.model.PetVO" id="petResult">
+  		<result property="petNo" column="petNo" />
+  		<result property="petName" column="petName" />
+  		<result property="petBreed" column="petBreed" />
+  		<result property="petAge" column="petAge" />
+  		<result property="petGender" column="petGender" />
+  		<result property="dogCat" column="dogCat" />
+  		<result property="userId" column="userId" />
+  	</resultMap>
+  	
+  	<!-- 펫 정보 등록 -->
+  	<insert id="insertPetInfo" parameterType="com.group7.MGMN.model.PetVO">
+  		INSERT INTO pet 
+  						VALUES(#{petNo}, #{petName}, #{petBreed}, #{petAge}, #{petGender}, #{dogCat}, #{userId} )							
+  	</insert>
+  	
+  	<!-- 펫 정보 수정 -->
+  	<update id="updatePetInfo" parameterType="com.group7.MGMN.model.PetVO">
+  		UPDATE pet SET petName=#{petName}, petBreed=#{petBreed}, petAge=#{petAge}, petGender=#{petGender}, dogCat=#{dogCat}
+  								WHERE petNo=#{petNo}
+  	</update>
+  	
+  	<!-- 펫 정보 삭제 -->
+  	<delete id="deletePetInfo" parameterType="int">
+  		DELETE FROM pet WHERE petNo=#{petNo}
+  	</delete>
+ 
+ 	<!-- 펫 상세 정보 조회 -->
+  	<select id="detailPetInfo" parameterType="int"
+  												resultType="com.group7.MGMN.model.PetVO">
+  		SELECT * FROM pet WHERE petNo=#{petNo}
+  	</select>
+ 	
+  	</mapper>
