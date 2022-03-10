@@ -1,0 +1,93 @@
+@charset "UTF-8";
+@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+
+/* insertPetInfoForm.css */
+
+div#insertContent {
+    height: 850px;
+    padding: 300px;
+    margin-top: -200px;
+    margin-left: 500px;
+}
+#insertContent h3 {
+    font-size: 23px;
+    font-family: 'Jeju Gothic', sans-serif;
+    font-style: normal;
+    margin-top: 5%;
+    background: sandybrown;
+    margin-right: 450px;
+    text-align: center;
+    border-radius: 20px;
+}
+div#wrap {
+   margin: 0 auto;
+   width: 1024px; }
+	    
+hr {
+    margin-top: 15px;
+    margin-bottom: 12px;
+    border: 0;
+    border-top: 1px solid sandybrown;
+}
+	
+	  
+table.insertTable {
+	  border-collapse: separate;
+	  border-spacing: 1px;
+	  text-align: left;
+	  line-height: 1.5;
+	  font-family: 'Jeju Gothic', sans-serif;
+	}
+table.insertTable th {
+	  border-left: 1px;
+	  border-left-color: orange;
+	  padding: 10px;
+	  font-weight: bold;
+	  font-family: 'Jeju Gothic', sans-serif;
+	}
+table.insertTable td {
+	  width: 350px;
+	  padding: 10px;
+	  vertical-align: top;
+	}
+	
+input[type=text]{ 
+	  border: 2px solid orange;
+	  border-radius: 5px 5px 20px 5px;
+    }
+    
+input#submit_btn {
+    background-color: sandybrown;
+    border: 0px;
+    margin: 10px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 5px;
+    color: ghostwhite;
+}
+
+input#cancelBtn {
+    background-color: sandybrown;
+    border: 0px;
+    margin: 10px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 5px;
+    color: ghostwhite;
+}
+body {
+	background-color: burlywood !important;
+}
+form#frmPetInfoInsert {
+    text-align: center;
+}
+.text-wrap p {
+    text-align: left;
+    margin-left: 52px;
+}
+.text-wrap span {
+    margin-right: 440px;
+}
+div#insertSubmit {
+    margin-right: 465px;
+}

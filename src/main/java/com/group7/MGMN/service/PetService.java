@@ -33,8 +33,8 @@ public class PetService implements IPetService {
 	}
 
 	@Override
-	public PetVO detailPetInfo(int petNo) {
-		return dao.detailPetInfo(petNo);
+	public PetVO detailPetInfo(String userId) {
+		return dao.detailPetInfo(userId);
 	}
 
 }
