@@ -45,7 +45,7 @@ public class TTSService {
                 // 랜덤한 이름으로 mp3 파일 생성
                 String tempname = Long.valueOf(new Date().getTime()).toString();
                 //File f = new File(tempname + ".mp3");
-                File f = new File("file:///root/upload/"  +  tempname + ".mp3");
+                File f = new File("file:///root/upload"  +  tempname + ".mp3");
                 f.createNewFile();
                 OutputStream outputStream = new FileOutputStream(f);
                 while ((read =is.read(bytes)) != -1) {
@@ -70,8 +70,8 @@ public class TTSService {
 	// 파일 경로 및 언어 전달 받음
 	// 저장된 파일 명 반환
 	public String clovaTextToSpeech2(String filePathName, String language) {
-		String clientId = "";//애플리케이션 클라이언트 아이디값";
-        String clientSecret = "";//애플리케이션 클라이언트 시크릿값";
+		String clientId = "hwhgiux3if";//애플리케이션 클라이언트 아이디값";
+        String clientSecret = "LdBYFp7h3vMQhSlRuLadUgBvUVtEI3ThprmA6w4C";//애플리케이션 클라이언트 시크릿값";
         
         String voiceFileName = "";
         
@@ -106,7 +106,7 @@ public class TTSService {
                 //File f = new File(tempname + ".mp3");
                 
                 voiceFileName = "tts_" + tempname + ".mp3";    
-                File f = new File("file:///root/upload/"  +  voiceFileName);                
+                File f = new File("file:///root/upload"  +  voiceFileName);                
                 f.createNewFile();
                 
                 OutputStream outputStream = new FileOutputStream(f);
@@ -165,7 +165,7 @@ public class TTSService {
                 //File f = new File(tempname + ".mp3");
                 
                 voiceFileName = "tts_" + tempname + ".mp3";    
-                File f = new File("file:///root/upload/"  +  voiceFileName);                
+                File f = new File("file:///root/upload"  +  voiceFileName);                
                 f.createNewFile();
                 
                 OutputStream outputStream = new FileOutputStream(f);
