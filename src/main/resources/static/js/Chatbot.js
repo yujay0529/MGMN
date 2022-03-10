@@ -214,7 +214,8 @@
             dataType :'text',
             success:function (result){ //음성 파일 이름 받음
 				/* chatBox에 받은 음성 메시지 플레이 */
-				$('audio').prop("src", '/voice/'+ result)[0].play();
+				alert(result);
+				//$('audio').prop("src", '/voice/'+ result)[0].play();
 				$('audio').hide();
             },
             error:function(data){
