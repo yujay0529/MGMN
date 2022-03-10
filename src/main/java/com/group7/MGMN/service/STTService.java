@@ -158,7 +158,7 @@ public class STTService {
 	public void resultToFileSave(String result) {
 		try {
 			String fileName = Long.valueOf(new Date().getTime()).toString();
-			String filePathName = "/Users/jay/Documents/upload" + "stt_" + fileName + ".txt";
+			String filePathName = "file:///root/upload" + "stt_" + fileName + ".txt";
 			
 			FileWriter fw = new FileWriter(filePathName);
 			fw.write(result);

@@ -25,7 +25,7 @@
 <script type="text/javascript">
 	function showPopUp() {
 		//창 크기 지정 
-		var width = 530;
+		var width = 550;
 		var height = 770;
 
 		//pc화면기준 가운데 정렬 
