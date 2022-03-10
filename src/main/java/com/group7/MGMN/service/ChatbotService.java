@@ -22,8 +22,8 @@ public class ChatbotService {
 		public String main(String voiceMessage) {
 		//public static String main(String voiceMessage) {	
 
-			String apiURL="  https://ttk8u1u70x.apigw.ntruss.com/custom/v1/6647/17849e37f8d057a76932d0a49b55de2749fd47bb068c648dafb4ee75a57c08d8";
-			String secretKey ="SFpIZVVibWJZRXBMcklrWVB6YlJldkJKdHVEV2JHWWU=";
+			String apiURL="https://ttk8u1u70x.apigw.ntruss.com/custom/v1/6658/a6d945e274fcbac07f66a28ff1181f3a3404fd10a022517001a0eff4e2187626";
+			String secretKey ="cm9wSGxNYVZUeU54Wmdsb0RGcW9GbE1ha0x4d2FkSXg=";
 			
 			//chat2
 //			String apiURL="https://edebfac940cd47bf8f16a0c8c28cd6bd.apigw.ntruss.com/custom/v1/6658/a6d945e274fcbac07f66a28ff1181f3a3404fd10a022517001a0eff4e2187626";
@@ -89,8 +89,8 @@ public class ChatbotService {
 		public String Chatbot(String voiceMessage) {
 			//public static String main(String voiceMessage) {	
 		System.out.println(voiceMessage+"84");
-		String apiURL="  https://ttk8u1u70x.apigw.ntruss.com/custom/v1/6647/17849e37f8d057a76932d0a49b55de2749fd47bb068c648dafb4ee75a57c08d8";
-		String secretKey ="SFpIZVVibWJZRXBMcklrWVB6YlJldkJKdHVEV2JHWWU=";
+		String apiURL="https://ttk8u1u70x.apigw.ntruss.com/custom/v1/6658/a6d945e274fcbac07f66a28ff1181f3a3404fd10a022517001a0eff4e2187626";
+		String secretKey ="cm9wSGxNYVZUeU54Wmdsb0RGcW9GbE1ha0x4d2FkSXg=";
 		
 				
 		        String chatbotMessage = ""; // 응답 메시지        

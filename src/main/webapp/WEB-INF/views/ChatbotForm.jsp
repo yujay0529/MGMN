@@ -26,21 +26,18 @@
 			
 			<div>
 				<!-- 질문 메시지 입력 폼 -->
-				<form id="chatForm">
-					<input type="text" id="message" name="message" size="30" placeholder="질문을 입력하세요">	
-					<input type="submit" value="전송">		
+				<form id="chatForm" >
+				<div>
+					<input type="text" id="message" name="message" placeholder="질문을 입력하세요" 
+					style="width:350px;height:20px;font-size:19px;border:1px;">	
+					<button type="submit" value="전송" style="border:0; background-color:transparent;"><img src="/assets/images/send1.png"></button>
+					 <button id="record"style="border:0;background-color:transparent;"><img src="/assets/images/mic.png"></button> 
+					<button id="stop"style="border:0;background-color:transparent;"><img src="/assets/images/stop.png"></button>
+					<div id="sound-clips"></div><br>
+					</div>
 				</form>		
 			</div><br>
 			
-			<div>
-			<!-- 음성 녹음 -->
-			음성 메시지 : <button id="record">녹음</button> 
-							<button id="stop">정지</button>
-							<div id="sound-clips"></div><br>
-			
-			</div>
-
-			</div>
 		</div>
 	</body>
 </html>
