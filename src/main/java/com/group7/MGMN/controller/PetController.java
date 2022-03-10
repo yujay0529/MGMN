@@ -1,5 +1,7 @@
 package com.group7.MGMN.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,19 +19,26 @@ public class PetController {
 	
 	// 마이펫 페이지로 이동
 	@RequestMapping("/mypet")
-	public String viewMypet(/* @PathVariable int petNo, Model model */) {
-		/*
-		 * PetVO petVO = service.detailPetInfo(petNo);
-		 * 
-		 * model.addAttribute("petVO", petVO);
-		 */
+	public String viewMypet(Model model, HttpSession session) {
 		
+		String userId = (String)session.getAttribute("sid");
+		
+		//System.out.println(userId);
+		
+		PetVO petVO = service.detailPetInfo(userId);
+		
+		//System.out.println(petVO);
+		  
+		model.addAttribute("petVO", petVO);		
+		 
+	
 		return "/mypet/mypet";
 	}
 	
 	// 마이펫 등록 페이지로 이동
 	@RequestMapping("/insertPetInfoView")
 	public String insertPetInfoView() {
+		
 		return "mypet/insertPetInfoForm";
 	}
 	
@@ -37,6 +46,13 @@ public class PetController {
 	@RequestMapping("/insertPetInfo")
 	public String insertPetInfo(PetVO petVO) {
 		service.insertPetInfo(petVO);
+		return "redirect:/mypet";
+	}
+	
+	// 마이펫 삭제
+	@RequestMapping("/deletePetInfo/{petNo}")
+	public String deletePetInfo(@PathVariable int petNo) {
+		service.deletePetInfo(petNo);
 		return "redirect:/mypet";
 	}
 	

@@ -7,79 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <title>insertPetInfoForm</title>
-<style type="text/css">
-div#insertContent {
-    height: 800px;
-    padding: 300px;
-}
-h3 {
-    font-size: 23px;
-    font-family: 'Jeju Gothic', sans-serif;
-    font-style: normal;
-    margin-top: 5%;
-}
-div#wrap {
-   margin: 0 auto;
-   width: 1024px; }
-	    
-hr {
-    margin-top: 15px;
-    margin-bottom: 12px;
-    border: 0;
-    border-top: 1px solid sandybrown;
-}
-	
-	  
-table.insertTable {
-	  border-collapse: separate;
-	  border-spacing: 1px;
-	  text-align: left;
-	  line-height: 1.5;
-	  font-family: 'Jeju Gothic', sans-serif;
-	}
-table.insertTable th {
-	  border-left: 1px;
-	  border-left-color: orange;
-	  padding: 10px;
-	  font-weight: bold;
-	  font-family: 'Jeju Gothic', sans-serif;
-	}
-table.insertTable td {
-	  width: 350px;
-	  padding: 10px;
-	  vertical-align: top;
-	}
-	
-input[type=text]{ 
-	  border: 2px solid orange;
-	  border-radius: 5px 5px 20px 5px;
-    }
-    
-input#submit_btn {
-    background-color: sandybrown;
-    border: 0px;
-    margin: 10px;
-    padding-left: 12px;
-    padding-right: 12px;
-    border-radius: 5px;
-    color: ghostwhite;
-}
-
-input#cancelBtn {
-    background-color: sandybrown;
-    border: 0px;
-    margin: 10px;
-    padding-left: 12px;
-    padding-right: 12px;
-    border-radius: 5px;
-    color: ghostwhite;
-}
-</style>
+<link  href="<c:url value='/css/insertPetInfoForm.css' />" rel="stylesheet"  type="text/css" >
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="<c:url value='/js/insertPetInfoForm.js' />"></script>
 </head>
 <body>
 	<div id="wrap">
 		
-	
 		<!-- TOP  -->
 		<jsp:include page="/WEB-INF/views/layout/top.jsp" flush='true' />
 		<div id="insertContent">
@@ -96,33 +30,33 @@ input#cancelBtn {
 						<tr><th>품종</th><td><input type="text" name="petBreed" id="petBreed"></td></tr>
 						<tr><th>나이</th><td><select name="petAge">
 															<option value="0">0살</option>
-															<option value="0">1살</option>
-															<option value="0">2살</option>
-															<option value="0">3살</option>
-															<option value="0">4살</option>
-															<option value="0">5살</option>
-															<option value="0">6살</option>
-															<option value="0">7살</option>
-															<option value="0">8살</option>
-															<option value="0">9살</option>
-															<option value="0">10살</option>
-															<option value="0">11살</option>
-															<option value="0">12살</option>
-															<option value="0">13살</option>
-															<option value="0">14살</option>
-															<option value="0">15살</option>
-															<option value="0">16살</option>
-															<option value="0">17살</option>
-															<option value="0">18살</option>
-															<option value="0">19살</option>
-															<option value="0">20살</option>
-															<option value="0">21살</option>
-															<option value="0">22살</option>
-															<option value="0">23살</option>
-															<option value="0">24살</option>
-															<option value="0">25살</option>
+															<option value="1">1살</option>
+															<option value="2">2살</option>
+															<option value="3">3살</option>
+															<option value="4">4살</option>
+															<option value="5">5살</option>
+															<option value="6">6살</option>
+															<option value="7">7살</option>
+															<option value="8">8살</option>
+															<option value="9">9살</option>
+															<option value="10">10살</option>
+															<option value="11">11살</option>
+															<option value="12">12살</option>
+															<option value="13">13살</option>
+															<option value="14">14살</option>
+															<option value="15">15살</option>
+															<option value="16">16살</option>
+															<option value="17">17살</option>
+															<option value="18">18살</option>
+															<option value="19">19살</option>
+															<option value="20">20살</option>
+															<option value="21">21살</option>
+															<option value="22">22살</option>
+															<option value="23">23살</option>
+															<option value="24">24살</option>
+															<option value="25">25살</option>
 														</select></td></tr>
-						<tr><th>성별</th><td><input type="radio" name="petGender" id="petF" value="암컷">암컷
+						<tr><th>성별</th><td><input type="radio" name="petGender" id="petF" value="암컷" checked>암컷
 														<input type="radio" name="petGender" id="petM" value="수컷">수컷</td></tr>
 					</table>
 				<div id="insertSubmit" align="center"><input id='submit_btn' type='submit' value='등록'>&nbsp;&nbsp;<input type='reset' value='취소' id="cancelBtn"></div>

@@ -32,9 +32,9 @@
   	</delete>
  
  	<!-- 펫 상세 정보 조회 -->
-  	<select id="detailPetInfo" parameterType="int"
+  	<select id="detailPetInfo" parameterType="String"
   												resultType="com.group7.MGMN.model.PetVO">
-  		SELECT * FROM pet WHERE petNo=#{petNo}
+  		SELECT * FROM pet WHERE userId=#{userId}
   	</select>
  	
   	</mapper>
