@@ -22,7 +22,7 @@
 					<!-- 등록된 반려동물이 없는 경우 -->
 					<c:if test="${sessionScope.sid != petVO.userId }">
 						<div class="none-list">
-							<img src="/image/none_basket.png" alt="">
+							<img src="/image/noneBasket.jpg" alt="">
 							<p>등록된 반려동물이 없습니다.</p>
 							
 						<input type="button" onClick="location.href='<c:url value="/insertPetInfoView" />'" value="반려동물 등록">
