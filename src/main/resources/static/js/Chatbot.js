@@ -61,7 +61,7 @@
                    // audio.src = audioURL;                       
                    //blob:http://localhost:8011/6377d19d-2ca8-49b1-a37f-068d602ceb60    
                     a.href=audioURL;                    
-                    a.download = clipName;                      
+                    a.upload = clipName;                      
                    //a.innerHTML = "DOWN"
 					a.click(); // 다운로드 폴더에 저장하도록 클릭 이벤트 발생			
 					
