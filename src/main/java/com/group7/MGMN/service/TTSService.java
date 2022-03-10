@@ -45,7 +45,7 @@ public class TTSService {
                 // 랜덤한 이름으로 mp3 파일 생성
                 String tempname = Long.valueOf(new Date().getTime()).toString();
                 //File f = new File(tempname + ".mp3");
-                File f = new File("/root/upload/"  +  tempname + ".mp3");
+                File f = new File("/upload/"  +  tempname + ".mp3");
                 f.createNewFile();
                 OutputStream outputStream = new FileOutputStream(f);
                 while ((read =is.read(bytes)) != -1) {
@@ -106,7 +106,7 @@ public class TTSService {
                 //File f = new File(tempname + ".mp3");
                 
                 voiceFileName = "tts_" + tempname + ".mp3";    
-                File f = new File("/root/upload/"  +  voiceFileName);                
+                File f = new File("/upload/"  +  voiceFileName);                
                 f.createNewFile();
                 
                 OutputStream outputStream = new FileOutputStream(f);
@@ -165,7 +165,7 @@ public class TTSService {
                 //File f = new File(tempname + ".mp3");
                 
                 voiceFileName = "tts_" + tempname + ".mp3";    
-                File f = new File("/root/upload/"  +  voiceFileName);                
+                File f = new File("/upload/"  +  voiceFileName);                
                 f.createNewFile();
                 
                 OutputStream outputStream = new FileOutputStream(f);
