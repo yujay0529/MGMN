@@ -17,7 +17,7 @@
 		<!-- TOP  -->
 		<jsp:include page="/WEB-INF/views/layout/top.jsp" flush='true' />
 		<div id="insertContent">
-			<h3>반려동물 상세</h3>	
+			<h3>반려동물 정보 등록</h3>	
 			<form id="frmPetInfoInsert" method="post" action="<c:url value='/insertPetInfo' /> ">	
 				<div class="text-wrap">
 					<p align="center" >반려동물을 선택해주세요.</p>
