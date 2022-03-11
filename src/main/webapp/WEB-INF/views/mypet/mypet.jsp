@@ -8,6 +8,14 @@
 <meta charset="UTF-8">
 <title>mypetForm</title>
 <link  href="<c:url value='/css/mypetForm.css' />" rel="stylesheet"  type="text/css" >
+<script type="text/javascript">
+	function deleteCheck() {
+		var answer = confirm("반려동물 정보를 삭제하시겠습니까?");
+		if(answer) {
+			location.href='/deletePetInfo/${petVO.petNo}';				// 컨트롤러에서 사용할 값을 주소로 넘겨준다.
+		}
+	}
+</script>
 </head>
 <body>
 	<div id="wrap">
@@ -48,7 +56,8 @@
 							<tr><th>반려동물 종</th><td>${petVO.petBreed }</td></tr>
 						</table>
 						<div id="deleteBtn">
-							<button onClick="location.href='<c:url value="/deletePetInfo/${petVO.petNo}" />'">반려동물 정보 삭제</button>
+							<%-- <button onClick="location.href='<c:url value="/deletePetInfo/${petVO.petNo}" />'">반려동물 정보 삭제</button> --%>
+							<button onClick="location.href='javascript:deleteCheck();'">반려동물 정보 삭제</button>
 						</div>
 						</div>
 					</c:if>
