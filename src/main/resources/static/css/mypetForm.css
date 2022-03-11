@@ -22,22 +22,19 @@
 }
 
 #dogCatImg {
-    padding-right: 465px;
-    padding-left: 70px;
+
     margin-top: -60px;
 }
 .petInfoTable {
     background: burlywood;
     width: 368px;
     border-radius: 15px;
-    margin-left: 129px;
 }
 .petInfoTable tr {
     height: 30px;
 }
 .petInfoTable th {
     text-align: center;
-    padding-right: 100px;
 }
 
 .petInfoTable td {
@@ -45,11 +42,10 @@
     text-align: left;
     padding-right: 25px;
 }
-div#deleteBtn {
-    margin-right: 420px;
+#deleteBtn {
     margin-top: 10px;
 }
-div#deleteBtn button {
+#deleteBtn button {
     margin-left: 15px;
     background: burlywood;
     border-radius: 7px;
