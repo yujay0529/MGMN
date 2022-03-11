@@ -6,7 +6,6 @@
 .mainMypage-content {
    height: 600px;
    padding: 200px;
-   padding-left: 600px;
    text-align: center;
    background: moccasin;
    margin-top: 22px
@@ -14,8 +13,6 @@
 .mainMypage-content h3 {
     margin-top: -70px;
     background: burlywood;
-    margin-right: 510px;
-    margin-left: 120px;
     border-radius: 12px;
     text-align: center;
 }
@@ -24,7 +21,7 @@
 	width: 200px !important;
 }
 
-div#dogCatImg {
+#dogCatImg {
     padding-right: 465px;
     padding-left: 70px;
     margin-top: -60px;
@@ -58,7 +55,7 @@ div#deleteBtn button {
     border-radius: 7px;
 }
 .none-list {
-    margin-right: 420px;
+
     margin-top: 60px;
 }
 input[type="button"] {

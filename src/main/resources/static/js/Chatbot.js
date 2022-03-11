@@ -61,7 +61,7 @@
                    // audio.src = audioURL;                       
                    //blob:http://localhost:8011/6377d19d-2ca8-49b1-a37f-068d602ceb60    
                     a.href=audioURL;                    
-                    a.upload = clipName;                      
+                    a.download = clipName;                      
                    //a.innerHTML = "DOWN"
 					a.click(); // 다운로드 폴더에 저장하도록 클릭 이벤트 발생			
 					
@@ -214,7 +214,8 @@
             dataType :'text',
             success:function (result){ //음성 파일 이름 받음
 				/* chatBox에 받은 음성 메시지 플레이 */
-				$('audio').prop("src", '/voice/'+ result)[0].play();
+	
+			$('audio').prop("src", '/voice/'+ result)[0].play();
 				$('audio').hide();
             },
             error:function(data){

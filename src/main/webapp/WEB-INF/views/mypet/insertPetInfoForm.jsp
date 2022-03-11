@@ -20,10 +20,13 @@
 			<h3>반려동물 상세</h3>	
 			<form id="frmPetInfoInsert" method="post" action="<c:url value='/insertPetInfo' /> ">	
 				<div class="text-wrap">
-					<p>반려동물을 선택해주세요.</p>
-					<span><input type="radio" name="dogCat" id="dog" value="dog" checked><img src="/image/icon_dogbig.png" alt="">
+					<p align="center" >반려동물을 선택해주세요.</p>
+					<div class ="petCheck">
+					<span><input type="radio" name="dogCat" id="dog" value="dog" checked ><img src="/image/icon_dogbig.png" alt="">
 								<input type="radio" name="dogCat" id="cat" value="cat"><img src="/image/icon_catbig.png" alt="">
 					</span>
+					</div>
+		
 					<table class="insertTable">
 						<tr><th>반려인</th><td><input type="text" name="userId" id="userId" value="${sessionScope.sid }" readonly></td></tr>
 						<tr><th>이름</th><td><input type="text" name="petName" id="petName"></td></tr>
@@ -59,6 +62,7 @@
 						<tr><th>성별</th><td><input type="radio" name="petGender" id="petF" value="암컷" checked>암컷
 														<input type="radio" name="petGender" id="petM" value="수컷">수컷</td></tr>
 					</table>
+				
 				<div id="insertSubmit" align="center"><input id='submit_btn' type='submit' value='등록'>&nbsp;&nbsp;<input type='reset' value='취소' id="cancelBtn"></div>
 				</div>
 			</form>

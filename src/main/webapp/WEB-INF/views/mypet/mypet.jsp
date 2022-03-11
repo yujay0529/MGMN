@@ -17,8 +17,9 @@
 		
 		<div class="main-inner">
 			<div class="mainMypage-content">
+			
 					<h3>${sessionScope.sid}님의 반려동물정보</h3>
-					
+			
 					<!-- 등록된 반려동물이 없는 경우 -->
 					<c:if test="${sessionScope.sid != petVO.userId }">
 						<div class="none-list">
