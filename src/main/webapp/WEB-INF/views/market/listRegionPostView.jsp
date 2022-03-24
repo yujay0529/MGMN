@@ -10,7 +10,7 @@
 		<title>지역별 상품 조회</title>
 		<link  href="<c:url value='/css/listRegionPostView.css' />" rel="stylesheet"  type="text/css" >
 		<script src="<c:url value='/js/jquery-3.6.0.min.js' />"></script>
-		<script src="<c:url value='/js/marketSearch.js' />"></script>
+		<script src="<c:url value='/js/marketSearch1.js' />"></script>
 		<style type="text/css">
 			
 			
@@ -47,15 +47,15 @@
 			</div>
 			<div class="marketSearch">
 				<h4>현재 우리 동네 : ${paging.mkRegion } </h4>
-				<form action="<c:url value='/market/marketSearch'/>" name="searchForm" id="searchForm"><!-- action에 공백으로 주면 현재 페이지 주소까지 넣은것과 같다. -->
-				  <select name="searchType">
+				<form  name="searchForm" id="searchForm"><!-- action에 공백으로 주면 현재 페이지 주소까지 넣은것과 같다. -->
+				  <select name="searchType" id="searchType">
 				      <option id="optTitle" value="mkTitle">제목</option>
 				      <option value="mkContent">내용</option>
 				      <!-- <option value="mk_title_content">제목+내용</option>
 				      <option value="userId">작성자</option> -->
 				  </select>
 				  <input type="hidden" name="nowPage" value="1">
-				  <input type="text" name="searchKeyword" placeholder="검색어를 입력해주세요" >
+				  <input type="text" name="searchKeyword" id="searchKeyword" placeholder="검색어를 입력해주세요" >
 				  <input type="submit" value="검색">
 			  	</form>	
 			</div>

@@ -135,74 +135,79 @@ public class MarketController {
 	}
 	
 	
-	// 게시글 검색
-	@RequestMapping("/market/marketSearch2")
-	public ModelAndView list(	//옵션, 키워드, 페이지의 기본값을 각각 설정
-						@RequestParam(defaultValue="1") int nowPage,
-						@RequestParam(defaultValue="userId") String searchType,
-						@RequestParam(defaultValue="") String keyword
-						) throws Exception {
-		
-		// 레코드 개수를 계산
-		int count = 1000;
-		
-		// 페이지 관련 설정, 시작번호와 끝버호를 구해서 각각 변수에 저장
-		// Pager pager = new Pager(count, nowPage);
-		
-		return null;
-	}
+//	// 게시글 검색
+//	@RequestMapping("/market/marketSearch2")
+//	public ModelAndView list(	//옵션, 키워드, 페이지의 기본값을 각각 설정
+//						@RequestParam(defaultValue="1") int nowPage,
+//						@RequestParam(defaultValue="userId") String searchType,
+//						@RequestParam(defaultValue="") String keyword
+//						) throws Exception {
+//		
+//		// 레코드 개수를 계산
+//		int count = 1000;
+//		
+//		// 페이지 관련 설정, 시작번호와 끝버호를 구해서 각각 변수에 저장
+//		// Pager pager = new Pager(count, nowPage);
+//		
+//		return null;
+//	}
 	
-	// @ResponseBody
-	@RequestMapping("/market/marketSearch")
-	//	public ArrayList<ProductVO> productSearch(@RequestParam("type") String type,
-	//										  @RequestParam("keyword") String keyword) {
-	public String marketSearch(@RequestParam HashMap<String,Object> param
-								 ,@RequestParam(value="nowPage", required=false)String nowPage
-								 ,@RequestParam(value="cntPerPage", required=false)String cntPerPage
-								 ,Model model
-								 ,HttpSession session) {
-		
-		
-		  if (nowPage == null && cntPerPage == null) { 
-			  nowPage = "1"; cntPerPage = "8";
-		  } else if (nowPage == null) { 
-			  nowPage = "1"; 
-		  } else if (cntPerPage == null) {
-			  cntPerPage = "8"; }
+		// 검색
+		@RequestMapping("/market/marketSearch")	
+		public String marketSearch(@RequestParam(value="searchType", required=false) String searchType
+				 ,@RequestParam(value="searchKeyword", required=false) String searchKeyword
+				 ,@RequestParam(value="nowPage", required=false)String nowPage
+				 ,@RequestParam(value="cntPerPage", required=false)String cntPerPage
+				 ,@RequestParam(value="morePage", required=false)String morePage
+				 ,Model model
+				 ,HttpSession session) {
+			
+			System.out.println("---------------------------------------");
+			
+			if(searchType == null)
+				searchType = "";
+			if(searchKeyword == null)
+				searchKeyword = "";
+			 
+			 // 페이징		
+			  if (nowPage == null && cntPerPage == null) { 
+				  nowPage = "1"; cntPerPage = "8";
+			  } else if (nowPage == null) { 
+				  nowPage = "1"; 
+			  } else if (cntPerPage == null) {
+				  cntPerPage = "8"; }	  
+			  
 		  	System.out.println(nowPage);
-			System.out.println(cntPerPage);
-		
-		
-		ArrayList<MarketVO> mkList = service.mkSearchPost(param);
-		model.addAttribute("mkList", mkList);
-		
-		int total = mkList.size();
-		
-		System.out.println("total : "+total);
-		PagingVO vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
-		
-		vo.setSearchType((String)param.get("searchType"));
-		vo.setSearchKeyword((String)param.get("searchKeyword"));
-		
-		String mkRegion = (String)session.getAttribute("address");
-		vo.setMkRegion(mkRegion);
-		
-		
-		model.addAttribute("paging", vo);
-		model.addAttribute("mkList", service.searchSelectMkBoard(vo));
-		
-		//System.out.println(mkList.size());
-		
-		// prdList로 제대로 반화되었는지 확인하기 위한 코드
-		//		for(int i =0; i < mkList.size(); i++) {
-		//			MarketVO mkVO = (MarketVO) mkList.get(i);
-		//			System.out.println(mkVO.getMkTitle());
-		//		}
-		// System.out.println("a");
-		
-		return "market/searchResultView";
-	
-	}
+			System.out.println(cntPerPage);		
+			System.out.println(searchType);
+			System.out.println(searchKeyword);
+			
+			String mkRegion = (String)session.getAttribute("address");		
+					
+			 HashMap<String,Object> param = new  HashMap<String,Object>();
+			 param.put("searchType", searchType);
+			 param.put("searchKeyword", searchKeyword);
+			 param.put("mkRegion", mkRegion);
+				
+			ArrayList<MarketVO> mkList = service.mkSearchPost(param);				
+			
+			int total = mkList.size();				
+			PagingVO paging = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+			
+			paging.setSearchType((String)param.get("searchType"));
+			paging.setSearchKeyword((String)param.get("searchKeyword"));
+			paging.setMkRegion(mkRegion);
+			
+			mkList = service.searchSelectMkBoard(paging);			
+
+			model.addAttribute("paging", paging);
+			model.addAttribute("mkList", service.searchSelectMkBoard(paging));
+			
+			model.addAttribute("searchType", (String)param.get("searchType"));
+			model.addAttribute("searchKeyword", (String)param.get("searchKeyword"));	
+
+		return "market/searchResultView";	
+		}
 
 }
 

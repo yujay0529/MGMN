@@ -7,6 +7,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>지역별 상품 조회</title>
+		<script src="<c:url value='/js/marketSearch2.js' />"></script>
 	</head>
 	<body>
 		<div id="wrapWholePost">
@@ -32,7 +33,7 @@
 		<!-- 페이지 넘기기 -->
 		<div class="pagelist">
 			<c:if test="${paging.startPage != 1 }">
-				<a href="<c:url value='/market/marketSearch/?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}'/>">‹</a>
+				<a href="javascript:callAjax(${paging.startPage - 1 }, ${paging.cntPerPage});">‹</a>
 			</c:if>
 			<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
 				<c:choose>
@@ -40,12 +41,12 @@
 						<b>${p }&emsp;</b>
 					</c:when>
 					<c:when test="${p != paging.nowPage }">
-						<a href="<c:url value='/market/marketSearch/?nowPage=${p }&cntPerPage=${paging.cntPerPage}'/>">${p }&emsp;</a>
+						<a href="javascript:callAjax(${p }, ${paging.cntPerPage});">${p }&emsp;</a>
 					</c:when>
 				</c:choose>
 			</c:forEach>
 			<c:if test="${paging.endPage != paging.lastPage }">
-				<a href="<c:url value='/market/marketSearch/?nowPage=${paging.endPage + 1 }&cntPerPage=${paging.cntPerPage}'/>">›</a>
+				<a href="javascript:callAjax(${paging.startPage + 1 }, ${paging.cntPerPage});">›</a>
 			</c:if>
 		</div>
 		<br><hr><br>

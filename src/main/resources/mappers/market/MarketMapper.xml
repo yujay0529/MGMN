@@ -49,8 +49,8 @@
   	
   	<!-- 페이징 -->
   	<!-- 총 게시글 개수 출력, 검색결과 반영 -->
-  	<select id="countMkBoard" parameterType="String" resultType="int">
-  		SELECT COUNT(*) FROM market WHERE mkRegion=#{mkRegion}
+  	<select id="countMkBoard" parameterType="hashMap" resultType="int">
+  		SELECT COUNT(*) FROM market 
 
   	</select>
   	
@@ -85,14 +85,17 @@
   	
   	<!-- 상품 검색 -->
   	<select id="mkSearchPost" parameterType="hashmap" resultMap="mkResult">			<!-- id값 dao와 동일하게 설정 -->
-  		SELECT * FROM market WHERE 
+  		SELECT * FROM market WHERE mkRegion=#{mkRegion} AND 
   		<choose>
+  			<when test="searchType == null or searchType.equals('')">
+  				mkTitle LIKE CONCAT('%', #{searchKeyword}, '%')
+  			</when>
   			<when test="searchType != null and searchType.equals('mkTitle')">
   				mkTitle LIKE CONCAT('%', #{searchKeyword}, '%')
   			</when>
-  			<when test="searchType != null and searchType.equals('mkContent')">
-  				mkContent LIKE CONCAT('%', #{searchKeyword}, '%')
-  			</when>
+			<when test="searchType != null and searchType.equals('mkContent')">
+				mkContent LIKE CONCAT('%', #{searchKeyword}, '%')
+			</when>
   		</choose>
   	</select>
   	
@@ -104,14 +107,17 @@
 				FROM (
 						SELECT * FROM market Q
 						WHERE mkRegion=#{mkRegion} and
-							<choose>
-				  			<when test="searchType != null and searchType.equals('mkTitle')">
-				  				mkTitle LIKE CONCAT('%', #{searchKeyword}, '%')
-				  			</when>
-				  			<when test="searchType != null and searchType.equals('mkContent')">
-				  				mkContent LIKE CONCAT('%', #{searchKeyword}, '%')
-				  			</when>
-				  		</choose>
+						<choose>
+							<when test="searchType == null or searchType.equals('')">
+								mkTitle LIKE CONCAT('%', #{searchKeyword}, '%')
+							</when>
+							<when test="searchType != null and searchType.equals('mkTitle')">
+								mkTitle LIKE CONCAT('%', #{searchKeyword}, '%')
+							</when>
+							<when test="searchType != null and searchType.equals('mkContent')">
+								mkContent LIKE CONCAT('%', #{searchKeyword}, '%')
+							</when>
+						</choose>
 						ORDER BY mkNo DESC 
 						)Q, (SELECT @ROWNUM:=0)A
 						)B
