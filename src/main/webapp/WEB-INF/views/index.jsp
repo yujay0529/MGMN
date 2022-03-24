@@ -198,7 +198,7 @@
 
 						<div class="col-md-6 col-sm-6 col-xs-12">
 							<img class="portfolio-img img-responsive"
-								src="assets/images/qnaimg.png" alt="" />
+								src="assets/images/qnaimg2.png" alt="" />
 						</div>
 
 					</div>
