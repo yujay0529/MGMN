@@ -10,11 +10,11 @@
 		}
 	} */
 
-div#insertContent {
-    height: 850px;
+#insertContent {
+	height:1024px;
     padding: 300px;
     margin-top: -200px;
-    margin-left: 500px;
+
 }
 #insertContent h3 {
     font-size: 23px;
@@ -22,11 +22,10 @@ div#insertContent {
     font-style: normal;
     margin-top: 5%;
     background: sandybrown;
-    margin-right: 450px;
     text-align: center;
     border-radius: 20px;
 }
-div#wrap {
+#wrap {
    margin: 0 auto;
    width: 1024px; }
 	    
@@ -36,9 +35,15 @@ hr {
     border: 0;
     border-top: 1px solid sandybrown;
 }
-	
+.petCheck{
+	float:center;
+	text-align:center;
+}
+
 	  
 table.insertTable {
+	margin-left:auto; 
+    margin-right:auto;
 	  border-collapse: separate;
 	  border-spacing: 1px;
 	  text-align: left;
@@ -53,7 +58,6 @@ table.insertTable th {
 	  font-family: 'Jeju Gothic', sans-serif;
 	}
 table.insertTable td {
-	  width: 350px;
 	  padding: 10px;
 	  vertical-align: top;
 	}
@@ -86,15 +90,6 @@ body {
 	background-color: moccasin !important;
 }
 form#frmPetInfoInsert {
+	padding-top:20px;
     text-align: center;
-}
-.text-wrap p {
-    text-align: left;
-    margin-left: 52px;
-}
-.text-wrap span {
-    margin-right: 440px;
-}
-div#insertSubmit {
-    margin-right: 465px;
 }

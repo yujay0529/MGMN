@@ -19,38 +19,27 @@
 		<jsp:include page="/WEB-INF/views/layout/top.jsp" flush='true' />
 		<!--  티쳐블머신 폼  -->
 		<div id="pageTitle">
-			<h3 align="center">티쳐블 머신 테스트</h3>
-			<br>
-			<hr>
+			<h3 align="center">넌 무슨 종이니?</h3>
 		</div>
-		<div>Teachable Machine Image Model</div>
-        <button type="button" onclick="init()">Start</button>
-        <button type="button" onclick="predict()">예측</button>
-        <script
-            class="jsbin"
-            src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
-        ></script>
-        <div class="file-upload">
-            <button
-                class="file-upload-btn"
-                type="button"
-                onclick="$('.file-upload-input').trigger( 'click' )"
-            >
-                Add Image
-            </button>
- 
-            <div class="image-upload-wrap">
-                <input
-                    class="file-upload-input"
-                    type="file"
-                    onchange="readURL(this);"
-                    accept="image/*"
-                />
-                <div class="drag-text">
-                    <h3>Drag and drop a file or select add Image</h3>
-                </div>
-            </div>
-            <div class="file-upload-content">
+		<div class="subtitle">Teachable Machine Image Model</div>
+		
+		<script class="jsbin"
+			src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<div class="file-upload">
+		<button class="file-upload-btn" type="button" onclick="init()">1.모델 불러오기</button>
+		
+			<button class="file-upload-btn" type="button"
+				onclick="$('.file-upload-input').trigger( 'click' )">
+				2.이미지 추가</button>
+<button class="file-upload-btn" type="button" onclick="predict()">3.START</button>
+			<div class="image-upload-wrap">
+				<input class="file-upload-input" type="file"
+					onchange="readURL(this);" accept="image/*" />
+				<div class="drag-text">
+					<h3>파일을 옮기거나 클릭해서 이미지를 첨부하세요.</h3>
+				</div>
+			</div>
+			<div class="file-upload-content">
                 <img class="file-upload-image" id="face-image" src="#" alt="your image" />
                 <div class="image-title-wrap">
                     <button type="button" onclick="removeUpload()" class="remove-image">
@@ -59,7 +48,7 @@
                 </div>
             </div>
         </div>
-        <div id="webcam-container"></div>
+<!--         <div id="webcam-container"></div> -->
         <div id="label-container"></div>
         <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
@@ -101,7 +90,7 @@
             // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
  
             // the link to your model provided by Teachable Machine export panel
-            const URL = 'https://teachablemachine.withgoogle.com/models/Dgfe-aKmX/';
+            const URL = 'https://teachablemachine.withgoogle.com/models/TI5XVhhY9/';
  
             let model, webcam, labelContainer, maxPredictions;
  
@@ -142,7 +131,7 @@
 	</div>
 
 	<!-- BOTTOM  -->
-	<%-- <jsp:include page="/WEB-INF/views/layout/bottom.jsp" flush='true' /> --%>
+	<jsp:include page="/WEB-INF/views/layout/bottom.jsp" flush='true' />
 
 </body>
 </html>

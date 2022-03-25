@@ -1,308 +1,197 @@
 @charset "UTF-8";
+
 @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
 
 /* listRegionPostView.css */
 
 
-a { 	
+a {
 	text-decoration: none;
-	color : black;
+	color: black;
 }
 
 #pageTitle h3 {
-    font-size: 22px !important;
-    font-family: 'Jeju Gothic', sans-serif !important;
-    font-style: normal !important;
-    margin-top: 5%;
+	font-size: 22px !important;
+	font-family: 'Jeju Gothic', sans-serif !important;
+	font-style: normal !important;
+	margin-bottom: 5%;
 }
-	
+
+.navbar {
+	margin-bottom: 20px;
+	border: 1px solid transparent;
+}
+
+.navbar-default {
+	background-color: #ffc038 !important;
+	border: transparent;
+	padding-top: 30px;
+}
+
+header {
+	height: 140px;
+}
+
+div#headerBox {
+	height: 80px;
+}
+
 hr {
-    border: 0 !important;
-    border-top: 1px solid sandybrown !important;
+	border: 0 !important;
+	border-top: 1px solid sandybrown !important;
 }
+
 div#wrap {
 	width: 1024px;
 	margin: 0 auto;
 }
 
-/* div#thumbnail img{width:250px;}				 
-
-.productWrap {
-	width: 21%;
-	float: left;
-	margin: 2%;
-	height: 43%;
-}
-
-.productWrap #thumbnail {
- 	width: 100%;
-}
-
-div#thumbnail img {
-	width: 100% !important;
-	height: 220px;
-	border-radius: 11px;
-
-}
-div#wrapWholePost {
-    height: 670px;
-}
-
- div.insertBtn {
-    float: right;
-    margin-top: -25px;
-    margin-right: 10px;
-
-} 
-
- div.insertBtn img {
-   	width: 100px;
-
-} 
-
-.marketSearch {
-    display: flex;
-    background: floralwhite;
-    margin-top: -20px;
-    margin-bottom: -20px;
-    padding: 8px;
-}
-
-.marketSearch h4 {
-    margin-left: 2% !important;
-    margin-right: 4% !important;
-    background: floralwhite !important;
-    border-radius: 5px !important;
-    font-family: 'Jeju Gothic', sans-serif !important;
-    font-size: larger;
-    margin-top: 8px;
-}
-
-form#searchForm {
-    margin-top: 1%;
-}
-
-select {
-    padding: 2px;
-    padding-left: 5px;
-    padding-right: 5px;
- }
-
-.boardTitle {
-    background: antiquewhite;
-    font-family: 'Jeju Gothic', sans-serif;
-    border-radius: 10px 10px 0px 0px;
-    height: 25px;
-    padding: 2px;
-}
-
-.boardPrice {
-    background: floralwhite;
-    font-family: 'Jeju Gothic', sans-serif;
-    font-size: smaller;
-    height: 15px;
-}
-
-.boardDateHit {
-    display: flex;
-    background: antiquewhite;
-    border-radius: 0px 0px 10px 10px
-}
-
-#boardDate {
-    font-family: 'Jeju Gothic', sans-serif !important;
-    font-size: smaller !important;
-    width: 100% !important; 
-    padding: 4px !important;
-    margin-left: -13px !important;
-}
-
-#boardHit {
-    font-family: 'Jeju Gothic', sans-serif !important;
-    font-size: smaller !important;
-    width: 100% ;
-}
-
-#boardHit img {
-    width: 20px;
-}
-
-#boardHit h4 {
-    display: inline !important;
-    padding: 3px !important;
-    font-family: 'Jeju Gothic', sans-serif !important;
-    font-size: larger;
-}
-
-input[type="text"] {
-    padding: 2px;
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
-input[type="submit"] {
-    background: wheat;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.pagelist {
-    float: right;
-}
-
-.pagelist a {
-    text-align: center;
-    background: chocolate;
-    border: 1px solid darksalmon;
-    padding-left: 14px;
-    margin-right: 14px;
-    color: navajowhite;
-}
-
-.pagelist b {
-    text-align: center;
-    background: chocolate;
-    border: 1px solid darksalmon;
-    padding-left: 14px;
-    margin-right: 14px;
-    color: white;
-}
-
-.navbar {
-    margin-bottom: 20px;
-    border: 1px solid transparent;
-}
-.navbar-default {
-    background-color: #ffc038 !important;
-    border: transparent;
-    padding-top: 30px;
-}
-
-header {
-    height: 140px;
-}
-
-div#headerBox {
-    height: 80px;
-}
-
-nav.navbar.navbar-default.navbar-fixed-top {
-    padding: 10px;
-} */
-
 body {
-  font-family: sans-serif;
-  background-color: #eeeeee;
+	font-family: sans-serif;
+	background-color: #eeeeee;
 }
- 
+
 .file-upload {
-  background-color: #ffffff;
-  width: 600px;
-  margin: 0 auto;
-  padding: 20px;
+	background-color: #ffffff;
+	width: 600px;
+	margin: 0 auto;
+	padding: 20px;
 }
- 
+
 .file-upload-btn {
   width: 100%;
   margin: 0;
   color: #fff;
-  background: #1FB264;
+  background: #f1bc0e;
   border: none;
   padding: 10px;
   border-radius: 4px;
-  border-bottom: 4px solid #15824B;
+  border-bottom: 4px solid #fdd639;
   transition: all .2s ease;
   outline: none;
   text-transform: uppercase;
   font-weight: 700;
 }
- 
+
 .file-upload-btn:hover {
-  background: #1AA059;
+  background: #ffcd38;
   color: #ffffff;
   transition: all .2s ease;
   cursor: pointer;
 }
- 
+
 .file-upload-btn:active {
-  border: 0;
-  transition: all .2s ease;
+	border: 0;
+	transition: all .2s ease;
 }
- 
+
 .file-upload-content {
-  display: none;
-  text-align: center;
+	display: none;
+	text-align: center;
 }
- 
+
 .file-upload-input {
-  position: absolute;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  outline: none;
-  opacity: 0;
-  cursor: pointer;
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	outline: none;
+	opacity: 0;
+	cursor: pointer;
 }
- 
+
 .image-upload-wrap {
   margin-top: 20px;
-  border: 4px dashed #1FB264;
+  border: 4px dashed #ffcd38;
   position: relative;
 }
- 
-.image-dropping,
-.image-upload-wrap:hover {
-  background-color: #1FB264;
+
+.image-dropping, .image-upload-wrap:hover {
+	  background-color: #fdd639;
   border: 4px dashed #ffffff;
+	
 }
- 
+
 .image-title-wrap {
-  padding: 0 15px 15px 15px;
-  color: #222;
+	padding: 0 15px 15px 15px;
+	color: #222;
 }
- 
+
 .drag-text {
-  text-align: center;
+	text-align: center;
 }
- 
+
 .drag-text h3 {
   font-weight: 100;
   text-transform: uppercase;
-  color: #15824B;
+  color: #ffcd38;
   padding: 60px 0;
 }
- 
+
 .file-upload-image {
-  max-height: 200px;
-  max-width: 200px;
-  margin: auto;
-  padding: 20px;
+	max-height: 200px;
+	max-width: 200px;
+	margin: auto;
+	padding: 20px;
 }
- 
+
 .remove-image {
-  width: 200px;
-  margin: 0;
-  color: #fff;
-  background: #cd4535;
-  border: none;
-  padding: 10px;
-  border-radius: 4px;
-  border-bottom: 4px solid #b02818;
-  transition: all .2s ease;
-  outline: none;
-  text-transform: uppercase;
-  font-weight: 700;
+	width: 200px;
+	margin: 0;
+	color: #fff;
+	background: #cd4535;
+	border: none;
+	padding: 10px;
+	border-radius: 4px;
+	border-bottom: 4px solid #b02818;
+	transition: all .2s ease;
+	outline: none;
+	text-transform: uppercase;
+	font-weight: 700;
 }
- 
+
 .remove-image:hover {
-  background: #c13b2a;
-  color: #ffffff;
-  transition: all .2s ease;
-  cursor: pointer;
+	background: #c13b2a;
+	color: #ffffff;
+	transition: all .2s ease;
+	cursor: pointer;
 }
- 
+
 .remove-image:active {
-  border: 0;
-  transition: all .2s ease;
+	border: 0;
+	transition: all .2s ease;
 }
+
+.subtitle {
+	font-size: 15px;
+	font-family: 'Jeju Gothic', sans-serif;
+	font-style: normal !important;
+	margin-bottom: 5%;
+	text-align:center;
+}
+#label-container{
+	text-align:center;
+	font-size: 22px !important;
+	font-family: 'Jeju Gothic', sans-serif !important;
+	font-style: normal !important;
+	margin-bottom: 5%;
+}
+/* .subbutton{
+	width: 100%;
+	margin: 0;
+	color: #fff;
+	background: #f1bc0e;
+	border: none;
+	padding: 10px;
+	border-radius: 4px;
+	border-bottom: 4px solid #f1bc0e;
+	transition: all .2s ease;
+	outline: none;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+.subbutton:hover {
+	background-position: right;
+} */

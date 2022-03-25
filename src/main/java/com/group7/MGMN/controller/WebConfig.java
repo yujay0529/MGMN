@@ -11,7 +11,8 @@ public class WebConfig implements WebMvcConfigurer {
 
 		
 		registry.addResourceHandler("/voice/**")
-		.addResourceLocations("/Users/jay/Documents/upload/");
+		.addResourceLocations("file:///upload/");
+		
 		
 	}
 }

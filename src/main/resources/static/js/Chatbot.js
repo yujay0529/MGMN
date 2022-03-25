@@ -152,62 +152,45 @@
 				//JSON 형식 그대로 반환 받음
 				var bubbles = result.bubbles;
 				for(var b in bubbles){
-					if(bubbles[b].type =='text'){ // 기본 답변인 경우
+					if(bubbles[b].type == 'text'){ // 기본 답변인 경우
 						/* chatBox에 받은 메시지 추가 */
 							$('#chatBox').append('<div class="msgBox receive"><span id="in"><span>무무 </span><br><span>' + 
-															   bubbles[b].data.description+'</span></span></div><br><br>'); 
-
+															   bubbles[b].data.description +'</span></span></div><br><br>'); 
 															   
 						// 챗봇으로 부터 받은 텍스트 답변을 음성으로 변환하기 위해 TTS 호출									   
 						callAjaxTTS(bubbles[b].data.description);										   
 					}	else if(bubbles[b].type == 'template'){//이미지 답변 또는 멀티링크 답변 시작
 						if(bubbles[b].data.cover.type=="image"){//이미지 이면
-							$("#chatBox").append('<div class="msgBox receive"><span id="in"><span>무무 </span><br><span>'+
-																"<img src='" + bubbles[b].data.cover.data.imageUrl +
+							$("#chatBox").append("<img src='" + bubbles[b].data.cover.data.imageUrl +
 																		 "' alt='이미지 없음'>");
 							if(bubbles[b].data.contentTable == null){
 								$("#chatBox").append
-								('<div class="msgBox receive"><span id="in"><span>무무 </span><br><span>'+
-								"<a href='"+bubbles[b].data.cover.data.action.data.postback+"''>" + 
-										bubbles[b].data.cover.data.action.data.displayText+ "</a><br>");							
+								('<div class="msgBox receive"><span id="in"><span>무무 </span><br><span>' + 
+								"<a href='"+bubbles[b].data.cover.data.action.data.url+"' target='_blank'>" + 
+										bubbles[b].data.cover.data.action.data.url+'</span></span></div><br><br>');							
 							} else {
-								$("#chatBox").append('<div class="msgBox receive"><span id="in"><span>무무 </span><br><span>'+
-																	"<p>" + bubbles[b].data.cover.data.description+ "</p>"+'</span></span></div><br><br>');	
+								$("#chatBox").append('<div class="msgBox receive"><span id="in"><span>무무 </span><br><span>' + 
+								"<p>" + bubbles[b].data.cover.data.description+ "</p>"+'</span></span></div><br><br>');	
 								// 챗봇으로 부터 받은 텍스트 답변을 음성으로 변환하기 위해 TTS 호출									   
 								callAjaxTTS(bubbles[b].data.cover.data.description);										
 							}
 						} 	else if(bubbles[b].data.cover.type=="text"){//멀티링크 답변이면
-							$("#chatBox").append('<div class="msgBox receive"><span id="in"><span>무무 </span><br><span>'+
-																"<p>" + bubbles[b].data.cover.data.description+ "</p>"+'</span></span></div><br><br>');
+							$("#chatBox").append('<div class="msgBox receive"><span id="in"><span>무무 </span><br><span>' + 
+							"<p>" + bubbles[b].data.cover.data.description+ "</p>"+'</span></span></div><br><br>');
 							// 챗봇으로 부터 받은 텍스트 답변을 음성으로 변환하기 위해 TTS 호출									   
 							callAjaxTTS(bubbles[b].data.cover.data.description);	
 						}
 						
 						// 이미지 / 멀티링크 답변 공통 (contentTable 포함)
 						for(var ct in bubbles[b].data.contentTable){
-								var ct_data = bubbles[ct].data.contentTable[ct];
+							var ct_data = bubbles[ct].data.contentTable[ct];
 							for(var ct_d in ct_data){
-													
-							$("#chatBox").append
-								("<a href='"+ct_data[ct_d].data.data.action.data.postback+"'>" + 
-									ct_data[ct_d].data.data.action.data.displayText+ "</a><br>");
-									
-					    }
-					    
-				    }// contentTable for문 끝
-			
-			//			$("#chatBox").append
-			//					("<a href='"+bubbles[0].data.contentTable[0].data.data.action.data.postback+"'>" + 
-				//					bubbles[0].data.contentTable[0].data.data.action.data.displayText+ "</a><br>");			
-				//					
-				//			$("#chatBox").append
-				//				("<a href='"+bubbles[0].data.contentTable[1].data.data.action.data.postback+"'>" + 
-				//					bubbles[0].data.contentTable[1].data.data.action.data.displayText+ "</a><br>");			
-				//					
-					//		$("#chatBox").append
-					//			("<a href='"+bubbles[0].data.contentTable[2].data.data.action.data.postback+"'>" + 
-					//				bubbles[0].data.contentTable[2].data.data.action.data.displayText+ "</a><br>");
-									
+								$("#chatBox").append
+								('<div class="msgBox receive"><span id="in"><span>'+
+								"<a href='"+ct_data[ct_d].data.data.action.data.url+"' target='_blank'>" + 
+									ct_data[ct_d].data.data.action.data.url+ "</a></span></span></div>");
+						    }
+					    }// contentTable for문 끝
 				    }//template 끝			
 				}//bubbles for문 종료
 		
@@ -231,7 +214,8 @@
             dataType :'text',
             success:function (result){ //음성 파일 이름 받음
 				/* chatBox에 받은 음성 메시지 플레이 */
-				$('audio').prop("src", '/voice/'+ result)[0].play();
+	
+			$('audio').prop("src", '/voice/'+ result)[0].play();
 				$('audio').hide();
             },
             error:function(data){

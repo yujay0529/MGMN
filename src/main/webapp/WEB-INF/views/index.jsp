@@ -26,7 +26,7 @@
 	function showPopUp() {
 		//창 크기 지정 
 		var width = 550;
-		var height = 800;
+		var height = 770;
 
 		//pc화면기준 가운데 정렬 
 		var left = (window.screen.width / 2);
@@ -198,7 +198,7 @@
 
 						<div class="col-md-6 col-sm-6 col-xs-12">
 							<img class="portfolio-img img-responsive"
-								src="assets/images/qnaimg.png" alt="" />
+								src="assets/images/qnaimg2.png" alt="" />
 						</div>
 
 					</div>
@@ -313,13 +313,13 @@
 
 	<div class="chatbot">
 
-		<div class="chatbot-btn">
+ 		<div class="chatbot-btn">
 			<button class="chatbot-btn"
 				style="border: none; background-color: transparent;">
 				<a href="javascript:showPopUp()"><img
 					src="assets/images/chatbot.png"></a>
 			</button>
-		</div>
+		</div> 
 
 	</div>
 	<div class="teachable">
@@ -328,7 +328,7 @@
 			<button class="teachable-btn"
 				style="border: none; background-color: transparent;">
 				<a href="/TeachableForm"><img
-					src="assets/images/none_basket.png"></a>
+					src="image/none_basket.png"></a>
 			</button>
 		</div>
 	</div>
