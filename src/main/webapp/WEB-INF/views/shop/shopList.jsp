@@ -68,7 +68,7 @@
 				</script> -->
 				
 				<!-- 카카오 map api -->
-				<div id="map" style="width:1280px;height:500px;position:relative;overflow:hidden;align:center;"></div>
+				<div id="map" style="width:1280px;height:500px;position:relative;overflow:hidden;align:center;box-shadow: lightgrey 2px 2px 2px 2px;"></div>
 				<div id="menu_wrap" class="bg_white">
 			        <div class="option">
 			            <div>

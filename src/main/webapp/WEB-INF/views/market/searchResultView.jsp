@@ -16,6 +16,7 @@
 			<div class="productWrap">
 				<div id="thumbnail"><a href="<c:url value='/market/detailViewPost/${mk.mkNo }' />">
 							 ${mk.mkImg }</a></div>
+				<div id="boardInfo">
 				<div class="boardTitle" align="center">${mk.mkTitle }<%-- &nbsp;&nbsp;${mk.mkRegion } --%></div>
 				<div class="boardPrice" align="center"><fmt:formatNumber value="${mk.mkPrice}" pattern="#,###" />원</div>
 				<div class="boardDateHit" align="center">
@@ -25,6 +26,7 @@
 					<div id="boardHit" align="right">
 						<img src="<c:url value='/image/eye.png' />"><h4>${mk.mkHit }</h4>
 					</div>
+				</div>
 				</div>
 			</div>
 			</c:forEach>
