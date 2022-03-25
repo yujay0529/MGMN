@@ -2,59 +2,77 @@
 @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
 
 /* mypetForm.css */
+#content {
+	height: 600px;
+    background: moccasin;
+    display: flex;
+}
+
+.main-inner {
+	margin: 0 auto;
+    margin-top: 11%;
+}
 
 .mainMypage-content {
-   height: 600px;
-   padding: 200px;
-   text-align: center;
    background: moccasin;
-   margin-top: 22px
 }
 .mainMypage-content h3 {
-    margin-top: -70px;
-    background: burlywood;
-    border-radius: 12px;
-    text-align: center;
+   background: moccasin;
 }
 
 .mainMypage-content img {
-	width: 200px !important;
+	margin: 0 auto;
+	width: 11%;
 }
 
-#dogCatImg {
-
-    margin-top: -60px;
+.none-list img {
+    margin: 0 auto;
+    width: 95%;
+    margin-bottom: 5px;
 }
+
+#petInfo {
+    margin-top: -4%;
+}
+
+div#dogCatImg {
+  display: flex;
+}
+
+#petTable {
+    padding: 15px;
+}
+
 .petInfoTable {
     background: burlywood;
-    width: 368px;
-    border-radius: 15px;
+    margin: 0 auto;
+    width: 21%;
+    border-radius: 12px;
+    box-shadow: 1px 1px 0px 0px grey;
 }
 .petInfoTable tr {
-    height: 30px;
+    width: 31%;
+    border-bottom: 1px solid wheat;
 }
 .petInfoTable th {
-    text-align: center;
+   text-align: left;
+    padding: 2px;
+    padding-left: 30px;
 }
 
-.petInfoTable td {
-    padding: 0px;
-    text-align: left;
-    padding-right: 25px;
+div#deleteBtn {
+    display: flex;
 }
-#deleteBtn {
-    margin-top: 10px;
-}
-#deleteBtn button {
-    margin-left: 15px;
+div#deleteBtn button {
     background: burlywood;
-    border-radius: 7px;
+    margin: 0 auto;
+    border-radius: 10px;
 }
 .none-list {
-
-    margin-top: 60px;
+	display: grid;
 }
 input[type="button"] {
     background: burlywood;
-    border-radius: 11px;
+    border-radius: 10px;
+   
 }

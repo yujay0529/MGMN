@@ -50,7 +50,7 @@
   	<!-- 페이징 -->
   	<!-- 총 게시글 개수 출력, 검색결과 반영 -->
   	<select id="countMkBoard" parameterType="hashMap" resultType="int">
-  		SELECT COUNT(*) FROM market 
+  		SELECT COUNT(*) FROM market WHERE mkRegion=#{mkRegion}
 
   	</select>
   	

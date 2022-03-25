@@ -24,8 +24,7 @@ div#wrap {
 	width: 1024px;
 	margin: 0 auto;
 }
-
-div#thumbnail img{width:250px;}				 
+		 
 
 .productWrap {
 	width: 21%;
@@ -42,7 +41,13 @@ div#thumbnail img {
 	width: 100% !important;
 	height: 220px;
 	border-radius: 11px;
+	margin-bottom: 5px;
+    box-shadow: 1px 1px 1px 1px grey;
 
+}
+#boardInfo {
+    box-shadow: 1px 1px 1px 1px grey;
+    border-radius: 11px;
 }
 div#wrapWholePost {
     height: 670px;
