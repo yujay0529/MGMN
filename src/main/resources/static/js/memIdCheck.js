@@ -1,7 +1,7 @@
 
  /**
  * memIdCheck.js
-    상품번호 중복 확인
+    아이디 중복 확인
  */
  
  $(document).ready(function(){
